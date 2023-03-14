@@ -1,0 +1,3 @@
+[show]
+You see a door, and a key.
+[stop]
