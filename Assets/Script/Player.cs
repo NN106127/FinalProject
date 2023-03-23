@@ -1,23 +1,43 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    public float moveSpeed = 5f;
+    Rigidbody2D rb;
+    Collider2D coll;
 
-    public Rigidbody2D rb;
+    public GameObject myBag;
+    bool isOpen;
 
+    public float speed;
     Vector2 movement;
-    // Start is called before the first frame update
-    void Update()
+
+    private void Awake()
+    {
+        rb = GetComponent<Rigidbody2D>();
+        coll = GetComponent<Collider2D>();
+    }
+
+    private void Update()
+    {
+        Movement();
+        OpeMyBag();
+    }
+
+    void Movement()//移动
     {
         movement.x = Input.GetAxisRaw("Horizontal");
         movement.y = Input.GetAxisRaw("Vertical");
-    }
+        rb.MovePosition(rb.position + movement * speed * Time.deltaTime);
 
-    void FixedUpdate()
+    }
+    void OpeMyBag()
     {
-        rb.MovePosition(rb.position + movement * moveSpeed * Time.fixedDeltaTime);
+        if(Input.GetKeyDown(KeyCode.B))
+        {
+            isOpen = !isOpen;
+            myBag.SetActive(isOpen);
+        }
     }
 }
