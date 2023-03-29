@@ -13,7 +13,7 @@ public class InventroyManager : MonoBehaviour
     public GameObject emptySlot;
     public Text itemInformation;
 
-    public List<GameObject> slots = new List<GameObject>(); //管理生成slots
+    public List<GameObject> slots = new List<GameObject>(); //管理生成20個slots
 
     void Awake()
     {

@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class Slot : MonoBehaviour
 {
-    public int slotID; //空格ID
+    public int slotID; //空格ID 
     public item slotItem;
     public Image slotImage;
     public Text slotNum;
