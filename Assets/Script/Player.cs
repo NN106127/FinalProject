@@ -11,6 +11,7 @@ public class Player : MonoBehaviour
     bool isOpen;
 
     public float speed;
+    public float runSpeed;
     Vector2 movement;
 
     private void Awake()
@@ -30,6 +31,10 @@ public class Player : MonoBehaviour
         movement.x = Input.GetAxisRaw("Horizontal");
         movement.y = Input.GetAxisRaw("Vertical");
         rb.MovePosition(rb.position + movement * speed * Time.deltaTime);
+        if(Input.GetKey(KeyCode.LeftShift))
+        {
+            rb.MovePosition(rb.position + movement * (speed + runSpeed) * Time.deltaTime);
+        }
 
     }
     void OpeMyBag()
