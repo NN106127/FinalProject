@@ -14,7 +14,7 @@ public class InventroyManager : MonoBehaviour
     public Text itemInformation;
     public Text itemCodeNum;
     Text itemHold;
-    public item useitem;
+    //public item useitem;
 
     public List<GameObject> slots = new List<GameObject>(); //管理生成20個slots
 
