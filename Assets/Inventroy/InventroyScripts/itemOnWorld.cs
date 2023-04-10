@@ -31,11 +31,6 @@ public class itemOnWorld : MonoBehaviour
             textE.SetActive(true);
             Debug.Log("玩家与装备开始碰撞");
         }
-        /*if(other.gameObject.CompareTag("Player"))
-        {
-            AddNewItem();
-            Destroy(gameObject);
-        }*/
     }
 
     private void OnTriggerExit2D(Collider2D other)
@@ -52,8 +47,6 @@ public class itemOnWorld : MonoBehaviour
     {
         if (!playerInventroy.itemList.Contains(thisItem))
         {
-            //playerInventroy.itemList.Add(thisItem);
-            //InventroyManager.CreateNewItem(thisItem);
             for(int i = 0;i < playerInventroy.itemList.Count;i++)
             {
                 if(playerInventroy.itemList[i] == null)

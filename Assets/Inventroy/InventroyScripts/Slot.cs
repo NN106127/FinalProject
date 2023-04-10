@@ -10,12 +10,15 @@ public class Slot : MonoBehaviour
     public Image slotImage;
     public Text slotNum;
     public string slotInfo;
+    string slotCN;
 
     public GameObject itemInSlot;
 
     public void ItemOnClick()
     {
         InventroyManager.UpateItemInfo(slotInfo);
+        InventroyManager.ReadCodeNum(slotCN);//抓物品代號
+        Debug.Log("" + slotCN);
     }
 
     public void SetupSlot(item item)
@@ -29,5 +32,6 @@ public class Slot : MonoBehaviour
         slotImage.sprite = item.itemImage;
         slotNum.text = item.itemHeld.ToString();
         slotInfo = item.itemInfo;
+        slotCN = item.itemCodeNum;
     }
 }

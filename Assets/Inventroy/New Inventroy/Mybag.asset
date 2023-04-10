@@ -13,8 +13,7 @@ MonoBehaviour:
   m_Name: Mybag
   m_EditorClassIdentifier: 
   itemList:
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 11400000, guid: cb84fc072695b55449d805ce94f49ea3, type: 2}
   - {fileID: 11400000, guid: f61e8e3395c9bf84e886f5067430e671, type: 2}
   - {fileID: 0}
   - {fileID: 0}
@@ -25,7 +24,8 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-  - {fileID: 11400000, guid: cb84fc072695b55449d805ce94f49ea3, type: 2}
+  - {fileID: 0}
+  - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}

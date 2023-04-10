@@ -11,5 +11,6 @@ public class item : ScriptableObject
     [TextArea]
     public string itemInfo;
 
+    public string itemCodeNum;
     public bool equip;
 }

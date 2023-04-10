@@ -12,6 +12,9 @@ public class InventroyManager : MonoBehaviour
     //public Slot slotPrefab;
     public GameObject emptySlot;
     public Text itemInformation;
+    public Text itemCodeNum;
+    Text itemHold;
+    public item useitem;
 
     public List<GameObject> slots = new List<GameObject>(); //管理生成20個slots
 
@@ -28,11 +31,30 @@ public class InventroyManager : MonoBehaviour
         instance.itemInformation.text = "";
     }
 
-
+    public static void ReadCodeNum(string itemCodeNum)
+    {
+        instance.itemCodeNum.text = itemCodeNum;
+    }
 
     public static void UpateItemInfo(string itemDescption)
     {
         instance.itemInformation.text = itemDescption;
+    }
+
+    public void BtnClick() //使用按鈕
+    {
+        if(itemCodeNum.text == "1")//偵測物品代號
+        {
+            Debug.Log("444444");
+            this.gameObject.SetActive(false);
+            itemCodeNum.text = "0";
+        }
+        if(itemCodeNum.text == "2")
+        {
+            Debug.Log("555555");
+            this.gameObject.SetActive(false);
+            itemCodeNum.text = "0";
+        }
     }
 
     /*public static void CreateNewItem(item item)
