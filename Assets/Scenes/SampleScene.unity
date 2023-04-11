@@ -512,7 +512,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &276358910
 RectTransform:
   m_ObjectHideFlags: 0
@@ -605,8 +605,8 @@ GameObject:
   m_Component:
   - component: {fileID: 319087072}
   - component: {fileID: 319087071}
-  - component: {fileID: 319087070}
   - component: {fileID: 319087069}
+  - component: {fileID: 319087070}
   m_Layer: 0
   m_Name: Gear_1
   m_TagString: Untagged
@@ -629,19 +629,32 @@ MonoBehaviour:
   thisItem: {fileID: 11400000, guid: cb84fc072695b55449d805ce94f49ea3, type: 2}
   playerInventroy: {fileID: 11400000, guid: cd49ee75f6288fe4d98df4337f4b4938, type: 2}
   textE: {fileID: 1448212637}
---- !u!65 &319087070
-BoxCollider:
+--- !u!61 &319087070
+BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 319087068}
+  m_Enabled: 1
+  m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 1
-  m_Enabled: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1, y: 1}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 2, y: 2, z: 0.2}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 1, y: 1}
+  m_EdgeRadius: 0
 --- !u!212 &319087071
 SpriteRenderer:
   m_ObjectHideFlags: 0

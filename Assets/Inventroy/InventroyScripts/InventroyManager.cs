@@ -23,6 +23,7 @@ public class InventroyManager : MonoBehaviour
         if(instance != null)
             Destroy(this);
         instance = this;
+        this.gameObject.SetActive(false);
     }
 
     private void OnEnable()
