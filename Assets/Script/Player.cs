@@ -19,6 +19,7 @@ public class Player : MonoBehaviour
 
     void Start()
     {
+
         // Animator
         myAnimator = GetComponent<Animator>();
 
@@ -34,19 +35,42 @@ public class Player : MonoBehaviour
 
     private void Update()
     {
+        myAnimator.SetInteger("ani", 0);
         Movement();
         OpeMyBag();
     }
 
     void Movement()//移动
     {
-        movement.x = Input.GetAxisRaw("Horizontal");
-        movement.y = Input.GetAxisRaw("Vertical");
-        rb.MovePosition(rb.position + movement * speed * Time.deltaTime);
-        if(Input.GetKey(KeyCode.LeftShift))
+        
+        if(Input.GetKey(KeyCode.D))
         {
+            mySpriteRenderer.flipX = false;
+            myAnimator.SetInteger("ani", 1);
+            movement.x = Input.GetAxisRaw("Horizontal");
+            rb.MovePosition(rb.position + movement * speed * Time.deltaTime);
+        }
+
+        if (Input.GetKey(KeyCode.A))
+        {
+            mySpriteRenderer.flipX = true;
+            myAnimator.SetInteger("ani", 1);
+            movement.x = Input.GetAxisRaw("Horizontal");
+            rb.MovePosition(rb.position - movement * -speed * Time.deltaTime);
+        }
+
+
+        if (Input.GetKey(KeyCode.LeftShift) && Input.GetKey(KeyCode.D))
+        {
+            myAnimator.SetInteger("ani", 2);
             rb.MovePosition(rb.position + movement * (speed + runSpeed) * Time.deltaTime);
         }
+        if (Input.GetKey(KeyCode.LeftShift) && Input.GetKey(KeyCode.A))
+        {
+            myAnimator.SetInteger("ani", 2);
+            rb.MovePosition(rb.position - movement * -(speed + runSpeed) * Time.deltaTime);
+        }
+
 
     }
     void OpeMyBag()
