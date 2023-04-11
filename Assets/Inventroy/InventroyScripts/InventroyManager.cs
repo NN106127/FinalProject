@@ -14,6 +14,7 @@ public class InventroyManager : MonoBehaviour
     public Text itemInformation;
     public Text itemCodeNum;
     Text itemHold;
+    public GameObject BonePuzzles;
     //public item useitem;
 
     public List<GameObject> slots = new List<GameObject>(); //管理生成20個slots
@@ -46,14 +47,21 @@ public class InventroyManager : MonoBehaviour
     {
         if(itemCodeNum.text == "1")//偵測物品代號
         {
-            Debug.Log("444444");
+            Debug.Log("使用劍");
             this.gameObject.SetActive(false);
             itemCodeNum.text = "0";
         }
         if(itemCodeNum.text == "2")
         {
-            Debug.Log("555555");
+            Debug.Log("使用鞋子");
             this.gameObject.SetActive(false);
+            itemCodeNum.text = "0";
+        }
+        if (itemCodeNum.text == "3")
+        {
+            Debug.Log("使用人骨");
+            this.gameObject.SetActive(false);
+            BonePuzzles.SetActive(true);
             itemCodeNum.text = "0";
         }
     }
