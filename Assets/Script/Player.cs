@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
+    private Animator myAnimator;
+    private SpriteRenderer mySpriteRenderer;
+
     Rigidbody2D rb;
     Collider2D coll;
 
@@ -13,6 +16,15 @@ public class Player : MonoBehaviour
     public float speed;
     public float runSpeed;
     Vector2 movement;
+
+    void Start()
+    {
+        // Animator
+        myAnimator = GetComponent<Animator>();
+
+        // Sprite
+        mySpriteRenderer = GetComponent<SpriteRenderer>();
+    }
 
     private void Awake()
     {
