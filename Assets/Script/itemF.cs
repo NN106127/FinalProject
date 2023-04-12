@@ -6,43 +6,37 @@ public class itemF : MonoBehaviour
 {
     public GameObject F1;
     public GameObject fish;
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    bool CanF;
 
-    // Update is called once per frame
-    void Update()
+    private void Update()
     {
-        
-    }
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        
-        if (collision.gameObject.tag == "Player")
+        if(CanF == true)
         {
-            F1.SetActive(true);
-        }
-        
-    }
-    private void OnTriggerStay2D(Collider2D collision)
-    {
-        if (collision.gameObject.tag == "Player")
-        {
-            if (Input.GetKeyDown(KeyCode.F))
+            if(Input.GetKeyDown(KeyCode.F))
             {
                 fish.SetActive(true);
             }
-
         }
     }
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == "Player")
+        {
+            CanF = true;
+            F1.SetActive(true);
+            Debug.Log("F");
+        }
+        
+    }
+
     private void OnTriggerExit2D(Collider2D collision)
     {
         if (collision.gameObject.tag == "Player")
         {
             F1.SetActive(false);
             fish.SetActive(false);
+            CanF = false;
+            Debug.Log("OUT");
         }
           
     }
