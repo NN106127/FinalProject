@@ -11,7 +11,6 @@ public class DelayedImage : MonoBehaviour
 
     void Start()
     {
-        ice.SetActive(false);
         bone.SetActive(false);
         
     }
@@ -19,7 +18,7 @@ public class DelayedImage : MonoBehaviour
     {
         if (ice.activeSelf == true)
         {
-            
+            //Debug.Log(1);
             Invoke("ShowImage", delayTime); // 延迟调用 ShowImage 方法
         }
         else
@@ -29,8 +28,8 @@ public class DelayedImage : MonoBehaviour
     }
     void ShowImage()
     {
+        //Debug.Log(2);
         bone.SetActive(true);
-        
     }
    
 
