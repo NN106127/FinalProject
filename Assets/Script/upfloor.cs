@@ -13,6 +13,7 @@ public class upfloor : MonoBehaviour
     public GameObject cam1;
     public GameObject cam2;
     public GameObject up;
+    public GameObject donwn;
     // Start is called before the first frame update
     void Start()
     {
@@ -55,16 +56,23 @@ public class upfloor : MonoBehaviour
         if (collision.gameObject.tag == "Player")
         {
             up.SetActive(true);
-            
+            donwn.SetActive(true);
+
         }
 
+    }
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+        up.SetActive(true);
+        donwn.SetActive(true);
     }
     private void OnTriggerExit2D(Collider2D collision)
     {
         if (collision.gameObject.tag == "Player")
         {
             up.SetActive(false);
-            
+            donwn.SetActive(false);
+
         }
 
     }
