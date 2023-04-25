@@ -3,21 +3,20 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class BoneRoation : MonoBehaviour, IBeginDragHandler,IDragHandler,IEndDragHandler
+public class Bone : MonoBehaviour, IBeginDragHandler,IDragHandler,IEndDragHandler
 {
     bool CanMove;
-    float RotationSpeed = 5;
+    public delegate void BoneEventArg(Bone bone);
+    public event BoneEventArg MouseDown;
+    public event BoneEventArg MouseUp;
+
+
     void Update()
     {
         if(Input.GetMouseButton(0))
         {
-            Debug.Log("" + CanMove);
             if(CanMove == true)
             MoveBone();
-            if (Input.GetKeyDown(KeyCode.E))
-                this.gameObject.transform.Rotate(0,0,RotationSpeed);
-            if (Input.GetKeyDown(KeyCode.Q))
-                this.gameObject.transform.Rotate(0, 0, -RotationSpeed);
         }
     }
 
@@ -36,12 +35,13 @@ public class BoneRoation : MonoBehaviour, IBeginDragHandler,IDragHandler,IEndDra
 
     public void OnBeginDrag(PointerEventData eventData)
     {
-
+        //MouseDown?.Invoke(this);
     }
 
     public void OnDrag(PointerEventData eventData)
     {
-        Debug.Log(eventData.pointerCurrentRaycast.gameObject.name);
+        //Debug.Log("1:"+eventData.pointerCurrentRaycast.gameObject.name);
+        MouseDown(this);
         if (eventData.pointerCurrentRaycast.gameObject.name == "BonePuzzle")
         {
             CanMove = false;
@@ -53,5 +53,6 @@ public class BoneRoation : MonoBehaviour, IBeginDragHandler,IDragHandler,IEndDra
     public void OnEndDrag(PointerEventData eventData)
     {
         CanMove = false;
+        MouseUp(this);
     }
 }

@@ -2468,7 +2468,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 8
   m_Sprite: {fileID: 21300000, guid: cda26736a52439f44be29c3b04c3789b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -3267,6 +3267,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ded83033548384e45aa50bcda296c6f3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Bones:
+  - {fileID: 304144325}
+  - {fileID: 1472684281}
+  - {fileID: 1771457344}
+  - {fileID: 1654158225}
+  - {fileID: 1711861102}
+  - {fileID: 1451837499}
+  - {fileID: 1919686592}
+  - {fileID: 69146521}
+  ActiveBone: {fileID: 0}
 --- !u!114 &1628225419
 MonoBehaviour:
   m_ObjectHideFlags: 0
