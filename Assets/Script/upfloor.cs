@@ -4,6 +4,14 @@ using UnityEngine;
 
 public class upfloor : MonoBehaviour
 {
+    public Transform playerTransform; // 人物的Transform組件
+    public Transform cameraTransform; // 攝影機的Transform組件
+    public Transform firstFloorTransform; // 一樓的位置
+    public Transform secondFloorTransform; // 二樓的位置
+    public float teleportRange = 1.0f; // 傳送範圍
+
+    public GameObject cam1;
+    public GameObject cam2;
     public GameObject up;
     // Start is called before the first frame update
     void Start()
@@ -14,7 +22,32 @@ public class upfloor : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        // 檢測玩家是否按下"W"鍵
+        if (Input.GetKeyDown(KeyCode.W))
+        {
+            // 檢查玩家是否在傳送範圍內
+            if (Vector2.Distance(playerTransform.position, secondFloorTransform.position) <= teleportRange)
+            {
+                // 移動人物和攝影機到二樓
+                playerTransform.position = secondFloorTransform.position;
+                cameraTransform.position = new Vector3(secondFloorTransform.position.x, secondFloorTransform.position.y, cameraTransform.position.z);
+                cam1.SetActive(false);
+                cam2.SetActive(true);
+            }
+        }
+        // 檢測玩家是否按下"S"鍵
+        else if (Input.GetKeyDown(KeyCode.S))
+        {
+            // 檢查玩家是否在傳送範圍內
+            if (Vector2.Distance(playerTransform.position, firstFloorTransform.position) <= teleportRange)
+            {
+                // 移動人物和攝影機到一樓
+                playerTransform.position = firstFloorTransform.position;
+                cameraTransform.position = new Vector3(firstFloorTransform.position.x, firstFloorTransform.position.y, cameraTransform.position.z);
+                cam1.SetActive(true);
+                cam2.SetActive(false);
+            }
+        }
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -22,19 +55,9 @@ public class upfloor : MonoBehaviour
         if (collision.gameObject.tag == "Player")
         {
             up.SetActive(true);
+            
         }
 
-    }
-    private void OnTriggerStay2D(Collider2D collision)
-    {
-        if (collision.gameObject.tag == "Player")
-        {
-            if (Input.GetKeyDown(KeyCode.W))
-            {
-                
-            }
-
-        }
     }
     private void OnTriggerExit2D(Collider2D collision)
     {
