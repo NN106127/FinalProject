@@ -15,7 +15,8 @@ public class upfloor : MonoBehaviour
     
     public GameObject up;
     public GameObject donwn;
-    
+    bool CanW;
+    bool CanS;
     // Start is called before the first frame update
     void Start()
     {
@@ -25,30 +26,38 @@ public class upfloor : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        // 檢測玩家是否按下"W"鍵
-        if (Input.GetKeyDown(KeyCode.W))
+        if (CanW == true)
         {
-            // 檢查玩家是否在傳送範圍內
-            if (Vector2.Distance(playerTransform.position, secondFloorTransform.position) <= teleportRange)
+            // 檢測玩家是否按下"W"鍵
+            if (Input.GetKeyDown(KeyCode.W))
             {
-                // 移動人物到二樓開起二樓攝影機
-                playerTransform.position = secondFloorTransform.position;
-                cam1.SetActive(false);
-                cam2.SetActive(true);
+                // 檢查玩家是否在傳送範圍內
+                if (Vector2.Distance(playerTransform.position, secondFloorTransform.position) <= teleportRange)
+                {
+                    // 移動人物到二樓開起二樓攝影機
+                    playerTransform.position = secondFloorTransform.position;
+                    cam1.SetActive(false);
+                    cam2.SetActive(true);
+                }
+            }
+            
+        }
+        if (CanS == true)
+        {
+            // 檢測玩家是否按下"S"鍵
+            if (Input.GetKeyDown(KeyCode.S))
+            {
+                // 檢查玩家是否在傳送範圍內
+                if (Vector2.Distance(playerTransform.position, firstFloorTransform.position) <= teleportRange)
+                {
+                    // 移動人物到一樓開啟一樓攝影機
+                    playerTransform.position = firstFloorTransform.position;
+                    cam1.SetActive(true);
+                    cam2.SetActive(false);
+                }
             }
         }
-        // 檢測玩家是否按下"S"鍵
-        else if (Input.GetKeyDown(KeyCode.S))
-        {
-            // 檢查玩家是否在傳送範圍內
-            if (Vector2.Distance(playerTransform.position, firstFloorTransform.position) <= teleportRange)
-            {
-                // 移動人物到一樓開啟一樓攝影機
-                playerTransform.position = firstFloorTransform.position;
-                cam1.SetActive(true);
-                cam2.SetActive(false);
-            }
-        }
+        
         
     }
     private void OnTriggerEnter2D(Collider2D collision)
@@ -56,6 +65,8 @@ public class upfloor : MonoBehaviour
 
         if (collision.gameObject.tag == "Player")
         {
+            CanS = true;
+            CanW = true;
             up.SetActive(true);
             donwn.SetActive(true);
             
@@ -67,6 +78,8 @@ public class upfloor : MonoBehaviour
     {
         if (collision.gameObject.tag == "Player")
         {
+            CanS = true;
+            CanW = true;
             up.SetActive(true);
             donwn.SetActive(true);
             
@@ -77,6 +90,8 @@ public class upfloor : MonoBehaviour
     {
         if (collision.gameObject.tag == "Player")
         {
+            CanS = false;
+            CanW = false;
             up.SetActive(false);
             donwn.SetActive(false);
             

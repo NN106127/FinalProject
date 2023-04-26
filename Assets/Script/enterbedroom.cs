@@ -11,6 +11,8 @@ public class enterbedroom : MonoBehaviour
     public GameObject cam2;
     public GameObject cam3;
     public GameObject enter;
+    bool CanE;
+    bool CanQ;
     // Start is called before the first frame update
     void Start()
     {
@@ -20,37 +22,48 @@ public class enterbedroom : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.E))
+        if (CanE == true)
         {
-            // 檢查玩家是否在傳送範圍內
-            if (Vector2.Distance(playerTransform.position, bedroomTransform.position) <= teleportRange)
+            if (Input.GetKeyDown(KeyCode.E))
             {
-                // 移動人物到一樓開啟一樓攝影機
-                playerTransform.position = bedroomTransform.position;
-                
-                cam2.SetActive(false);
-                cam3.SetActive(true);
-            }
-        }
-        else if (Input.GetKeyDown(KeyCode.Q))
-        {
-            // 檢查玩家是否在傳送範圍內
-            if (Vector2.Distance(playerTransform.position, secondFloorTransform.position) <= teleportRange)
-            {
-                // 移動人物到二樓開啟二樓攝影機
-                playerTransform.position = secondFloorTransform.position;
+                // 檢查玩家是否在傳送範圍內
+                if (Vector2.Distance(playerTransform.position, bedroomTransform.position) <= teleportRange)
+                {
+                    // 移動人物到一樓開啟一樓攝影機
+                    playerTransform.position = bedroomTransform.position;
 
-                cam3.SetActive(false);
-                cam2.SetActive(true);
+                    cam2.SetActive(false);
+                    cam3.SetActive(true);
+                }
+            }
+            
+
+        }
+        if (CanQ == true)
+        {
+            if (Input.GetKeyDown(KeyCode.Q))
+            {
+                // 檢查玩家是否在傳送範圍內
+                if (Vector2.Distance(playerTransform.position, secondFloorTransform.position) <= teleportRange)
+                {
+                    // 移動人物到二樓開啟二樓攝影機
+                    playerTransform.position = secondFloorTransform.position;
+
+                    cam3.SetActive(false);
+                    cam2.SetActive(true);
+                }
             }
         }
+
+
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
 
         if (collision.gameObject.tag == "Player")
         {
-            
+            CanE = true;
+            CanQ = true;
             enter.SetActive(true);
 
         }
@@ -60,7 +73,8 @@ public class enterbedroom : MonoBehaviour
     {
         if (collision.gameObject.tag == "Player")
         {
-            
+            CanE = true;
+            CanQ = true;
             enter.SetActive(true);
         }
 
@@ -69,7 +83,8 @@ public class enterbedroom : MonoBehaviour
     {
         if (collision.gameObject.tag == "Player")
         {
-            
+            CanE = false;
+            CanQ = false;
             enter.SetActive(false);
 
         }
