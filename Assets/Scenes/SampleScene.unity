@@ -6894,7 +6894,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   myBag: {fileID: 276358909}
   speed: 15
-  runSpeed: 10
+  runSpeed: 12
 --- !u!212 &451120722
 SpriteRenderer:
   m_ObjectHideFlags: 0
