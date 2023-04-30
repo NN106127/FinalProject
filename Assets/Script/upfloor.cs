@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Rendering.PostProcessing;
 
 public class upfloor : MonoBehaviour
 {
@@ -17,10 +18,24 @@ public class upfloor : MonoBehaviour
     public GameObject donwn;
     bool CanW;
     bool CanS;
+
+    public float speed = 0.1f;
+    private float targetIntensity = 0f;
+
+    public Vignette vignette;
     // Start is called before the first frame update
     void Start()
     {
-        
+        // 取得Post Processing Volume
+        var volume = GetComponent<PostProcessVolume>();
+
+        // 取得Vignette效果
+        if (volume.profile.TryGetSettings(out vignette))
+        {
+            Debug.Log(1);
+            // 初始化Vignette intensity
+            vignette.intensity.value = 0f;
+        }
     }
 
     // Update is called once per frame
@@ -38,6 +53,16 @@ public class upfloor : MonoBehaviour
                     playerTransform.position = secondFloorTransform.position;
                     cam1.SetActive(false);
                     cam2.SetActive(true);
+
+                    targetIntensity = 1f;
+                    // 讓當前intensity值往目標intensity值緩慢遞近
+                    vignette.intensity.value = Mathf.Lerp(vignette.intensity.value, targetIntensity, Time.deltaTime * speed);
+
+                    // 如果當前intensity值已經接近目標intensity值，則將目標intensity值設回0
+                    if (Mathf.Abs(vignette.intensity.value - targetIntensity) < 0.01f)
+                    {
+                        targetIntensity = 0f;
+                    }
                 }
             }
             
@@ -54,11 +79,23 @@ public class upfloor : MonoBehaviour
                     playerTransform.position = firstFloorTransform.position;
                     cam1.SetActive(true);
                     cam2.SetActive(false);
+
+                    targetIntensity = 1f;
+                    // 讓當前intensity值往目標intensity值緩慢遞近
+                    vignette.intensity.value = Mathf.Lerp(vignette.intensity.value, targetIntensity, Time.deltaTime * speed);
+
+                    // 如果當前intensity值已經接近目標intensity值，則將目標intensity值設回0
+                    if (Mathf.Abs(vignette.intensity.value - targetIntensity) < 0.01f)
+                    {
+                        targetIntensity = 0f;
+                    }
                 }
             }
         }
         
-        
+
+
+
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -99,4 +136,5 @@ public class upfloor : MonoBehaviour
         }
 
     }
+    
 }
