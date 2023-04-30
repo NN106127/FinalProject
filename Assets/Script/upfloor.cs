@@ -126,7 +126,7 @@ public class upfloor : MonoBehaviour
 
     private IEnumerator ChangeVignetteIntensity()
     {
-        float time = 0.9f;
+        float time = 1f;
         float duration = 1f;
 
         while (time < duration)
