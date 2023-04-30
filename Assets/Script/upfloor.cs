@@ -1,15 +1,15 @@
-using System.Collections;
+ï»¿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Rendering.PostProcessing;
 
 public class upfloor : MonoBehaviour
 {
-    public Transform playerTransform; // ¤Hª«ªºTransform²Õ¥ó
-    //public Transform cameraTransform; // Äá¼v¾÷ªºTransform²Õ¥ó
-    public Transform firstFloorTransform; // ¤@¼Óªº¦ì¸m
-    public Transform secondFloorTransform; // ¤G¼Óªº¦ì¸m
-    public float teleportRange = 1.0f; // ¶Ç°e½d³ò
+    public Transform playerTransform; // äººç‰©çš„Transformçµ„ä»¶
+    //public Transform cameraTransform; // æ”å½±æ©Ÿçš„Transformçµ„ä»¶
+    public Transform firstFloorTransform; // ä¸€æ¨“çš„ä½ç½®
+    public Transform secondFloorTransform; // äºŒæ¨“çš„ä½ç½®
+    public float teleportRange = 1.0f; // å‚³é€ç¯„åœ
 
     public GameObject cam1;
     public GameObject cam2;
@@ -19,23 +19,14 @@ public class upfloor : MonoBehaviour
     bool CanW;
     bool CanS;
 
-    public float speed = 0.1f;
-    private float targetIntensity = 0f;
+    public PostProcessVolume postProcessVolume;
+    private Vignette vignette;
+    private Coroutine vignetteCoroutine;
 
-    public Vignette vignette;
     // Start is called before the first frame update
     void Start()
     {
-        // ¨ú±oPost Processing Volume
-        var volume = GetComponent<PostProcessVolume>();
-
-        // ¨ú±oVignette®ÄªG
-        if (volume.profile.TryGetSettings(out vignette))
-        {
-            Debug.Log(1);
-            // ªì©l¤ÆVignette intensity
-            vignette.intensity.value = 0f;
-        }
+        postProcessVolume.profile.TryGetSettings(out vignette);
     }
 
     // Update is called once per frame
@@ -43,53 +34,49 @@ public class upfloor : MonoBehaviour
     {
         if (CanW == true)
         {
-            // ÀË´úª±®a¬O§_«ö¤U"W"Áä
+            // æª¢æ¸¬ç©å®¶æ˜¯å¦æŒ‰ä¸‹"W"éµ
             if (Input.GetKeyDown(KeyCode.W))
             {
-                // ÀË¬dª±®a¬O§_¦b¶Ç°e½d³ò¤º
+                
+                // æª¢æŸ¥ç©å®¶æ˜¯å¦åœ¨å‚³é€ç¯„åœå…§
                 if (Vector2.Distance(playerTransform.position, secondFloorTransform.position) <= teleportRange)
                 {
-                    // ²¾°Ê¤Hª«¨ì¤G¼Ó¶}°_¤G¼ÓÄá¼v¾÷
+                    // ç§»å‹•äººç‰©åˆ°äºŒæ¨“é–‹èµ·äºŒæ¨“æ”å½±æ©Ÿ
                     playerTransform.position = secondFloorTransform.position;
                     cam1.SetActive(false);
                     cam2.SetActive(true);
-
-                    targetIntensity = 1f;
-                    // Åı·í«eintensity­È©¹¥Ø¼Ğintensity­È½wºC»¼ªñ
-                    vignette.intensity.value = Mathf.Lerp(vignette.intensity.value, targetIntensity, Time.deltaTime * speed);
-
-                    // ¦pªG·í«eintensity­È¤w¸g±µªñ¥Ø¼Ğintensity­È¡A«h±N¥Ø¼Ğintensity­È³]¦^0
-                    if (Mathf.Abs(vignette.intensity.value - targetIntensity) < 0.01f)
-                    {
-                        targetIntensity = 0f;
-                    }
+                    
                 }
+                if (vignetteCoroutine != null)
+                {
+                    StopCoroutine(vignetteCoroutine);
+                }
+
+                vignetteCoroutine = StartCoroutine(ChangeVignetteIntensity());
             }
             
         }
         if (CanS == true)
         {
-            // ÀË´úª±®a¬O§_«ö¤U"S"Áä
+            // æª¢æ¸¬ç©å®¶æ˜¯å¦æŒ‰ä¸‹"S"éµ
             if (Input.GetKeyDown(KeyCode.S))
             {
-                // ÀË¬dª±®a¬O§_¦b¶Ç°e½d³ò¤º
+                
+                // æª¢æŸ¥ç©å®¶æ˜¯å¦åœ¨å‚³é€ç¯„åœå…§
                 if (Vector2.Distance(playerTransform.position, firstFloorTransform.position) <= teleportRange)
                 {
-                    // ²¾°Ê¤Hª«¨ì¤@¼Ó¶}±Ò¤@¼ÓÄá¼v¾÷
+                    // ç§»å‹•äººç‰©åˆ°ä¸€æ¨“é–‹å•Ÿä¸€æ¨“æ”å½±æ©Ÿ
                     playerTransform.position = firstFloorTransform.position;
                     cam1.SetActive(true);
                     cam2.SetActive(false);
-
-                    targetIntensity = 1f;
-                    // Åı·í«eintensity­È©¹¥Ø¼Ğintensity­È½wºC»¼ªñ
-                    vignette.intensity.value = Mathf.Lerp(vignette.intensity.value, targetIntensity, Time.deltaTime * speed);
-
-                    // ¦pªG·í«eintensity­È¤w¸g±µªñ¥Ø¼Ğintensity­È¡A«h±N¥Ø¼Ğintensity­È³]¦^0
-                    if (Mathf.Abs(vignette.intensity.value - targetIntensity) < 0.01f)
-                    {
-                        targetIntensity = 0f;
-                    }
+                    
                 }
+                if (vignetteCoroutine != null)
+                {
+                    StopCoroutine(vignetteCoroutine);
+                }
+
+                vignetteCoroutine = StartCoroutine(ChangeVignetteIntensity());
             }
         }
         
@@ -136,5 +123,39 @@ public class upfloor : MonoBehaviour
         }
 
     }
-    
+
+    private IEnumerator ChangeVignetteIntensity()
+    {
+        float time = 0.9f;
+        float duration = 1f;
+
+        while (time < duration)
+        {
+            time += Time.deltaTime;
+
+            float t = time / duration;
+            float intensity = Mathf.Lerp(0f, 1f, t);
+
+            vignette.intensity.value = intensity;
+
+            yield return null;
+        }
+
+        time = 0f;
+
+        while (time < duration)
+        {
+            time += Time.deltaTime;
+
+            float t = time / duration;
+            float intensity = Mathf.Lerp(1f, 0f, t);
+
+            vignette.intensity.value = intensity;
+
+            yield return null;
+        }
+
+        vignette.intensity.value = 0f;
+    }
+
 }

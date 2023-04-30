@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Rendering.PostProcessing;
 
 public class enterbedroom : MonoBehaviour
 {
@@ -13,10 +14,14 @@ public class enterbedroom : MonoBehaviour
     public GameObject enter;
     bool CanE;
     bool CanQ;
+
+    public PostProcessVolume postProcessVolume;
+    private Vignette vignette;
+    private Coroutine vignetteCoroutine;
     // Start is called before the first frame update
     void Start()
     {
-        
+        postProcessVolume.profile.TryGetSettings(out vignette);
     }
 
     // Update is called once per frame
@@ -35,6 +40,12 @@ public class enterbedroom : MonoBehaviour
                     cam2.SetActive(false);
                     cam3.SetActive(true);
                 }
+                if (vignetteCoroutine != null)
+                {
+                    StopCoroutine(vignetteCoroutine);
+                }
+
+                vignetteCoroutine = StartCoroutine(ChangeVignetteIntensity());
             }
             
 
@@ -52,6 +63,12 @@ public class enterbedroom : MonoBehaviour
                     cam3.SetActive(false);
                     cam2.SetActive(true);
                 }
+                if (vignetteCoroutine != null)
+                {
+                    StopCoroutine(vignetteCoroutine);
+                }
+
+                vignetteCoroutine = StartCoroutine(ChangeVignetteIntensity());
             }
         }
 
@@ -89,5 +106,38 @@ public class enterbedroom : MonoBehaviour
 
         }
 
+    }
+    private IEnumerator ChangeVignetteIntensity()
+    {
+        float time = 0.9f;
+        float duration = 1f;
+
+        while (time < duration)
+        {
+            time += Time.deltaTime;
+
+            float t = time / duration;
+            float intensity = Mathf.Lerp(0f, 1f, t);
+
+            vignette.intensity.value = intensity;
+
+            yield return null;
+        }
+
+        time = 0f;
+
+        while (time < duration)
+        {
+            time += Time.deltaTime;
+
+            float t = time / duration;
+            float intensity = Mathf.Lerp(1f, 0f, t);
+
+            vignette.intensity.value = intensity;
+
+            yield return null;
+        }
+
+        vignette.intensity.value = 0f;
     }
 }
