@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemName: Bone
   itemImage: {fileID: 21300000, guid: cda26736a52439f44be29c3b04c3789b, type: 3}
-  itemHeld: 2
+  itemHeld: 4
   itemInfo: "\u9019\u597D\u50CF\u662F\u4E00\u888B\u4EBA\u9AA8 ? ! !"
   itemCodeNum: 3
   equip: 0

@@ -7,7 +7,7 @@ public class itemOnWorld : MonoBehaviour
     public item thisItem;
     public Inventroy playerInventroy;
     public GameObject textE;
-    bool CanBePick;
+    public bool CanBePick;
 
     private void Update()
     {
