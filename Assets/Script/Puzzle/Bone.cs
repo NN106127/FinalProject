@@ -35,14 +35,13 @@ public class Bone : MonoBehaviour, IBeginDragHandler,IDragHandler,IEndDragHandle
 
     public void OnBeginDrag(PointerEventData eventData)
     {
-        //MouseDown?.Invoke(this);
+        
     }
 
     public void OnDrag(PointerEventData eventData)
     {
-        //Debug.Log("1:"+eventData.pointerCurrentRaycast.gameObject.name);
         MouseDown(this);
-        if (eventData.pointerCurrentRaycast.gameObject.name == "BonePuzzle")
+        if (eventData.pointerCurrentRaycast.gameObject.name == "BoneBG")
         {
             CanMove = false;
         }
