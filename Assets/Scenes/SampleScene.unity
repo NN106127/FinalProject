@@ -6247,7 +6247,7 @@ MonoBehaviour:
   emptySlot: {fileID: 7629152550097737916, guid: 84e6ebc394895764bbf3f13289f0efeb, type: 3}
   itemInformation: {fileID: 629893476}
   itemCodeNum: {fileID: 1560437180}
-  BonePuzzles: {fileID: 1982216824}
+  BonePuzzles: {fileID: 1469930098}
   slots: []
 --- !u!114 &276358912
 MonoBehaviour:
@@ -6925,7 +6925,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &364940792
 RectTransform:
   m_ObjectHideFlags: 0
@@ -42815,7 +42815,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1867866081
 RectTransform:
   m_ObjectHideFlags: 0
@@ -43118,7 +43118,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1982216825
 RectTransform:
   m_ObjectHideFlags: 0
