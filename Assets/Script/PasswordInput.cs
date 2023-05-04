@@ -6,38 +6,42 @@ using UnityEngine.EventSystems;
 
 public class PasswordInput : MonoBehaviour
 {
-    private InputField inputField;
-    // Start is called before the first frame update
+    public string correctPassword = "1115";
+    public InputField inputField;
+
     void Start()
     {
-        inputField = GetComponent<InputField>();
+        // 块俱计
+        inputField.contentType = InputField.ContentType.IntegerNumber;
+
+        // 程才计秖 4
+        inputField.characterLimit = 4;
+
+        // 菏钮э跑ㄆン
+        inputField.onValueChanged.AddListener(delegate { OnInputValueChange(); });
     }
 
-    // Update is called once per frame
-    void Update()
+    void OnInputValueChange()
     {
-        
-    }
-    public void OnPointerDown(PointerEventData eventData)
-    {
-        if (eventData.button == PointerEventData.InputButton.Left)
+        // 狦块才计秖禬筁 4玥篒耞 4 才
+        if (inputField.text.Length > 4)
         {
-            CheckInput(eventData.position);
+            inputField.text = inputField.text.Substring(0, 4);
         }
     }
 
-    private void CheckInput(Vector2 position)
+    public void CheckPassword()
     {
-        if (RectTransformUtility.ScreenPointToLocalPointInRectangle(inputField.GetComponent<RectTransform>(), position, null, out Vector2 localPoint))
+        if (inputField.text == correctPassword)
         {
-            int num;
-            if (int.TryParse(inputField.text, out num))
-            {
-                if (num >= 0 && num <= 9)
-                {
-                    inputField.text += num.ToString();
-                }
-            }
+            Debug.Log("タ絋");
+            // TODO: unlock the game or perform other actions
+        }
+        else
+        {
+            Debug.Log("岿粇");
+            inputField.text = "";
+            // TODO: display an error message to the user
         }
     }
 }
