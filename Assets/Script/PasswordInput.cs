@@ -8,6 +8,7 @@ public class PasswordInput : MonoBehaviour
 {
     public string correctPassword = "1115";
     public InputField inputField;
+    public GameObject WaterTookKey;
 
     void Start()
     {
@@ -19,6 +20,7 @@ public class PasswordInput : MonoBehaviour
 
         // 監聽值改變事件
         inputField.onValueChanged.AddListener(delegate { OnInputValueChange(); });
+
     }
 
     void OnInputValueChange()
@@ -35,6 +37,7 @@ public class PasswordInput : MonoBehaviour
         if (inputField.text == correctPassword)
         {
             Debug.Log("正確");
+            WaterTookKey.SetActive(true);
             // TODO: unlock the game or perform other actions
         }
         else
