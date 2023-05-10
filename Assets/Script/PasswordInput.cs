@@ -9,6 +9,14 @@ public class PasswordInput : MonoBehaviour
     public string correctPassword = "1115";
     public InputField inputField;
     public GameObject WaterTookKey;
+    public bool isCorrect = false;
+
+    //顯示密碼是否正確文字部分
+    public float fadeTime = 1.0f;
+    public GameObject Correct;
+    public GameObject Wrong;
+    public  float timer;
+    public bool isClick = false;
 
     void Start()
     {
@@ -21,7 +29,33 @@ public class PasswordInput : MonoBehaviour
         // 監聽值改變事件
         inputField.onValueChanged.AddListener(delegate { OnInputValueChange(); });
 
+        Correct.SetActive(false);
+        Wrong.SetActive(false);
     }
+
+    private void Update()
+    {
+        if(isClick == true)
+        {
+            Debug.Log("isClick :" + isClick);
+
+            if(isCorrect == true)
+            {
+                Correct.SetActive(true);
+            }
+            else
+            {
+                Wrong.SetActive(true);
+                timer += Time.deltaTime;
+                if (timer >= 1.0f)
+                {
+                    Wrong.SetActive(false);
+                    timer = 0;
+                }
+            }
+        }
+    }
+
 
     void OnInputValueChange()
     {
@@ -37,14 +71,19 @@ public class PasswordInput : MonoBehaviour
         if (inputField.text == correctPassword)
         {
             Debug.Log("正確");
+            isCorrect = true;
             WaterTookKey.SetActive(true);
+            isClick = true;
             // TODO: unlock the game or perform other actions
         }
         else
         {
             Debug.Log("錯誤");
+            isCorrect = false;
             inputField.text = "";
+            isClick = true;
             // TODO: display an error message to the user
         }
+
     }
 }
