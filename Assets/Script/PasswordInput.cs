@@ -10,6 +10,8 @@ public class PasswordInput : MonoBehaviour
     public InputField inputField;
     public GameObject WaterTookKey;
     public bool isCorrect;
+    public GameObject open;
+    public GameObject openbutton;
 
     //顯示密碼是否正確文字部分
     //Image Correctimage;
@@ -54,6 +56,8 @@ public class PasswordInput : MonoBehaviour
             isCorrect = true;
             inputField.text = "";
             WaterTookKey.SetActive(true);
+            open.SetActive(true);
+            openbutton.SetActive(false);
             // TODO: unlock the game or perform other actions
         }
         else

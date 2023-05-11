@@ -16,6 +16,7 @@ public class InventroyManager : MonoBehaviour
     Text itemHold;
     public GameObject BonePuzzles;
     public GameObject Memory02;
+    public GameObject boxopen;
     //public item useitem;
 
     public List<GameObject> slots = new List<GameObject>(); //管理生成20個slots
@@ -69,6 +70,7 @@ public class InventroyManager : MonoBehaviour
         {
             Debug.Log("使用鑰匙");
             this.gameObject.SetActive(false);
+            boxopen.SetActive(true);
             Memory02.SetActive(true);
            itemCodeNum.text = "0";
         }

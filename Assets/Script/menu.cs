@@ -20,7 +20,7 @@ public class menu : MonoBehaviour
     public void ChangeScence(string scencename)
     {
         //m_audio.Play();
-        SceneManager.LoadScene(1);
+        SceneManager.LoadScene(0);
         SceneManager.LoadSceneAsync(scencename);
     }
 
