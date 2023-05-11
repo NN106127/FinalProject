@@ -6,60 +6,18 @@ using UnityEngine.UI;
 public class BonePuzzle : MonoBehaviour
 {
     public List<Bone> Bones = new List<Bone>();
-    public Bone ActiveBone;
+    //public Bone ActiveBone;
     float RotationSpeed = 5;
     public GameObject Memory01;
 
-
-    public void Start()
+    void Update()
     {
-        foreach(Bone bone in Bones)
-        {
-            //Debug.Log(bone.name);
-            bone.MouseDown += Bone_MouseDown;
-            bone.MouseUp += Bone_MouseUp;
-        }
-    }
-
-    private void Bone_MouseUp(Bone bone)
-    {
-        CheckMatch();
-    }
-
-    public void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.E))
-        {
-            ActiveBone.transform.Rotate(0, 0, -RotationSpeed);
-            CheckMatch();
-        }
-        if (Input.GetKeyDown(KeyCode.Q))
-        {
-            ActiveBone.transform.Rotate(0, 0, RotationSpeed);
-            CheckMatch();
-        }
-        if(Input.GetKeyDown(KeyCode.F1))
+        if (Input.GetKeyDown(KeyCode.F1))
         {
             PuzzlePass();
-            /*Vector3 Cr1 = Bones[0].transform.localPosition = new Vector3(1, 164, 0);
-            Quaternion Ro1 = Bones[0].transform.localRotation = Quaternion.Euler(0, 0, 60);
-            Vector3 Cr2 = Bones[1].transform.localPosition = new Vector3(90, 145, 0);
-            Quaternion Ro2 = Bones[1].transform.localRotation = Quaternion.Euler(0, 0, 35);
-            Vector3 Cr3 = Bones[2].transform.localPosition = new Vector3(131, 81, 0);
-            Quaternion Ro3 = Bones[2].transform.localRotation = Quaternion.Euler(0, 0, -105);
-            Vector3 Cr4 = Bones[3].transform.localPosition = new Vector3(146, 148, 0);
-            Quaternion Ro4 = Bones[3].transform.localRotation = Quaternion.Euler(0, 0, 75);
-            Vector3 Cr5 = Bones[4].transform.localPosition = new Vector3(-36, 118, 0);
-            Quaternion Ro5 = Bones[4].transform.localRotation = Quaternion.Euler(0, 0, 65);
-            Vector3 Cr6 = Bones[5].transform.localPosition = new Vector3(-55, 175, 0);
-            Quaternion Ro6 = Bones[5].transform.localRotation = Quaternion.Euler(0, 0, 0);
-            Vector3 Cr7 = Bones[6].transform.localPosition = new Vector3(18, 100, 0);
-            Quaternion Ro7 = Bones[6].transform.localRotation = Quaternion.Euler(0, 0, -90);
-            Vector3 Cr8 = Bones[7].transform.localPosition = new Vector3(32, 260, 0);
-            Quaternion Ro8 = Bones[7].transform.localRotation = Quaternion.Euler(0, 0, -105);*/
         }
 
-        if(Input.GetKey(KeyCode.F2))
+        if (Input.GetKey(KeyCode.F2))
         {
             Vector3 Cr1 = Bones[0].transform.localPosition = new Vector3(1, 164, 0);
             Quaternion Ro1 = Bones[0].transform.localRotation = Quaternion.Euler(0, 0, 60);
@@ -81,12 +39,6 @@ public class BonePuzzle : MonoBehaviour
         }
     }
 
-    private void Bone_MouseDown(Bone bone)
-    {
-       //Debug.Log(bone.name);
-        ActiveBone = bone;
-    }
-
     public bool CheckMatch()
     {
         foreach (Bone bone in Bones)
@@ -94,7 +46,7 @@ public class BonePuzzle : MonoBehaviour
             Debug.Log("-----------------");
             Debug.Log(bone.name);
             Vector3 positionDiff = Bones[0].transform.position - bone.transform.position;
-            Debug.Log(positionDiff.x + ", " +positionDiff.y + ", " + positionDiff.z);
+            Debug.Log(positionDiff.x + ", " + positionDiff.y + ", " + positionDiff.z);
             Debug.Log("rz: " + bone.transform.rotation.z);
         }
 
@@ -103,7 +55,7 @@ public class BonePuzzle : MonoBehaviour
         {
             Vector3 pd1 = Bones[0].transform.position - Bones[1].transform.position;
             float r1 = Bones[1].transform.rotation.z;
-            if ((pd1.x >= -139  && pd1.x <= -39) && (pd1.y >= -49 && pd1.y <= 69) && (r1 >= 0 && r1 <= 0.6))
+            if ((pd1.x >= -139 && pd1.x <= -39) && (pd1.y >= -49 && pd1.y <= 69) && (r1 >= 0 && r1 <= 0.6))
             {
                 Vector3 pd2 = Bones[0].transform.position - Bones[2].transform.position;
                 float r2 = Bones[2].transform.rotation.z;
@@ -127,7 +79,7 @@ public class BonePuzzle : MonoBehaviour
                                 {
                                     Vector3 pd7 = Bones[0].transform.position - Bones[7].transform.position;
                                     float r7 = Bones[7].transform.rotation.z;
-                                    if ((pd7.x >= -92  && pd7.x <= 12) && (pd7.y >= -137 && pd7.y <= -37) && (r7 >= -0.8 && r7 <= -0.6))
+                                    if ((pd7.x >= -92 && pd7.x <= 12) && (pd7.y >= -137 && pd7.y <= -37) && (r7 >= -0.8 && r7 <= -0.6))
                                     {
                                         PuzzlePass();
                                         return true;
