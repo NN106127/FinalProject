@@ -3,49 +3,55 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class Bone : MonoBehaviour,IPointerDownHandler,IPointerUpHandler
+public class Bone : MonoBehaviour, IBeginDragHandler,IDragHandler,IEndDragHandler
 {
     bool CanMove;
     public delegate void BoneEventArg(Bone bone);
     public event BoneEventArg MouseDown;
     public event BoneEventArg MouseUp;
-    public bool isButtonPressed;
-    public bool isCheck;
-    float RotationSpeed = 5;
 
-    void Start()
-    {
-        BonePuzzle bonePuzzle = GetComponent<BonePuzzle>();
-    }
 
     void Update()
     {
-        Vector3 mousePosition = Input.mousePosition;
-        if (isButtonPressed == true)
+        if(Input.GetMouseButton(0))
         {
-            this.gameObject.transform.position = mousePosition;
-            if (Input.GetKey(KeyCode.E))
-            {
-                transform.Rotate(0, 0, -RotationSpeed);
-                //CheckMatch();
-            }
-            if (Input.GetKey(KeyCode.Q))
-            {
-                transform.Rotate(0, 0, RotationSpeed);
-                //CheckMatch();
-            }
-        }   
+            if(CanMove == true)
+            MoveBone();
+        }
     }
 
-    public void OnPointerDown(PointerEventData eventData)
+    public void MoveBone()
     {
-        isButtonPressed = true;
-        isCheck = false;
+        PointerEventData pointer = new PointerEventData(EventSystem.current);
+        pointer.position = Input.mousePosition;
+        List<RaycastResult> raycastResults = new List<RaycastResult>();
+        EventSystem.current.RaycastAll(pointer, raycastResults);
+
+        if (raycastResults.Count > 0)
+        {
+            raycastResults[0].gameObject.transform.position = Input.mousePosition;
+        }
     }
 
-    public void OnPointerUp(PointerEventData eventData)
+    public void OnBeginDrag(PointerEventData eventData)
     {
-        isButtonPressed = false;
-        isCheck = true;
+        
+    }
+
+    public void OnDrag(PointerEventData eventData)
+    {
+        MouseDown(this);
+        if (eventData.pointerCurrentRaycast.gameObject.name == "BoneBG")
+        {
+            CanMove = false;
+        }
+        else
+            CanMove = true;
+    }
+
+    public void OnEndDrag(PointerEventData eventData)
+    {
+        CanMove = false;
+        MouseUp(this);
     }
 }

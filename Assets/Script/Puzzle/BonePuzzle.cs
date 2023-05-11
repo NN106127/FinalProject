@@ -6,15 +6,57 @@ using UnityEngine.UI;
 public class BonePuzzle : MonoBehaviour
 {
     public List<Bone> Bones = new List<Bone>();
-    //public Bone ActiveBone;
+    public Bone ActiveBone;
     float RotationSpeed = 5;
     public GameObject Memory01;
 
-    void Update()
+
+    public void Start()
     {
-        if (Input.GetKeyDown(KeyCode.F1))
+        foreach(Bone bone in Bones)
+        {
+            //Debug.Log(bone.name);
+            bone.MouseDown += Bone_MouseDown;
+            bone.MouseUp += Bone_MouseUp;
+        }
+    }
+
+    private void Bone_MouseUp(Bone bone)
+    {
+        CheckMatch();
+    }
+
+    public void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            ActiveBone.transform.Rotate(0, 0, -RotationSpeed);
+            CheckMatch();
+        }
+        if (Input.GetKeyDown(KeyCode.Q))
+        {
+            ActiveBone.transform.Rotate(0, 0, RotationSpeed);
+            CheckMatch();
+        }
+        if(Input.GetKeyDown(KeyCode.F1))
         {
             PuzzlePass();
+            /*Vector3 Cr1 = Bones[0].transform.localPosition = new Vector3(1, 164, 0);
+            Quaternion Ro1 = Bones[0].transform.localRotation = Quaternion.Euler(0, 0, 60);
+            Vector3 Cr2 = Bones[1].transform.localPosition = new Vector3(90, 145, 0);
+            Quaternion Ro2 = Bones[1].transform.localRotation = Quaternion.Euler(0, 0, 35);
+            Vector3 Cr3 = Bones[2].transform.localPosition = new Vector3(131, 81, 0);
+            Quaternion Ro3 = Bones[2].transform.localRotation = Quaternion.Euler(0, 0, -105);
+            Vector3 Cr4 = Bones[3].transform.localPosition = new Vector3(146, 148, 0);
+            Quaternion Ro4 = Bones[3].transform.localRotation = Quaternion.Euler(0, 0, 75);
+            Vector3 Cr5 = Bones[4].transform.localPosition = new Vector3(-36, 118, 0);
+            Quaternion Ro5 = Bones[4].transform.localRotation = Quaternion.Euler(0, 0, 65);
+            Vector3 Cr6 = Bones[5].transform.localPosition = new Vector3(-55, 175, 0);
+            Quaternion Ro6 = Bones[5].transform.localRotation = Quaternion.Euler(0, 0, 0);
+            Vector3 Cr7 = Bones[6].transform.localPosition = new Vector3(18, 100, 0);
+            Quaternion Ro7 = Bones[6].transform.localRotation = Quaternion.Euler(0, 0, -90);
+            Vector3 Cr8 = Bones[7].transform.localPosition = new Vector3(32, 260, 0);
+            Quaternion Ro8 = Bones[7].transform.localRotation = Quaternion.Euler(0, 0, -105);*/
         }
 
         if(Input.GetKey(KeyCode.F2))
@@ -37,6 +79,12 @@ public class BonePuzzle : MonoBehaviour
             Quaternion Ro8 = Bones[7].transform.localRotation = Quaternion.Euler(0, 0, -105);
             CheckMatch();
         }
+    }
+
+    private void Bone_MouseDown(Bone bone)
+    {
+       //Debug.Log(bone.name);
+        ActiveBone = bone;
     }
 
     public bool CheckMatch()
