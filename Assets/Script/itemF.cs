@@ -24,7 +24,7 @@ public class itemF : MonoBehaviour
         {
             CanF = true;
             F1.SetActive(true);
-            Debug.Log("F");
+            //Debug.Log("F");
         }
         
     }
@@ -36,7 +36,7 @@ public class itemF : MonoBehaviour
             F1.SetActive(false);
             fish.SetActive(false);
             CanF = false;
-            Debug.Log("OUT");
+            //Debug.Log("OUT");
         }
           
     }

@@ -12,12 +12,8 @@ public class PasswordInput : MonoBehaviour
     public bool isCorrect;
 
     //顯示密碼是否正確文字部分
-    public float fadeTime = 1.0f; //淡出時間
-    public Image Correctimage;
-    public Image Wrongimage;
-    float timer;
-    public GameObject Safty;
-    public bool isWrong;
+    //Image Correctimage;
+    //Image Wrongimage;
 
     void Start()
     {
@@ -30,28 +26,16 @@ public class PasswordInput : MonoBehaviour
         // 監聽值改變事件
         inputField.onValueChanged.AddListener(delegate { OnInputValueChange(); });
 
-        //文字圖片事件
-        Correctimage.GetComponent<Image>();
-        Wrongimage.GetComponent<Image>();
-        Correctimage.canvasRenderer.SetAlpha(0f);
-        Wrongimage.canvasRenderer.SetAlpha(0f);
-        timer = 0f;
+        //Correctimage.GetComponent<Image>();
+        //Wrongimage.GetComponent<Image>();
     }
 
-    void Update()
+    private void Awake()
     {
-        if(isWrong == true)
-        {
-            timer += Time.deltaTime;
-
-            if (timer >= 1.0f)
-            {
-                Wrongimage.CrossFadeAlpha(0f, 0.5f, false);
-                timer = 0;
-                isWrong = false;
-            }
-        }
+       /* Correctimage.canvasRenderer.SetAlpha(0f);
+        Wrongimage.canvasRenderer.SetAlpha(0f);*/
     }
+
 
     void OnInputValueChange()
     {
@@ -70,8 +54,6 @@ public class PasswordInput : MonoBehaviour
             isCorrect = true;
             inputField.text = "";
             WaterTookKey.SetActive(true);
-            Correctimage.CrossFadeAlpha(1.0f, 1.0f, false);
-            Safty.SetActive(false);
             // TODO: unlock the game or perform other actions
         }
         else
@@ -79,8 +61,6 @@ public class PasswordInput : MonoBehaviour
             Debug.Log("錯誤");
             isCorrect = false;
             inputField.text = "";
-            Wrongimage.CrossFadeAlpha(1.0f, 0.1f, false);
-            isWrong = true;
             // TODO: display an error message to the user
         }
 
