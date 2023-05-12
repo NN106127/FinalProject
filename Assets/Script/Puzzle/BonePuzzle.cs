@@ -9,9 +9,18 @@ public class BonePuzzle : MonoBehaviour
     //public Bone ActiveBone;
     float RotationSpeed = 5;
     public GameObject Memory01;
+    public Bone[] bone;
 
     void Update()
     {
+        foreach(Bone bones in bone)
+        {
+            bool isCheck = bones.isButtonPressed;
+            if(isCheck == true)
+            {
+                CheckMatch();
+            }
+        }
         if (Input.GetKeyDown(KeyCode.F1))
         {
             PuzzlePass();
