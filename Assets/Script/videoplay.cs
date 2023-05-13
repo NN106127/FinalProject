@@ -9,9 +9,11 @@ public class videoplay : MonoBehaviour
     public int m_seconds;                 //倒數計時經換算的總秒數
 
     public int m_min;              //用於設定倒數計時的分鐘
-    public int m_sec;              //用於設定倒數計時的秒數
+    public int m_sec;             //用於設定倒數計時的秒數
 
     public GameObject img;
+    public GameObject black;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -49,8 +51,9 @@ public class videoplay : MonoBehaviour
             }
 
         }
-
-        yield return new WaitForSeconds(1);   //時間結束時，顯示 00:00 停留一秒
+        black.SetActive(true);
+        yield return new WaitForSeconds(5);   //時間結束時，顯示 00:00 停留一秒
+        
         SceneManager.LoadScene(2);       //時間結束時，畫面出現 GAME OVER
 
     }
