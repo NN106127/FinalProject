@@ -12,7 +12,8 @@ public class PasswordInput : MonoBehaviour
     public bool isCorrect;
     public GameObject open;
     public GameObject openbutton;
-
+    public AudioSource rightopen;
+    public AudioSource wrong;
     //顯示密碼是否正確文字部分
     //Image Correctimage;
     //Image Wrongimage;
@@ -57,12 +58,14 @@ public class PasswordInput : MonoBehaviour
             inputField.text = "";
             WaterTookKey.SetActive(true);
             open.SetActive(true);
+            rightopen.Play();
             openbutton.SetActive(false);
             // TODO: unlock the game or perform other actions
         }
         else
         {
             Debug.Log("錯誤");
+            wrong.Play();
             isCorrect = false;
             inputField.text = "";
             // TODO: display an error message to the user

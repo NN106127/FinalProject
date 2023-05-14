@@ -91,27 +91,15 @@ public class Player : MonoBehaviour
         {
             walk.Stop();
         }
-        if (Input.GetKeyDown(KeyCode.LeftShift) && Input.GetKeyDown(KeyCode.A))
+        if (Input.GetKeyDown(KeyCode.LeftShift))
         {
             run.Play();
             walk.Stop();
         }
-        if (Input.GetKeyUp(KeyCode.LeftShift) && Input.GetKeyDown(KeyCode.A))
+        if (Input.GetKeyUp(KeyCode.LeftShift))
         {
             run.Stop();
         }
-        if (Input.GetKeyDown(KeyCode.LeftShift) && Input.GetKeyDown(KeyCode.D))
-        {
-            run.Play();
-            walk.Stop();
-        }
-        if (Input.GetKeyUp(KeyCode.LeftShift) && Input.GetKeyDown(KeyCode.D))
-        {
-            run.Stop();
-        }
-
-
-
     }
     void OpeMyBag()
     {

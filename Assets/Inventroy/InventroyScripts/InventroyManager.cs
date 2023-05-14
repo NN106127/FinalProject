@@ -20,7 +20,8 @@ public class InventroyManager : MonoBehaviour
     //public item useitem;
 
     public List<GameObject> slots = new List<GameObject>(); //管理生成20個slots
-
+    public AudioSource box;
+    public AudioSource memory;
     void Awake()
     {
         if(instance != null)
@@ -71,7 +72,9 @@ public class InventroyManager : MonoBehaviour
             Debug.Log("使用鑰匙");
             this.gameObject.SetActive(false);
             boxopen.SetActive(true);
+            box.Play();
             Memory02.SetActive(true);
+            memory.Play();
            itemCodeNum.text = "0";
         }
     }

@@ -8,6 +8,7 @@ public class itemF : MonoBehaviour
     public GameObject fish;
     bool CanF;
     public AudioSource m_audio;
+    
     private void Update()
     {
         if(CanF == true)
@@ -15,6 +16,7 @@ public class itemF : MonoBehaviour
             if(Input.GetKeyDown(KeyCode.F))
             {
                 fish.SetActive(true);
+
                 m_audio.Play();
             }
             

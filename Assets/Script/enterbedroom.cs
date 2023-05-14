@@ -18,6 +18,7 @@ public class enterbedroom : MonoBehaviour
     public PostProcessVolume postProcessVolume;
     private Vignette vignette;
     private Coroutine vignetteCoroutine;
+    public AudioSource door;
     // Start is called before the first frame update
     void Start()
     {
@@ -31,6 +32,7 @@ public class enterbedroom : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.E))
             {
+                door.Play();
                 // 檢查玩家是否在傳送範圍內
                 if (Vector2.Distance(playerTransform.position, bedroomTransform.position) <= teleportRange)
                 {
@@ -54,6 +56,7 @@ public class enterbedroom : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.Q))
             {
+                door.Play();
                 // 檢查玩家是否在傳送範圍內
                 if (Vector2.Distance(playerTransform.position, secondFloorTransform.position) <= teleportRange)
                 {
