@@ -75,7 +75,7 @@ public class BonePuzzle : MonoBehaviour
                 Debug.Log("1");
                 Vector3 pd2 = Bones[0].transform.position - Bones[2].transform.position;
                 float r2 = Bones[2].transform.rotation.z;
-                if ((pd2.x >= -222 && pd2.x <= -22) && (pd2.y >= -10 && pd2.y <= 190) && (r2 >= -0.9 && r2 <= -0.5))
+                if ((pd2.x >= -222 && pd2.x <= -22) && (pd2.y >= -10 && pd2.y <= 190))
                 {
                     Debug.Log("2");
                     Vector3 pd3 = Bones[0].transform.position - Bones[3].transform.position;
