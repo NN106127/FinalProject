@@ -9,9 +9,18 @@ public class BonePuzzle : MonoBehaviour
     //public Bone ActiveBone;
     float RotationSpeed = 5;
     public GameObject Memory01;
+    public Bone[] bone;
 
     void Update()
     {
+        foreach (Bone bones in bone)
+        {
+            bool isCheck = bones.isButtonPressed;
+            if (isCheck == true)
+            {
+                CheckMatch();
+            }
+        }
         if (Input.GetKeyDown(KeyCode.F1))
         {
             PuzzlePass();
@@ -51,35 +60,35 @@ public class BonePuzzle : MonoBehaviour
         }
 
         float r0 = Bones[0].transform.rotation.z;
-        if (r0 >= 0.4 && r0 <= 0.6)
+        if (r0 >= -0.4 && r0 <= -0.2)
         {
             Vector3 pd1 = Bones[0].transform.position - Bones[1].transform.position;
             float r1 = Bones[1].transform.rotation.z;
-            if ((pd1.x >= -139 && pd1.x <= -39) && (pd1.y >= -49 && pd1.y <= 69) && (r1 >= 0 && r1 <= 0.6))
+            if ((pd1.x >= -90 && pd1.x <= -60) && (pd1.y >= -5 && pd1.y <= 5) && (r1 >= -0.5 && r1 <= -1))
             {
                 Vector3 pd2 = Bones[0].transform.position - Bones[2].transform.position;
                 float r2 = Bones[2].transform.rotation.z;
-                if ((pd2.x >= -180 && pd2.x <= -80) && (pd2.y >= 31 && pd2.y <= 131) && (r2 >= -1 && r2 <= -0.2))
+                if ((pd2.x >= -140 && pd2.x <= -110) && (pd2.y >= 50 && pd2.y <= 90) && (r2 >= -0.9 && r2 <= -0.5))
                 {
                     Vector3 pd3 = Bones[0].transform.position - Bones[3].transform.position;
                     float r3 = Bones[3].transform.rotation.z;
-                    if ((pd3.x >= -195 && pd3.x <= -95) && (pd3.y >= -46 && pd3.y <= 66) && (r3 >= 0.2 && r3 <= 0.9))
+                    if ((pd3.x >= -150 && pd3.x <= -120) && (pd3.y >= -15 && pd3.y <= 1) && (r3 >= -0.8 && r3 <= -0.2))
                     {
                         Vector3 pd4 = Bones[0].transform.position - Bones[4].transform.position;
                         float r4 = Bones[4].transform.rotation.z;
-                        if ((pd4.x >= -27 && pd4.x <= 87) && (pd4.y >= -16 && pd4.y <= 96) && (r4 >= 0.2 && r4 <= 0.9))
+                        if ((pd4.x >= 30 && pd4.x <= 60) && (pd4.y >= 30 && pd4.y <= 60) && (r4 >= -0.5 && r4 <= 1))
                         {
                             Vector3 pd5 = Bones[0].transform.position - Bones[5].transform.position;
                             float r5 = Bones[5].transform.rotation.z;
-                            if ((pd5.x >= 6 && pd5.x <= 106) && (pd5.y >= -61 && pd5.y <= 41) && (r5 >= -1 && r5 <= 1))
+                            if ((pd5.x >= 20 && pd5.x <= 50) && (pd5.y >= -60 && pd5.y <= -30) && (r5 >= -1 && r5 <= 1))
                             {
                                 Vector3 pd6 = Bones[0].transform.position - Bones[6].transform.position;
                                 float r6 = Bones[6].transform.rotation.z;
-                                if ((pd6.x >= -67 && pd6.x <= 47) && (pd6.y >= 14 && pd6.y <= 114) && (r6 >= -0.8 && r6 <= -0.6))
+                                if ((pd6.x >= 1 && pd6.x <= 10) && (pd6.y >= 50 && pd6.y <= 90) && (r6 >= -0.8 && r6 <= -0.6))
                                 {
                                     Vector3 pd7 = Bones[0].transform.position - Bones[7].transform.position;
                                     float r7 = Bones[7].transform.rotation.z;
-                                    if ((pd7.x >= -92 && pd7.x <= 12) && (pd7.y >= -137 && pd7.y <= -37) && (r7 >= -0.8 && r7 <= -0.6))
+                                    if ((pd7.x >= -5 && pd7.x <= -105) && (pd7.y >= -43 && pd7.y <= -143) && (r7 >= -0.7 && r7 <= -0.9))
                                     {
                                         PuzzlePass();
                                         return true;

@@ -29677,6 +29677,15 @@ MonoBehaviour:
   - {fileID: 1835119141}
   - {fileID: 1651674675}
   Memory01: {fileID: 1556015778}
+  bone:
+  - {fileID: 545437874}
+  - {fileID: 284455858}
+  - {fileID: 1804659894}
+  - {fileID: 159453128}
+  - {fileID: 1468704714}
+  - {fileID: 2142621750}
+  - {fileID: 1835119141}
+  - {fileID: 1651674675}
 --- !u!114 &1469930101
 MonoBehaviour:
   m_ObjectHideFlags: 0
