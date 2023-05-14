@@ -5,10 +5,11 @@ using UnityEngine.SceneManagement;
 
 public class menu : MonoBehaviour
 {
+    public AudioSource m_audio;
     // Start is called before the first frame update
     void Start()
     {
-        
+        DontDestroyOnLoad(m_audio);
     }
 
     // Update is called once per frame
@@ -19,14 +20,14 @@ public class menu : MonoBehaviour
 
     public void ChangeScence(string scencename)
     {
-        //m_audio.Play();
+        m_audio.Play();
         //SceneManager.LoadScene(0);
         SceneManager.LoadSceneAsync(scencename);
     }
 
     public void QuitGame()
     {
-        //m_audio.Play();
+        m_audio.Play();
         Application.Quit();
     }
 }
