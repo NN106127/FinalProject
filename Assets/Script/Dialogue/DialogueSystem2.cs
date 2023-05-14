@@ -12,6 +12,8 @@ public class DialogueSystem2 : MonoBehaviour
     public bool dialogActive; // 對話框是否顯示
     public float typeSpeed; // 打字速度
     private bool textFinished; // 文字是否輸出完成
+
+    public AudioSource m_audio;
     // Start is called before the first frame update
     void Start()
     {
@@ -28,6 +30,7 @@ public class DialogueSystem2 : MonoBehaviour
             if (currentLine < dialogLines.Length)
             {
                 StartCoroutine(TypeLine(dialogLines[currentLine])); // 開啟文字輸出協程
+                
             }
             else
             {
@@ -44,8 +47,11 @@ public class DialogueSystem2 : MonoBehaviour
         dialogText.text = ""; // 將對話框文字先清空
         foreach (char c in line.ToCharArray())
         {
+            
             dialogText.text += c; // 一個一個字元輸出文字
+            m_audio.Play();
             yield return new WaitForSeconds(typeSpeed); // 等待typeSpeed秒再輸出下一個字元
+            
         }
         textFinished = true; // 輸出完成，將textFinished設為true
     }

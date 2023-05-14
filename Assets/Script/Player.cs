@@ -17,6 +17,8 @@ public class Player : MonoBehaviour
     public float runSpeed;
     Vector2 movement;
 
+    public AudioSource walk;
+    public AudioSource run;
     void Start()
     {
 
@@ -45,23 +47,26 @@ public class Player : MonoBehaviour
         
         if(Input.GetKey(KeyCode.D))
         {
+            
             mySpriteRenderer.flipX = false;
             myAnimator.SetInteger("ani", 1);
             movement.x = Input.GetAxisRaw("Horizontal");
             rb.MovePosition(rb.position + movement * speed * Time.deltaTime);
+
         }
 
         if (Input.GetKey(KeyCode.A))
         {
+            
             mySpriteRenderer.flipX = true;
             myAnimator.SetInteger("ani", 1);
             movement.x = Input.GetAxisRaw("Horizontal");
             rb.MovePosition(rb.position - movement * -speed * Time.deltaTime);
         }
-
-
+        
         if (Input.GetKey(KeyCode.LeftShift) && Input.GetKey(KeyCode.D))
         {
+            
             myAnimator.SetInteger("ani", 2);
             rb.MovePosition(rb.position + movement * (speed + runSpeed) * Time.deltaTime);
         }
@@ -70,6 +75,41 @@ public class Player : MonoBehaviour
             myAnimator.SetInteger("ani", 2);
             rb.MovePosition(rb.position - movement * -(speed + runSpeed) * Time.deltaTime);
         }
+        if (Input.GetKeyDown(KeyCode.A))
+        {
+            walk.Play();
+        }
+        if (Input.GetKeyUp(KeyCode.A))
+        {
+            walk.Stop();
+        }
+        if (Input.GetKeyDown(KeyCode.D))
+        {
+            walk.Play();
+        }
+        if (Input.GetKeyUp(KeyCode.D))
+        {
+            walk.Stop();
+        }
+        if (Input.GetKeyDown(KeyCode.LeftShift) && Input.GetKeyDown(KeyCode.A))
+        {
+            run.Play();
+            walk.Stop();
+        }
+        if (Input.GetKeyUp(KeyCode.LeftShift) && Input.GetKeyDown(KeyCode.A))
+        {
+            run.Stop();
+        }
+        if (Input.GetKeyDown(KeyCode.LeftShift) && Input.GetKeyDown(KeyCode.D))
+        {
+            run.Play();
+            walk.Stop();
+        }
+        if (Input.GetKeyUp(KeyCode.LeftShift) && Input.GetKeyDown(KeyCode.D))
+        {
+            run.Stop();
+        }
+
 
 
     }
