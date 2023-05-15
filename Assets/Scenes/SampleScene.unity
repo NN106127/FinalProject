@@ -7195,6 +7195,9 @@ MonoBehaviour:
   slots: []
   box: {fileID: 1633968928}
   memory: {fileID: 1559622287}
+  WaterTank: 0
+  FireOven: 0
+  player: {fileID: 451120721}
 --- !u!114 &276358912
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8041,7 +8044,7 @@ GameObject:
   - component: {fileID: 357692836}
   m_Layer: 0
   m_Name: "\u70E4\u7BB1\u4E92\u52D53"
-  m_TagString: Untagged
+  m_TagString: FireOven
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -9160,6 +9163,8 @@ MonoBehaviour:
   runSpeed: 12
   walk: {fileID: 762798142}
   run: {fileID: 1372113290}
+  WaterTankOp: 0
+  FireOvenOp: 0
 --- !u!212 &451120722
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -49123,7 +49128,7 @@ GameObject:
   - component: {fileID: 1893784212}
   m_Layer: 0
   m_Name: "\u6C34\u65CF\u7BB1\u4E92\u52D51"
-  m_TagString: Untagged
+  m_TagString: WaterTank
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

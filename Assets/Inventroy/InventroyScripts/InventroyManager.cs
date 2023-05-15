@@ -22,6 +22,17 @@ public class InventroyManager : MonoBehaviour
     public List<GameObject> slots = new List<GameObject>(); //管理生成20個slots
     public AudioSource box;
     public AudioSource memory;
+
+    public bool WaterTank;
+    public bool FireOven;
+    public Player player;
+
+    void Update()
+    {
+        WaterTank = player.WaterTankOp;
+        FireOven = player.FireOvenOp;
+        
+    }
     void Awake()
     {
         if(instance != null)
@@ -60,14 +71,19 @@ public class InventroyManager : MonoBehaviour
             this.gameObject.SetActive(false);
             itemCodeNum.text = "0";
         }
-        if (itemCodeNum.text == "3")
+        if (itemCodeNum.text == "3" && FireOven == true)
         {
             Debug.Log("使用人骨");
             this.gameObject.SetActive(false);
             BonePuzzles.SetActive(true);
             itemCodeNum.text = "0";
         }
-        if (itemCodeNum.text == "4")
+        if (itemCodeNum.text == "3" && FireOven == false)
+        {
+            itemInformation.text = "好像不能用在這裡...";
+            itemCodeNum.text = "0";
+        }
+        if (itemCodeNum.text == "4" && WaterTank == true)
         {
             Debug.Log("使用鑰匙");
             this.gameObject.SetActive(false);
@@ -76,6 +92,11 @@ public class InventroyManager : MonoBehaviour
             Memory02.SetActive(true);
             memory.Play();
             OpenState.aquariumEverOpened = true;
+            itemCodeNum.text = "0";
+        }
+        if (itemCodeNum.text == "4" && WaterTank == false)
+        {
+            itemInformation.text = "這裡好像用不到...";
             itemCodeNum.text = "0";
         }
     }

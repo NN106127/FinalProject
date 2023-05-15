@@ -19,6 +19,9 @@ public class Player : MonoBehaviour
 
     public AudioSource walk;
     public AudioSource run;
+
+    public bool WaterTankOp;
+    public bool FireOvenOp;
     void Start()
     {
 
@@ -113,5 +116,30 @@ public class Player : MonoBehaviour
     {
         isOpen = !isOpen;
         myBag.SetActive(isOpen);
+    }
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.gameObject.tag == "WaterTank")
+        {
+            WaterTankOp = true;
+        }
+
+        if (other.gameObject.tag == "FireOven")
+        {
+            FireOvenOp = true;
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D other)
+    {
+        if (other.gameObject.tag == "WaterTank")
+        {
+            WaterTankOp = false;
+        }
+
+        if (other.gameObject.tag == "FireOven")
+        {
+            FireOvenOp = false;
+        }
     }
 }
