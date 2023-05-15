@@ -6,7 +6,7 @@ using UnityEngine.EventSystems;
 
 public class PasswordInput : MonoBehaviour
 {
-    public string correctPassword = "1115";
+    public string correctPassword = "1215";
     public InputField inputField;
     public GameObject WaterTookKey;
     public bool isCorrect;
