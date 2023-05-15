@@ -8,8 +8,10 @@ public class DialogueSystem2 : MonoBehaviour
     public GameObject dialogBox; // 對話框物件
     public Text dialogText; // 對話框文字
     public string[] dialogLines; // 對話內容
+    public string[] nextDialogLines; // 對話內容
     public int currentLine; // 目前對話行數
-    public bool dialogActive; // 對話框是否顯示
+    public bool dialogActive1; // 對話框是否顯示
+    public bool dialogActive2; // 對話框是否顯示
     public float typeSpeed; // 打字速度
     private bool textFinished; // 文字是否輸出完成
     public GameObject playerimg;
@@ -25,10 +27,10 @@ public class DialogueSystem2 : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (dialogActive && Input.GetKeyDown(KeyCode.Space) && textFinished)
+        if (dialogActive1 && Input.GetKeyDown(KeyCode.Space) && textFinished)
         {
             currentLine++;
-            if (currentLine < dialogLines.Length)
+            if (currentLine < dialogLines.Length )
             {
                 StartCoroutine(TypeLine(dialogLines[currentLine])); // 開啟文字輸出協程
                 
@@ -37,11 +39,29 @@ public class DialogueSystem2 : MonoBehaviour
             {
                 playerimg.SetActive(false);
                 dialogBox.SetActive(false); // 所有對話結束，隱藏對話框
-                dialogActive = false;
+                dialogActive1 = false;
                 currentLine = 0;
                 dialogText.text = "";
             }
         }
+        if (dialogActive2 && Input.GetKeyDown(KeyCode.Space) && textFinished)
+        {
+            currentLine++;
+            if (currentLine < nextDialogLines.Length)
+            {
+                StartCoroutine(TypeLine(nextDialogLines[currentLine])); // 開啟文字輸出協程
+
+            }
+            else
+            {
+                playerimg.SetActive(false);
+                dialogBox.SetActive(false); // 所有對話結束，隱藏對話框
+                dialogActive2 = false;
+                currentLine = 0;
+                dialogText.text = "";
+            }
+        }
+
     }
     IEnumerator TypeLine(string line)
     {
@@ -60,9 +80,114 @@ public class DialogueSystem2 : MonoBehaviour
 
     public void ShowDialog()
     {
-        dialogActive = true; // 顯示對話框
-        dialogBox.SetActive(true);
-        playerimg.SetActive(true);
-        StartCoroutine(TypeLine(dialogLines[currentLine])); // 開啟文字輸出協程
+        if (!OpenState.tipsEverOpend)
+        {
+            dialogActive1 = true; // 顯示對話框
+            dialogBox.SetActive(true);
+            playerimg.SetActive(true);
+            StartCoroutine(TypeLine(dialogLines[currentLine])); // 開啟文字輸出協程
+            
+        }
+        
+
+
+    }
+
+    public void ShowWardobeDialog()
+    {
+
+        if (!OpenState.wardrobeEverOpened)
+        {
+            dialogActive1 = true; // 顯示對話框
+            dialogBox.SetActive(true);
+            playerimg.SetActive(true);
+            StartCoroutine(TypeLine(dialogLines[currentLine])); // 開啟文字輸出協程
+        }
+        else
+        {
+            dialogActive2 = true; // 顯示對話框
+            
+            dialogBox.SetActive(true);
+            playerimg.SetActive(true);
+            StartCoroutine(TypeLine(nextDialogLines[currentLine])); // 開啟文字輸出協程
+        }
+
+    }
+    public void ShowAquariumDialog()
+    {
+
+        if (!OpenState.aquariumEverOpened)
+        {
+            dialogActive1 = true; // 顯示對話框
+            dialogBox.SetActive(true);
+            playerimg.SetActive(true);
+            StartCoroutine(TypeLine(dialogLines[currentLine])); // 開啟文字輸出協程
+        }
+        else
+        {
+            dialogActive2 = true; // 顯示對話框
+            dialogBox.SetActive(true);
+            playerimg.SetActive(true);
+            StartCoroutine(TypeLine(nextDialogLines[currentLine])); // 開啟文字輸出協程
+        }
+
+    }
+    public void ShowFridgeDialog()
+    {
+        if (GameObject.FindGameObjectWithTag("fridge").transform.Find("一袋骨頭_1"))
+        {   
+            
+            dialogActive1 = true; // 顯示對話框
+            dialogBox.SetActive(true);
+            playerimg.SetActive(true);
+            StartCoroutine(TypeLine(dialogLines[currentLine])); // 開啟文字輸出協程
+        }
+        else
+        {
+            Debug.Log("C");
+            dialogActive2 = true; // 顯示對話框
+            dialogBox.SetActive(true);
+            playerimg.SetActive(true);
+            StartCoroutine(TypeLine(nextDialogLines[currentLine])); // 開啟文字輸出協程
+        }
+
+    }
+    public void ShowOvenDialog()
+    {
+
+        if (!OpenState.ovenEverOpened)
+        {
+            dialogActive1 = true; // 顯示對話框
+            dialogBox.SetActive(true);
+            playerimg.SetActive(true);
+            StartCoroutine(TypeLine(dialogLines[currentLine])); // 開啟文字輸出協程
+        }
+        else
+        {
+            dialogActive2 = true; // 顯示對話框
+            dialogBox.SetActive(true);
+            playerimg.SetActive(true);
+            StartCoroutine(TypeLine(nextDialogLines[currentLine])); // 開啟文字輸出協程
+        }
+
+    }
+    public void ShowcalendarDialog()
+    {
+
+        if (!OpenState.calendarEverOpend)
+        {
+            dialogActive1 = true; // 顯示對話框
+            dialogBox.SetActive(true);
+            playerimg.SetActive(true);
+            StartCoroutine(TypeLine(dialogLines[currentLine])); // 開啟文字輸出協程
+        }
+        else
+        {
+            dialogActive2 = true; // 顯示對話框
+            dialogBox.SetActive(true);
+            playerimg.SetActive(true);
+            StartCoroutine(TypeLine(nextDialogLines[currentLine])); // 開啟文字輸出協程
+        }
+
     }
 }

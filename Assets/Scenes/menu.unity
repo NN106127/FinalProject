@@ -215,7 +215,7 @@ GameObject:
   - component: {fileID: 252088180}
   m_Layer: 0
   m_Name: "\u80CC\u666F\u97F3\u6A02"
-  m_TagString: Untagged
+  m_TagString: BGMusic
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

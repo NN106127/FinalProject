@@ -75,7 +75,8 @@ public class InventroyManager : MonoBehaviour
             box.Play();
             Memory02.SetActive(true);
             memory.Play();
-           itemCodeNum.text = "0";
+            OpenState.aquariumEverOpened = true;
+            itemCodeNum.text = "0";
         }
     }
 

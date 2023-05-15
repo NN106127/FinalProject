@@ -127,5 +127,7 @@ public class BonePuzzle : MonoBehaviour
         Debug.Log("CLEAR");
         memory.Play();
         Memory01.SetActive(true);
+        OpenState.ovenEverOpened = true;
+
     }
 }

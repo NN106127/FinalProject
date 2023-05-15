@@ -109,4 +109,9 @@ public class Player : MonoBehaviour
             myBag.SetActive(isOpen);
         }
     }
+    public void OnClick()
+    {
+        isOpen = !isOpen;
+        myBag.SetActive(isOpen);
+    }
 }

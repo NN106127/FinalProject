@@ -20,8 +20,28 @@ public class Item : MonoBehaviour
     }
     void OnTriggerEnter2D(Collider2D collision)
     {
-
-        dialogueSystem.ShowDialog();
+        switch (this.gameObject.tag)
+        {
+            case "wardrobe":
+                dialogueSystem.ShowWardobeDialog();
+                break;
+            case "aquarium":
+                dialogueSystem.ShowAquariumDialog();
+                break;
+            case "fridge":
+                dialogueSystem.ShowFridgeDialog();
+                break;
+            case "oven":
+                dialogueSystem.ShowOvenDialog();
+                break;
+            case "tips":
+                dialogueSystem.ShowDialog();
+                break;
+            case "calendar":
+                dialogueSystem.ShowcalendarDialog();
+                break;
+        }
+        //dialogueSystem.ShowDialog();
         /*if (collision.CompareTag("Player"))
         {
             dialogueSystem.StartDialogue();

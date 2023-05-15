@@ -60,6 +60,8 @@ public class PasswordInput : MonoBehaviour
             open.SetActive(true);
             rightopen.Play();
             openbutton.SetActive(false);
+            OpenState.wardrobeEverOpened = true;
+            OpenState.calendarEverOpend = true;
             // TODO: unlock the game or perform other actions
         }
         else
