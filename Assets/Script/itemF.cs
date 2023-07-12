@@ -6,6 +6,7 @@ public class itemF : MonoBehaviour
 {
     public GameObject F1;
     public GameObject fish;
+    public GameObject back;
     bool CanF;
     public AudioSource m_audio;
     
@@ -16,7 +17,7 @@ public class itemF : MonoBehaviour
             if(Input.GetKeyDown(KeyCode.F))
             {
                 fish.SetActive(true);
-
+                back.SetActive(true);
                 m_audio.Play();
             }
             
@@ -39,6 +40,7 @@ public class itemF : MonoBehaviour
         {
             F1.SetActive(false);
             fish.SetActive(false);
+            back.SetActive(false);
             CanF = false;
             m_audio.Stop();
             //Debug.Log("OUT");
