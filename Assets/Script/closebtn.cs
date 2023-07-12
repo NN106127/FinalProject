@@ -5,6 +5,7 @@ using UnityEngine;
 public class closebtn : MonoBehaviour
 {
     public GameObject background;
+    public GameObject img;
     // Start is called before the first frame update
     void Start()
     {
@@ -14,16 +15,17 @@ public class closebtn : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (background.activeInHierarchy==true)
+        if (Input.GetKey(KeyCode.Alpha1))
         {
-
-            Time.timeScale = 0f;
+            background.SetActive(false);
+            img.SetActive(false);
         }
     }
     public void OnClick()
     {
         background.SetActive(false);
-        Time.timeScale = 1f;
+        img.SetActive(false);
     }
-    
+
+
 }
