@@ -210,7 +210,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_seconds: 0
   m_min: 0
-  m_sec: 39
+  m_sec: 58
   img: {fileID: 147826749}
   black: {fileID: 2110400651}
 --- !u!1 &342967160
