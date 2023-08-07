@@ -40,6 +40,9 @@ public class Item : MonoBehaviour
             case "calendar":
                 dialogueSystem.ShowcalendarDialog();
                 break;
+            case "mirror":
+                dialogueSystem.ShowmirrorDialog();
+                break;
         }
         //dialogueSystem.ShowDialog();
         /*if (collision.CompareTag("Player"))

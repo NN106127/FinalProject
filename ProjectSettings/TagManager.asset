@@ -15,6 +15,7 @@ TagManager:
   - calendar
   - WaterTank
   - FireOven
+  - mirror
   layers:
   - Default
   - TransparentFX
