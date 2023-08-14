@@ -9,8 +9,9 @@ public class OpenState : MonoBehaviour
     public static bool fridgeEverOpened;   //冰箱 
     public static bool ovenEverOpened;     //烤箱
     public static bool tipsEverOpend;      //開頭
-    public static bool calendarEverOpend;      //月曆
+    public static bool calendarEverOpend;  //月曆
     public static bool mirrorEverOpend; //鏡子
+    public static bool dollEverOpend; //玩偶
     public static void Initial()
     {
         wardrobeEverOpened = false;
@@ -20,5 +21,6 @@ public class OpenState : MonoBehaviour
         tipsEverOpend = false;
         calendarEverOpend = false;
         mirrorEverOpend = false;
+        dollEverOpend = false;
     }
 }

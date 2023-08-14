@@ -20,8 +20,15 @@ public class itemF : MonoBehaviour
                 back.SetActive(true);
                 m_audio.Play();
             }
-            
+
+            if (Input.GetKeyDown(KeyCode.Escape))
+            {
+                fish.SetActive(false);
+                back.SetActive(false);
+                m_audio.Stop();
+            }
         }
+        
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {

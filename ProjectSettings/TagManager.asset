@@ -16,6 +16,7 @@ TagManager:
   - WaterTank
   - FireOven
   - mirror
+  - doll
   layers:
   - Default
   - TransparentFX

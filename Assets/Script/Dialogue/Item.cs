@@ -43,6 +43,9 @@ public class Item : MonoBehaviour
             case "mirror":
                 dialogueSystem.ShowmirrorDialog();
                 break;
+            case "doll":
+                dialogueSystem.ShowdollDialog();
+                break;
         }
         //dialogueSystem.ShowDialog();
         /*if (collision.CompareTag("Player"))

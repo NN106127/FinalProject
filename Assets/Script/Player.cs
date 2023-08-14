@@ -43,6 +43,7 @@ public class Player : MonoBehaviour
         myAnimator.SetInteger("ani", 0);
         Movement();
         OpeMyBag();
+        
     }
 
     void Movement()//移动
@@ -117,6 +118,8 @@ public class Player : MonoBehaviour
         isOpen = !isOpen;
         myBag.SetActive(isOpen);
     }
+    
+    
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.gameObject.tag == "WaterTank")
