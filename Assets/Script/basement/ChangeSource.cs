@@ -9,9 +9,14 @@ public class ChangeSource : MonoBehaviour
     private Image imageComponent;  // 用於引用Image元件的變量
     public int currentIndex = 0;  // 用於跟踪當前圖像的索引
     public bool isActive;
+    public Button mybutton;
+    public bool conditionMet = true;
+    private btn btn;
+    public GameObject targetObject;
     // Start is called before the first frame update
     void Start()
     {
+        btn = targetObject.GetComponent<btn>();
         // 獲取Image元件的引用
         imageComponent = GetComponent<Image>();
 
@@ -20,6 +25,7 @@ public class ChangeSource : MonoBehaviour
         {
             imageComponent.sprite = imageOptions[currentIndex];
         }
+        conditionMet = true;
     }
 
     // Update is called once per frame
@@ -34,6 +40,8 @@ public class ChangeSource : MonoBehaviour
         {
             currentIndex = 0;
         }
+        conditionMet = btn.CanClick;
+        mybutton.interactable = conditionMet;
     }
 
     public void Onclick()

@@ -14,6 +14,7 @@ public class btn : MonoBehaviour
     public Image AnsImage;
     public Sprite AnsCorrect;
     public Sprite Rest;
+    public bool CanClick = true;
     // Start is called before the first frame update
     void Start()
     {
@@ -33,7 +34,10 @@ public class btn : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        CheckImage();
+        if (CanClick == true)
+        {
+            CheckImage();
+        }
         if (Input.GetKeyDown(KeyCode.R))
         {
             Restart();
@@ -82,6 +86,7 @@ public class btn : MonoBehaviour
                                                            //text.text = "你好棒";
                                                             Debug.Log("Clear");
                                                             AnsImage.sprite = AnsCorrect;
+                                                            CanClick = false;
                                                             //全對通關
                                                         }
                                                     }
