@@ -33,21 +33,21 @@ public class BonePuzzle : MonoBehaviour
 
         if (Input.GetKey(KeyCode.F2))
         {
-            Vector3 Cr1 = Bones[0].transform.localPosition = new Vector3(-74, 78, 0);
+            Vector3 Cr1 = Bones[0].transform.localPosition = new Vector3(-28, -31, 0);
             Quaternion Ro1 = Bones[0].transform.localRotation = Quaternion.Euler(0, 0, 60);
-            Vector3 Cr2 = Bones[1].transform.localPosition = new Vector3(7, 56, 0);
+            Vector3 Cr2 = Bones[1].transform.localPosition = new Vector3(60, -39, 0);
             Quaternion Ro2 = Bones[1].transform.localRotation = Quaternion.Euler(0, 0, 35);
-            Vector3 Cr3 = Bones[2].transform.localPosition = new Vector3(48, -12, 0);
+            Vector3 Cr3 = Bones[2].transform.localPosition = new Vector3(103, -105, 0);
             Quaternion Ro3 = Bones[2].transform.localRotation = Quaternion.Euler(0, 0, -105);
-            Vector3 Cr4 = Bones[3].transform.localPosition = new Vector3(62, 72, 0);
+            Vector3 Cr4 = Bones[3].transform.localPosition = new Vector3(119, -28, 0);
             Quaternion Ro4 = Bones[3].transform.localRotation = Quaternion.Euler(0, 0, 75);
-            Vector3 Cr5 = Bones[4].transform.localPosition = new Vector3(-101, 42, 0);
+            Vector3 Cr5 = Bones[4].transform.localPosition = new Vector3(-70, -80, 0);
             Quaternion Ro5 = Bones[4].transform.localRotation = Quaternion.Euler(0, 0, 65);
-            Vector3 Cr6 = Bones[5].transform.localPosition = new Vector3(-115, 100, 0);
+            Vector3 Cr6 = Bones[5].transform.localPosition = new Vector3(-68, -7, 0);
             Quaternion Ro6 = Bones[5].transform.localRotation = Quaternion.Euler(0, 0, 0);
-            Vector3 Cr7 = Bones[6].transform.localPosition = new Vector3(-60, 1, 0);
+            Vector3 Cr7 = Bones[6].transform.localPosition = new Vector3(-31, -112, 0);
             Quaternion Ro7 = Bones[6].transform.localRotation = Quaternion.Euler(0, 0, -90);
-            Vector3 Cr8 = Bones[7].transform.localPosition = new Vector3(-40, 164, 0);
+            Vector3 Cr8 = Bones[7].transform.localPosition = new Vector3(1, 69, 0);
             Quaternion Ro8 = Bones[7].transform.localRotation = Quaternion.Euler(0, 0, -105);
             CheckMatch();
         }
