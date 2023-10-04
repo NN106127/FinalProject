@@ -17,6 +17,14 @@ TagManager:
   - FireOven
   - mirror
   - doll
+  - Bone1
+  - Bone2
+  - Bone3
+  - Bone4
+  - Bone5
+  - Bone6
+  - Bone7
+  - Bone8
   layers:
   - Default
   - TransparentFX

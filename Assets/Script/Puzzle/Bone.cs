@@ -11,7 +11,7 @@ public class Bone : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
     public event BoneEventArg MouseUp;
     public bool isButtonPressed;
     public bool isCheck;
-    float RotationSpeed = 5;
+    float RotationSpeed = 20;
 
     void Start()
     {
@@ -24,12 +24,12 @@ public class Bone : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
         if (isButtonPressed == true)
         {
             this.gameObject.transform.position = mousePosition;
-            if (Input.GetKey(KeyCode.E))
+            if (Input.GetKeyDown(KeyCode.E))
             {
                 transform.Rotate(0, 0, -RotationSpeed);
                 //CheckMatch();
             }
-            if (Input.GetKey(KeyCode.Q))
+            if (Input.GetKeyDown(KeyCode.Q))
             {
                 transform.Rotate(0, 0, RotationSpeed);
                 //CheckMatch();
