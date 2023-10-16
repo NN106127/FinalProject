@@ -21,7 +21,7 @@ public class escui : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        backGroundMusic.volume = volumeSlider.value;
+       backGroundMusic.volume = volumeSlider.value;
         if (Input.GetKeyDown(KeyCode.Escape) && !isPause)
         {
             Pause();

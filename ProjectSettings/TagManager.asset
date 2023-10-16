@@ -25,6 +25,7 @@ TagManager:
   - Bone6
   - Bone7
   - Bone8
+  - Memory
   layers:
   - Default
   - TransparentFX
