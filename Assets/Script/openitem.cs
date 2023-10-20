@@ -16,6 +16,7 @@ public class openitem : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
         if (trigger.activeSelf == true)
         {
             item.SetActive(true);
