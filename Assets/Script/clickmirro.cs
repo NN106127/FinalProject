@@ -17,7 +17,7 @@ public class clickmirro : MonoBehaviour
     void Start()
     {
         //objectCollider = GetComponent<Collider2D>();
-
+        mirrorbtn.SetActive(false);
         mirrortransform = GetComponent<RectTransform>();
         targetPosition = new Vector2(Screen.width / -15, Screen.height / 15);
     }
