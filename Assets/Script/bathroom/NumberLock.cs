@@ -17,6 +17,11 @@ public class NumberLock : MonoBehaviour
     public List<Sprite> index = new List<Sprite>();
     public int Ans = 0;
 
+    public GameObject yes;
+    public GameObject no;
+    public GameObject open;
+    public float delay = 2.0f; // 延遲時間（以秒為單位）
+
     public void Start()
     {
         // 獲取Image元件的引用
@@ -40,6 +45,8 @@ public class NumberLock : MonoBehaviour
                 Images[2].sprite = index[1];
                 Images[3].sprite = index[1];
                 Images[4].sprite = index[1];
+                yes.SetActive(true);
+                StartCoroutine(ShowImageAfterDelay());
                 //passwordText.text = "密码正确！"; // 输入正确的情况
                 Ans = -1;
             }
@@ -50,6 +57,8 @@ public class NumberLock : MonoBehaviour
                 Images[2].sprite = index[2];
                 Images[3].sprite = index[2];
                 Images[4].sprite = index[2];
+                no.SetActive(true);
+                // 啟動 Coroutine 以延遲顯示圖片
                 //passwordText.text = "密码错误！"; // 输入错误的情况
                 currentInput = ""; // 重置输入
                 Ans = 6;
@@ -98,7 +107,7 @@ public class NumberLock : MonoBehaviour
     public void OnNumberButtonClick(string number)
     {
         currentInput += number;
-
+        no.SetActive(false);
         // 更新UI显示
         //passwordText.text = "当前输入：" + currentInput;
     }
@@ -106,5 +115,14 @@ public class NumberLock : MonoBehaviour
     public void OnClick()
     {
         Ans += 1;
+    }
+
+    private System.Collections.IEnumerator ShowImageAfterDelay()
+    {
+        // 等待指定的延遲時間
+        yield return new WaitForSeconds(delay);
+
+        // 顯示圖片
+        open.SetActive(true);
     }
 }
