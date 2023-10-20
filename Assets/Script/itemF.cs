@@ -16,6 +16,11 @@ public class itemF : MonoBehaviour
         {
             if(Input.GetKeyDown(KeyCode.F))
             {
+                GameObject playerObj = GameObject.Find("Player");
+                Player playerScript = playerObj.GetComponent<Player>();
+                Animator animator = playerObj.GetComponent<Animator>();
+                animator.speed = 0;
+                playerScript.enabled = false;
                 fish.SetActive(true);
                 back.SetActive(true);
                 m_audio.Play();
@@ -23,6 +28,11 @@ public class itemF : MonoBehaviour
 
             if (Input.GetKeyDown(KeyCode.Escape))
             {
+                GameObject playerObj = GameObject.Find("Player");
+                Player playerScript = playerObj.GetComponent<Player>();
+                Animator animator = playerObj.GetComponent<Animator>();
+                animator.speed = 1;
+                playerScript.enabled = true;
                 fish.SetActive(false);
                 back.SetActive(false);
                 m_audio.Stop();
