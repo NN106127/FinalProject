@@ -20,6 +20,7 @@ public class NumberLock : MonoBehaviour
     public GameObject yes;
     public GameObject no;
     public GameObject open;
+    public GameObject dollopen;
     public float delay = 2.0f; // 延遲時間（以秒為單位）
 
     public void Start()
@@ -47,6 +48,8 @@ public class NumberLock : MonoBehaviour
                 Images[4].sprite = index[1];
                 yes.SetActive(true);
                 OpenState.mirrorEverOpend = true;
+                OpenState.dollEverOpend = true;
+                dollopen.SetActive(true);
                 StartCoroutine(ShowImageAfterDelay());
                 //passwordText.text = "密码正确！"; // 输入正确的情况
                 Ans = -1;
