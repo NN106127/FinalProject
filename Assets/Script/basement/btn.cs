@@ -16,6 +16,9 @@ public class btn : MonoBehaviour
     public Sprite Rest;
     public bool CanClick = true;
     public GameObject backoff;
+    public GameObject memory;
+
+    public AudioSource memorysound;
     // Start is called before the first frame update
     void Start()
     {
@@ -90,6 +93,8 @@ public class btn : MonoBehaviour
                                                             CanClick = false;
                                                             OpenState.electricalboxEverOpend = true;
                                                             backoff.SetActive(false);
+                                                            memory.SetActive(true);
+                                                            memorysound.Play();
                                                             //全對通關
                                                         }
                                                     }

@@ -33609,6 +33609,8 @@ MonoBehaviour:
   Rest: {fileID: 21300000, guid: b2587ee7167d8004e82c25711af54054, type: 3}
   CanClick: 1
   backoff: {fileID: 1545072622}
+  memory: {fileID: 885855097}
+  memorysound: {fileID: 1559622287}
 --- !u!1 &884836419
 GameObject:
   m_ObjectHideFlags: 0
