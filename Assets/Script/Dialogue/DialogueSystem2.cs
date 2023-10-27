@@ -251,6 +251,24 @@ public class DialogueSystem2 : MonoBehaviour
             playerimg2.SetActive(true);
             StartCoroutine(TypeLine(nextDialogLines[currentLine])); // 開啟文字輸出協程
         }
+    }
 
+    public void ShowetubDialog()
+    {
+
+        if (!OpenState.tubEverOpend)
+        {
+            dialogActive1 = true; // 顯示對話框
+            dialogBox.SetActive(true);
+            playerimg1.SetActive(true);
+            StartCoroutine(TypeLine(dialogLines[currentLine])); // 開啟文字輸出協程
+        }
+        else
+        {
+            dialogActive2 = true; // 顯示對話框
+            dialogBox.SetActive(true);
+            playerimg2.SetActive(true);
+            StartCoroutine(TypeLine(nextDialogLines[currentLine])); // 開啟文字輸出協程
+        }
     }
 }

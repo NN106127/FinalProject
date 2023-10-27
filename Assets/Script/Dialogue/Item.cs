@@ -49,6 +49,9 @@ public class Item : MonoBehaviour
             case "electricalbox":
                 dialogueSystem.ShowelectricalboxDialog();
                 break;
+            case "tub":
+                dialogueSystem.ShowetubDialog();
+                break;
         }
         //dialogueSystem.ShowDialog();
         /*if (collision.CompareTag("Player"))

@@ -27,6 +27,7 @@ TagManager:
   - Bone8
   - Memory
   - electricalbox
+  - tub
   layers:
   - Default
   - TransparentFX
