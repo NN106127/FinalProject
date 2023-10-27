@@ -14,12 +14,14 @@ public class DialogueSystem2 : MonoBehaviour
     public bool dialogActive2; // 對話框是否顯示
     public float typeSpeed; // 打字速度
     private bool textFinished; // 文字是否輸出完成
-    public GameObject playerimg;
+    public GameObject playerimg1;
+    public GameObject playerimg2;
     public AudioSource m_audio;
     // Start is called before the first frame update
     void Start()
     {
-        playerimg.SetActive(false);
+        playerimg1.SetActive(false);
+        playerimg2.SetActive(false);
         dialogBox.SetActive(false); // 對話框一開始不顯示
         textFinished = true; // 文字一開始為輸出完成
     }
@@ -37,7 +39,8 @@ public class DialogueSystem2 : MonoBehaviour
             }
             else
             {
-                playerimg.SetActive(false);
+                playerimg1.SetActive(false);
+                playerimg2.SetActive(false);
                 dialogBox.SetActive(false); // 所有對話結束，隱藏對話框
                 dialogActive1 = false;
                 currentLine = 0;
@@ -54,7 +57,8 @@ public class DialogueSystem2 : MonoBehaviour
             }
             else
             {
-                playerimg.SetActive(false);
+                playerimg1.SetActive(false);
+                playerimg2.SetActive(false);
                 dialogBox.SetActive(false); // 所有對話結束，隱藏對話框
                 dialogActive2 = false;
                 currentLine = 0;
@@ -84,7 +88,8 @@ public class DialogueSystem2 : MonoBehaviour
         {
             dialogActive1 = true; // 顯示對話框
             dialogBox.SetActive(true);
-            playerimg.SetActive(true);
+            playerimg1.SetActive(true);
+            playerimg2.SetActive(false);
             StartCoroutine(TypeLine(dialogLines[currentLine])); // 開啟文字輸出協程
             
         }
@@ -100,7 +105,7 @@ public class DialogueSystem2 : MonoBehaviour
         {
             dialogActive1 = true; // 顯示對話框
             dialogBox.SetActive(true);
-            playerimg.SetActive(true);
+            playerimg1.SetActive(true);
             StartCoroutine(TypeLine(dialogLines[currentLine])); // 開啟文字輸出協程
         }
         else
@@ -108,7 +113,7 @@ public class DialogueSystem2 : MonoBehaviour
             dialogActive2 = true; // 顯示對話框
             
             dialogBox.SetActive(true);
-            playerimg.SetActive(true);
+            playerimg2.SetActive(true);
             StartCoroutine(TypeLine(nextDialogLines[currentLine])); // 開啟文字輸出協程
         }
 
@@ -120,14 +125,14 @@ public class DialogueSystem2 : MonoBehaviour
         {
             dialogActive1 = true; // 顯示對話框
             dialogBox.SetActive(true);
-            playerimg.SetActive(true);
+            playerimg1.SetActive(true);
             StartCoroutine(TypeLine(dialogLines[currentLine])); // 開啟文字輸出協程
         }
         else
         {
             dialogActive2 = true; // 顯示對話框
             dialogBox.SetActive(true);
-            playerimg.SetActive(true);
+            playerimg2.SetActive(true);
             StartCoroutine(TypeLine(nextDialogLines[currentLine])); // 開啟文字輸出協程
         }
 
@@ -139,7 +144,7 @@ public class DialogueSystem2 : MonoBehaviour
             
             dialogActive1 = true; // 顯示對話框
             dialogBox.SetActive(true);
-            playerimg.SetActive(true);
+            playerimg1.SetActive(true);
             StartCoroutine(TypeLine(dialogLines[currentLine])); // 開啟文字輸出協程
         }
         else
@@ -147,7 +152,7 @@ public class DialogueSystem2 : MonoBehaviour
             Debug.Log("C");
             dialogActive2 = true; // 顯示對話框
             dialogBox.SetActive(true);
-            playerimg.SetActive(true);
+            playerimg2.SetActive(true);
             StartCoroutine(TypeLine(nextDialogLines[currentLine])); // 開啟文字輸出協程
         }
 
@@ -159,14 +164,14 @@ public class DialogueSystem2 : MonoBehaviour
         {
             dialogActive1 = true; // 顯示對話框
             dialogBox.SetActive(true);
-            playerimg.SetActive(true);
+            playerimg1.SetActive(true);
             StartCoroutine(TypeLine(dialogLines[currentLine])); // 開啟文字輸出協程
         }
         else
         {
             dialogActive2 = true; // 顯示對話框
             dialogBox.SetActive(true);
-            playerimg.SetActive(true);
+            playerimg2.SetActive(true);
             StartCoroutine(TypeLine(nextDialogLines[currentLine])); // 開啟文字輸出協程
         }
 
@@ -178,14 +183,14 @@ public class DialogueSystem2 : MonoBehaviour
         {
             dialogActive1 = true; // 顯示對話框
             dialogBox.SetActive(true);
-            playerimg.SetActive(true);
+            playerimg1.SetActive(true);
             StartCoroutine(TypeLine(dialogLines[currentLine])); // 開啟文字輸出協程
         }
         else
         {
             dialogActive2 = true; // 顯示對話框
             dialogBox.SetActive(true);
-            playerimg.SetActive(true);
+            playerimg2.SetActive(true);
             StartCoroutine(TypeLine(nextDialogLines[currentLine])); // 開啟文字輸出協程
         }
 
@@ -197,14 +202,14 @@ public class DialogueSystem2 : MonoBehaviour
         {
             dialogActive1 = true; // 顯示對話框
             dialogBox.SetActive(true);
-            playerimg.SetActive(true);
+            playerimg1.SetActive(true);
             StartCoroutine(TypeLine(dialogLines[currentLine])); // 開啟文字輸出協程
         }
         else
         {
             dialogActive2 = true; // 顯示對話框
             dialogBox.SetActive(true);
-            playerimg.SetActive(true);
+            playerimg2.SetActive(true);
             StartCoroutine(TypeLine(nextDialogLines[currentLine])); // 開啟文字輸出協程
         }
 
@@ -216,14 +221,34 @@ public class DialogueSystem2 : MonoBehaviour
         {
             dialogActive1 = true; // 顯示對話框
             dialogBox.SetActive(true);
-            playerimg.SetActive(true);
+            playerimg1.SetActive(true);
             StartCoroutine(TypeLine(dialogLines[currentLine])); // 開啟文字輸出協程
         }
         else
         {
             dialogActive2 = true; // 顯示對話框
             dialogBox.SetActive(true);
-            playerimg.SetActive(true);
+            playerimg2.SetActive(true);
+            StartCoroutine(TypeLine(nextDialogLines[currentLine])); // 開啟文字輸出協程
+        }
+
+    }
+
+    public void ShowelectricalboxDialog()
+    {
+
+        if (!OpenState.electricalboxEverOpend)
+        {
+            dialogActive1 = true; // 顯示對話框
+            dialogBox.SetActive(true);
+            playerimg1.SetActive(true);
+            StartCoroutine(TypeLine(dialogLines[currentLine])); // 開啟文字輸出協程
+        }
+        else
+        {
+            dialogActive2 = true; // 顯示對話框
+            dialogBox.SetActive(true);
+            playerimg2.SetActive(true);
             StartCoroutine(TypeLine(nextDialogLines[currentLine])); // 開啟文字輸出協程
         }
 

@@ -15,6 +15,7 @@ public class btn : MonoBehaviour
     public Sprite AnsCorrect;
     public Sprite Rest;
     public bool CanClick = true;
+    public GameObject backoff;
     // Start is called before the first frame update
     void Start()
     {
@@ -87,6 +88,8 @@ public class btn : MonoBehaviour
                                                             Debug.Log("Clear");
                                                             AnsImage.sprite = AnsCorrect;
                                                             CanClick = false;
+                                                            OpenState.electricalboxEverOpend = true;
+                                                            backoff.SetActive(false);
                                                             //全對通關
                                                         }
                                                     }

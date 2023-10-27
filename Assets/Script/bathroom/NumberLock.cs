@@ -46,6 +46,7 @@ public class NumberLock : MonoBehaviour
                 Images[3].sprite = index[1];
                 Images[4].sprite = index[1];
                 yes.SetActive(true);
+                OpenState.mirrorEverOpend = true;
                 StartCoroutine(ShowImageAfterDelay());
                 //passwordText.text = "密码正确！"; // 输入正确的情况
                 Ans = -1;
