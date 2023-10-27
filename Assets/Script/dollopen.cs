@@ -5,8 +5,16 @@ using UnityEngine;
 public class dollopen : MonoBehaviour
 {
     private Collider2D objectCollider;
+
     public GameObject doll;
-    public GameObject dollain;
+    public GameObject dollain1;
+    public GameObject dollain2;
+    public GameObject memory;
+
+    public float delay = 2.0f; // 延遲時間（以秒為單位）
+
+    public AudioSource dollsound;
+    public AudioSource memorysound;
     // Start is called before the first frame update
     void Start()
     {
@@ -39,7 +47,22 @@ public class dollopen : MonoBehaviour
     }
     public void OnObjectClicked()
     {
-        dollain.SetActive(true);
+        dollain1.SetActive(true);
+        dollsound.Play();
+        // 啟動 Coroutine 以延遲顯示圖片
+        StartCoroutine(ShowImageAfterDelay());
 
+    }
+    private System.Collections.IEnumerator ShowImageAfterDelay()
+    {
+        // 等待指定的延遲時間
+        yield return new WaitForSeconds(delay);
+
+        // 顯示圖片
+        dollain1.SetActive(false);
+        dollain2.SetActive(true);
+        memory.SetActive(true);
+        dollsound.Stop();
+        memorysound.Play();
     }
 }

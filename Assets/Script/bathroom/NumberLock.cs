@@ -23,6 +23,7 @@ public class NumberLock : MonoBehaviour
     public GameObject dollopen;
     public float delay = 2.0f; // 延遲時間（以秒為單位）
 
+    public AudioSource opensound;
     public void Start()
     {
         // 獲取Image元件的引用
@@ -125,7 +126,7 @@ public class NumberLock : MonoBehaviour
     {
         // 等待指定的延遲時間
         yield return new WaitForSeconds(delay);
-
+        opensound.Play();
         // 顯示圖片
         open.SetActive(true);
     }

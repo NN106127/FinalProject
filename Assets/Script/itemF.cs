@@ -7,6 +7,7 @@ public class itemF : MonoBehaviour
     public GameObject F1;
     public GameObject fish;
     public GameObject back;
+    public GameObject memory;
     bool CanF;
     public AudioSource m_audio;
     
@@ -23,6 +24,7 @@ public class itemF : MonoBehaviour
                 playerScript.enabled = false;
                 fish.SetActive(true);
                 back.SetActive(true);
+                memory.SetActive(false);
                 m_audio.Play();
             }
 
@@ -35,6 +37,7 @@ public class itemF : MonoBehaviour
                 playerScript.enabled = true;
                 fish.SetActive(false);
                 back.SetActive(false);
+                memory.SetActive(true);
                 m_audio.Stop();
             }
         }
