@@ -213,6 +213,8 @@ MonoBehaviour:
   m_sec: 58
   img: {fileID: 147826749}
   black: {fileID: 2110400651}
+  music: {fileID: 833641570}
+  delay: 5
 --- !u!1 &342967160
 GameObject:
   m_ObjectHideFlags: 0

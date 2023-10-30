@@ -13,6 +13,8 @@ public class videoplay : MonoBehaviour
 
     public GameObject img;
     public GameObject black;
+    public GameObject music;
+    public float delay = 2.0f; // 延遲時間（以秒為單位）
 
     // Start is called before the first frame update
     void Start()
@@ -25,7 +27,10 @@ public class videoplay : MonoBehaviour
     {
         if (Input.GetKey(KeyCode.Space))
         {
-            SceneManager.LoadScene(2);
+            music.SetActive(false);
+            black.SetActive(true);
+            StartCoroutine(ShowImageAfterDelay());
+
         }
     }
     IEnumerator Countdown()
@@ -56,5 +61,11 @@ public class videoplay : MonoBehaviour
         
         SceneManager.LoadScene(2);       //時間結束時，畫面出現 GAME OVER
 
+    }
+    private System.Collections.IEnumerator ShowImageAfterDelay()
+    {
+        // 等待指定的延遲時間
+        yield return new WaitForSeconds(delay);
+        SceneManager.LoadScene(2);
     }
 }
