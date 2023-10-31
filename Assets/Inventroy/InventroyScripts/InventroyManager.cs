@@ -25,8 +25,9 @@ public class InventroyManager : MonoBehaviour
 
     public bool WaterTank;
     public bool FireOven;
+    public bool wrench;
+    public bool magnet;
     public Player player;
-
     void Update()
     {
         WaterTank = player.WaterTankOp;
@@ -71,6 +72,7 @@ public class InventroyManager : MonoBehaviour
             this.gameObject.SetActive(false);
             itemCodeNum.text = "0";
         }
+
         if (itemCodeNum.text == "3" && FireOven == true)
         {
             Debug.Log("使用人骨");
@@ -83,6 +85,7 @@ public class InventroyManager : MonoBehaviour
             itemInformation.text = "好像不能用在這裡...";
             itemCodeNum.text = "0";
         }
+
         if (itemCodeNum.text == "4" && WaterTank == true)
         {
             Debug.Log("使用鑰匙");
@@ -97,6 +100,30 @@ public class InventroyManager : MonoBehaviour
         if (itemCodeNum.text == "4" && WaterTank == false)
         {
             itemInformation.text = "這裡好像用不到...";
+            itemCodeNum.text = "0";
+        }
+
+        if (itemCodeNum.text == "5" && wrench == true)
+        {
+            Debug.Log("使用板手");
+            this.gameObject.SetActive(false);
+            itemCodeNum.text = "0";
+        }
+        if (itemCodeNum.text == "5" && wrench == false)
+        {
+            itemInformation.text = "好像不能用在這裡...";
+            itemCodeNum.text = "0";
+        }
+
+        if (itemCodeNum.text == "6" && magnet == true)
+        {
+            Debug.Log("使用磁鐵");
+            this.gameObject.SetActive(false);
+            itemCodeNum.text = "0";
+        }
+        if (itemCodeNum.text == "6" && magnet == false)
+        {
+            itemInformation.text = "好像不能用在這裡...";
             itemCodeNum.text = "0";
         }
     }
