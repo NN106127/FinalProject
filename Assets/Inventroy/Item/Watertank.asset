@@ -15,6 +15,6 @@ MonoBehaviour:
   itemName: Watertank
   itemImage: {fileID: 21300000, guid: 2fcff024ae4845140b188ad2d4042065, type: 3}
   itemHeld: 1
-  itemInfo: "\u9019\u628A\u9470\u5319\u597D\u50CF\u8DDF\u6C34\u7BC9\u7BB1\u88E1\u7684\u5BF6\u7BB1\u5C0D\u7684\u4E0A"
+  itemInfo: "\u9019\u628A\u9470\u5319\u597D\u50CF\u8DDF\u6C34\u65CF\u7BB1\u88E1\u7684\u5BF6\u7BB1\u5C0D\u7684\u4E0A"
   itemCodeNum: 4
   equip: 0

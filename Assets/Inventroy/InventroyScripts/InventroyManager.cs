@@ -17,6 +17,7 @@ public class InventroyManager : MonoBehaviour
     public GameObject BonePuzzles;
     public GameObject Memory02;
     public GameObject boxopen;
+    public GameObject electricalbox;
     //public item useitem;
 
     public List<GameObject> slots = new List<GameObject>(); //管理生成20個slots
@@ -107,6 +108,7 @@ public class InventroyManager : MonoBehaviour
         {
             Debug.Log("使用板手");
             this.gameObject.SetActive(false);
+            electricalbox.SetActive(false);
             itemCodeNum.text = "0";
         }
         if (itemCodeNum.text == "5" && wrench == false)

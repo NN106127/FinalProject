@@ -15,6 +15,6 @@ MonoBehaviour:
   itemName: magnet
   itemImage: {fileID: 21300000, guid: 5808bab48aa21094392de2d5b01e5943, type: 3}
   itemHeld: 1
-  itemInfo: 
+  itemInfo: "\u4E00\u500B\u78C1\u9435\uFF0C\u53EF\u4EE5\u7528\u4F86\u5438\u53D6\u9060\u8655\u7684\u6771\u897F"
   itemCodeNum: 6
   equip: 0

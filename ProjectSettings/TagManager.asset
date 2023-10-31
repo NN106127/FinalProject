@@ -28,6 +28,7 @@ TagManager:
   - Memory
   - electricalbox
   - tub
+  - wrench
   layers:
   - Default
   - TransparentFX

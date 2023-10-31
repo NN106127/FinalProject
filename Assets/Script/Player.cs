@@ -22,6 +22,8 @@ public class Player : MonoBehaviour
 
     public bool WaterTankOp;
     public bool FireOvenOp;
+    public bool wrench;
+    public bool magnet;
     void Start()
     {
 
@@ -131,6 +133,15 @@ public class Player : MonoBehaviour
         {
             FireOvenOp = true;
         }
+        if (other.gameObject.tag == "wrench")
+        {
+            wrench = true;
+        }
+        if (other.gameObject.tag == "magnet")
+        {
+            magnet = true;
+        }
+
     }
 
     private void OnTriggerExit2D(Collider2D other)
@@ -143,6 +154,14 @@ public class Player : MonoBehaviour
         if (other.gameObject.tag == "FireOven")
         {
             FireOvenOp = false;
+        }
+        if (other.gameObject.tag == "wrench")
+        {
+            wrench = false;
+        }
+        if (other.gameObject.tag == "magnet")
+        {
+            magnet = false;
         }
     }
 }
