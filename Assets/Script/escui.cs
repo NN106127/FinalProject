@@ -22,7 +22,7 @@ public class escui : MonoBehaviour
     void Update()
     {
        backGroundMusic.volume = volumeSlider.value;
-        if (Input.GetKeyDown(KeyCode.Escape) && !isPause)
+        /*if (Input.GetKeyDown(KeyCode.Escape) && !isPause)
         {
             Pause();
             Debug.Log("Pause");
@@ -31,7 +31,7 @@ public class escui : MonoBehaviour
         {
             unPause();
             Debug.Log("UnPause");
-        }
+        }*/
     }
 
     public void OnClickMusic()
