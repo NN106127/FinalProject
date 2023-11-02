@@ -17,6 +17,7 @@ public class DialogueSystem2 : MonoBehaviour
     public GameObject playerimg1;
     public GameObject playerimg2;
     public AudioSource m_audio;
+    public AudioSource buttonsound;
     // Start is called before the first frame update
     void Start()
     {
@@ -31,6 +32,7 @@ public class DialogueSystem2 : MonoBehaviour
     {
         if (dialogActive1 && Input.GetKeyDown(KeyCode.Space) && textFinished)
         {
+            buttonsound.Play();
             currentLine++;
             if (currentLine < dialogLines.Length )
             {
@@ -75,7 +77,7 @@ public class DialogueSystem2 : MonoBehaviour
         {
             
             dialogText.text += c; // 一個一個字元輸出文字
-            m_audio.Play();
+            //m_audio.Play();
             yield return new WaitForSeconds(typeSpeed); // 等待typeSpeed秒再輸出下一個字元
             
         }
