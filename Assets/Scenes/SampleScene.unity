@@ -15526,6 +15526,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   UIPanel: {fileID: 716900165}
   volumeSlider: {fileID: 38393376}
+  backGroundMusic: {fileID: 0}
 --- !u!1 &369909929
 GameObject:
   m_ObjectHideFlags: 0
@@ -46142,7 +46143,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 10
   m_Sprite: {fileID: 21300000, guid: 0fec826376bd8584aa50acdbcf97992a, type: 3}
-  m_Color: {r: 0.4433962, g: 0.35764506, b: 0.35764506, a: 1}
+  m_Color: {r: 0.43529412, g: 0.29411766, b: 0.29411766, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -46184,13 +46185,12 @@ MonoBehaviour:
   fadeSpeed: 1
   currentAlpha: 1
   fadingOut: 1
-  status: standby
   speed: 3
-  accelerationRate: 0.1
+  accelerationRate: 5
   Player: {fileID: 451120723}
   RestPlayer: {fileID: 2028197202}
-  detectionRange: 7
-  distanceToVisualize: 7
+  detectionRange: 4
+  distanceToVisualize: 4
   RestPosition: {fileID: 1967320304}
 --- !u!61 &956304048
 BoxCollider2D:

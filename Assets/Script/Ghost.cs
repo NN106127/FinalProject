@@ -122,13 +122,13 @@ public class Ghost : MonoBehaviour
         }
     }
 
-    /*private void OnDrawGizmos()//看範圍用的可以自己打開
+    private void OnDrawGizmos()//看範圍用的可以自己打開
     {
         Gizmos.color = Color.red; // 设置Gizmos的颜色
 
         // 在指定位置绘制一个球形Gizmo，用于表示距离
         Gizmos.DrawWireSphere(transform.position, distanceToVisualize);
-    }*/
+    }
 
     private void OnTriggerEnter2D(Collider2D other)
     {
