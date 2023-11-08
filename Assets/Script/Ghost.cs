@@ -21,9 +21,14 @@ public class Ghost : MonoBehaviour
     public Transform Player;
     public GameObject RestPlayer;
 
-    public float detectionRange; // 在X轴上的检测范围
+    public float detectionRange; // 在X轴上的检测范围(開始追逐範圍
+    public float EncounterRange; // 進到範圍發出女鬼哀豪
     public float distanceToVisualize;
     public Transform RestPosition;
+
+    public GameObject RestartUI;
+    public GameObject Camera01;
+    public GameObject Camera02;
 
     // Start is called before the first frame update
     void Start() 
@@ -120,6 +125,12 @@ public class Ghost : MonoBehaviour
             // 玩家超出检测范围，停止追踪
             status = "Rest";
         }
+
+        if(distanceX <= EncounterRange)
+        {
+            //音效寫這裡
+            Debug.Log("進到範圍了");
+        }
     }
 
     private void OnDrawGizmos()//看範圍用的可以自己打開
@@ -135,6 +146,16 @@ public class Ghost : MonoBehaviour
         if(other.gameObject.tag == "Player")
         {
             //被碰到寫在這裡
+            RestartUI.SetActive(true);
+            speed = 0;
         }
     }
+
+    public void OnRestartClick()
+    {
+        Player.transform.position = RestPlayer.transform.position;
+        RestartUI.SetActive(false);
+        Camera01.SetActive(true);
+        Camera02.SetActive(false);
+    }    
 }
