@@ -23,8 +23,10 @@ public class Ghost : MonoBehaviour
 
     public float detectionRange; // 在X轴上的检测范围(開始追逐範圍
     public float EncounterRange; // 進到範圍發出女鬼哀豪
-    public float distanceToVisualize;
     public Transform RestPosition;
+
+    Color color01 = Color.red;
+    Color color02 = Color.green;
 
     public GameObject RestartUI;
     public GameObject Camera01;
@@ -135,10 +137,14 @@ public class Ghost : MonoBehaviour
 
     private void OnDrawGizmos()//看範圍用的可以自己打開
     {
-        Gizmos.color = Color.red; // 设置Gizmos的颜色
+        Gizmos.color = color01; // 设置Gizmos的颜色
 
         // 在指定位置绘制一个球形Gizmo，用于表示距离
-        Gizmos.DrawWireSphere(transform.position, distanceToVisualize);
+        Gizmos.DrawWireSphere(transform.position, detectionRange);
+
+        Gizmos.color = color02;
+
+        Gizmos.DrawWireSphere(transform.position, EncounterRange);
     }
 
     private void OnTriggerEnter2D(Collider2D other)
