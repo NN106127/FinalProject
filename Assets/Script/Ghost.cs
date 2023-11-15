@@ -154,6 +154,11 @@ public class Ghost : MonoBehaviour
             //被碰到寫在這裡
             RestartUI.SetActive(true);
             speed = 0;
+            GameObject playerObj = GameObject.Find("Player");
+            Player playerScript = playerObj.GetComponent<Player>();
+            Animator animator = playerObj.GetComponent<Animator>();
+            animator.speed = 0;
+            playerScript.enabled = false;
         }
     }
 
@@ -163,5 +168,10 @@ public class Ghost : MonoBehaviour
         RestartUI.SetActive(false);
         Camera01.SetActive(true);
         Camera02.SetActive(false);
-    }    
+        GameObject playerObj = GameObject.Find("Player");
+        Player playerScript = playerObj.GetComponent<Player>();
+        Animator animator = playerObj.GetComponent<Animator>();
+        animator.speed = 1;
+        playerScript.enabled = true;
+    }
 }

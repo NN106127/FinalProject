@@ -12178,7 +12178,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &171734680
 RectTransform:
   m_ObjectHideFlags: 0
@@ -42289,14 +42289,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.7735849, g: 0.7735849, b: 0.7735849, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: b54cef10ce2265049976594c2c7505a6, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 203bed0679b43f44ba4e5cd3ad7b6648, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -51136,8 +51136,8 @@ MonoBehaviour:
   accelerationRate: 5
   Player: {fileID: 451120723}
   RestPlayer: {fileID: 2028197202}
-  detectionRange: 7
-  EncounterRange: 10
+  detectionRange: 5.5
+  EncounterRange: 6.5
   RestPosition: {fileID: 1967320304}
   RestartUI: {fileID: 592501002}
   Camera01: {fileID: 713010034}
@@ -87862,7 +87862,7 @@ RectTransform:
   m_GameObject: {fileID: 1563694563}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 2, y: 2, z: 2}
   m_Children: []
   m_Father: {fileID: 627945592}
   m_RootOrder: 0
@@ -87892,7 +87892,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
+  m_Sprite: {fileID: 21300000, guid: 3bb99fe4b9cb19a4d84f33924a91e3ad, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
