@@ -23,10 +23,12 @@ public class Ghost : MonoBehaviour
 
     public float detectionRange; // 在X轴上的检测范围(開始追逐範圍
     public float EncounterRange; // 進到範圍發出女鬼哀豪
+    public float OutofRange;     //設定超出範圍
     public Transform RestPosition;
 
     Color color01 = Color.red;
     Color color02 = Color.green;
+    Color color03 = Color.blue;
 
     public GameObject RestartUI;
     public GameObject Camera01;
@@ -93,6 +95,7 @@ public class Ghost : MonoBehaviour
 
         if(status == "Rest")
         {
+            speed = 6;
             transform.position = RestPosition.transform.position;
             status = "standby";
         }
@@ -122,7 +125,7 @@ public class Ghost : MonoBehaviour
             // 玩家在检测范围内，开始追踪
             status = "found";
         }
-        else
+        if(distanceX >= OutofRange && distanceY <= 0.78)
         {
             // 玩家超出检测范围，停止追踪
             status = "Rest";
@@ -145,6 +148,10 @@ public class Ghost : MonoBehaviour
         Gizmos.color = color02;
 
         Gizmos.DrawWireSphere(transform.position, EncounterRange);
+
+        Gizmos.color = color03;
+
+        Gizmos.DrawWireSphere(transform.position, OutofRange);
     }
 
     private void OnTriggerEnter2D(Collider2D other)
