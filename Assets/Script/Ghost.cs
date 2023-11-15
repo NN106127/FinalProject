@@ -95,7 +95,7 @@ public class Ghost : MonoBehaviour
 
         if(status == "Rest")
         {
-            speed = 6;
+            speed = 4;
             transform.position = RestPosition.transform.position;
             status = "standby";
         }
@@ -125,13 +125,13 @@ public class Ghost : MonoBehaviour
             // 玩家在检测范围内，开始追踪
             status = "found";
         }
-        if(distanceX >= OutofRange && distanceY <= 0.78)
+        if (distanceX >= OutofRange || distanceY > 0.78)
         {
             // 玩家超出检测范围，停止追踪
             status = "Rest";
         }
 
-        if(distanceX <= EncounterRange)
+        if (distanceX <= EncounterRange)
         {
             //音效寫這裡
             Debug.Log("進到範圍了");
@@ -171,6 +171,7 @@ public class Ghost : MonoBehaviour
 
     public void OnRestartClick()
     {
+        status = "Rest";
         Player.transform.position = RestPlayer.transform.position;
         RestartUI.SetActive(false);
         Camera01.SetActive(true);

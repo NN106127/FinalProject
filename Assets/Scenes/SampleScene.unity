@@ -51132,13 +51132,13 @@ MonoBehaviour:
   fadeSpeed: 1
   currentAlpha: 1
   fadingOut: 1
-  speed: 3
+  speed: 1
   accelerationRate: 5
   Player: {fileID: 451120723}
   RestPlayer: {fileID: 2028197202}
-  detectionRange: 7
-  EncounterRange: 10
-  OutofRange: 13
+  detectionRange: 6
+  EncounterRange: 6.5
+  OutofRange: 10
   RestPosition: {fileID: 1967320304}
   RestartUI: {fileID: 592501002}
   Camera01: {fileID: 713010034}
