@@ -60657,6 +60657,7 @@ MonoBehaviour:
   strings: []
   Ans: 
   t: 0
+  nextSceneName: end
 --- !u!1 &1239854612
 GameObject:
   m_ObjectHideFlags: 0
