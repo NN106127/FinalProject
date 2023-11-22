@@ -62,6 +62,12 @@ public class MemoryManger : MonoBehaviour
         strings.Remove(memoryConnect3.i);
         strings.Remove(memoryConnect4.i);
         strings.Remove(memoryConnect5.i);
+        memoryConnect1.i = "";
+        memoryConnect2.i = "";
+        memoryConnect3.i = "";
+        memoryConnect4.i = "";
+        memoryConnect5.i = "";
+        Ans = "";
         t = 0;
     }
 

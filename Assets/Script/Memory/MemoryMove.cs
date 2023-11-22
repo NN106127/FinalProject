@@ -8,10 +8,12 @@ public class MemoryMove : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
     public bool isButtonPressed;
     public bool isCheck;
     private Rigidbody2D rb;
+    Vector2 originalPosition;
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        originalPosition = transform.position;//ªì©l¦ì¸m
     }
 
     // Update is called once per frame
@@ -21,6 +23,10 @@ public class MemoryMove : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
         if (isButtonPressed == true)
         {
             this.gameObject.transform.position = mousePosition;
+        }
+        if (Input.GetKey(KeyCode.R))
+        {
+            transform.position = originalPosition;
         }
     }
 
