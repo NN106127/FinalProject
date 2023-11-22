@@ -52,6 +52,9 @@ public class Item : MonoBehaviour
             case "tub":
                 dialogueSystem.ShowetubDialog();
                 break;
+            case "door":
+                dialogueSystem.ShowetubDialog();
+                break;
         }
         //dialogueSystem.ShowDialog();
         /*if (collision.CompareTag("Player"))

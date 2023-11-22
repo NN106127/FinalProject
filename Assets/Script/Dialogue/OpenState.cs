@@ -14,6 +14,7 @@ public class OpenState : MonoBehaviour
     public static bool dollEverOpend; //ª±°¸
     public static bool electricalboxEverOpend; //¹q½c
     public static bool tubEverOpend; //¯D¬û
+    public static bool doorEverOpend; //ªù
     public static void Initial()
     {
         wardrobeEverOpened = false;
@@ -26,5 +27,6 @@ public class OpenState : MonoBehaviour
         dollEverOpend = false;
         electricalboxEverOpend = false;
         tubEverOpend = false;
+        doorEverOpend = false;
     }
 }

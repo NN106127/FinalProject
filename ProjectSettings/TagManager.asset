@@ -29,6 +29,7 @@ TagManager:
   - electricalbox
   - tub
   - wrench
+  - door
   layers:
   - Default
   - TransparentFX
