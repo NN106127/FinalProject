@@ -34,9 +34,12 @@ public class Ghost : MonoBehaviour
     public GameObject Camera01;
     public GameObject Camera02;
 
+    private Animator animator;
+
     // Start is called before the first frame update
     void Start() 
     {
+        animator = GetComponent<Animator>();
         currentSpeed = speed;
         if (spriteRenderer == null)
         {
@@ -54,6 +57,7 @@ public class Ghost : MonoBehaviour
     {
         if (status == "standby")
         {
+            animator.SetBool("run", false);
             if (fadingOut == true)
             {
                 // 减少Alpha值
@@ -83,6 +87,7 @@ public class Ghost : MonoBehaviour
 
         if (status == "found")
         {
+            
             currentAlpha = 1;
             Color newColor = spriteRenderer.color;
             newColor.a = currentAlpha;
@@ -95,6 +100,7 @@ public class Ghost : MonoBehaviour
 
         if(status == "Rest")
         {
+            
             speed = 4;
             transform.position = RestPosition.transform.position;
             status = "standby";
@@ -124,11 +130,13 @@ public class Ghost : MonoBehaviour
         {
             // 玩家在检测范围内，开始追踪
             status = "found";
+            animator.SetBool("run", true);
         }
         if (distanceX >= OutofRange || distanceY > 0.78)
         {
             // 玩家超出检测范围，停止追踪
             status = "Rest";
+            animator.SetBool("run", false);
         }
 
         if (distanceX <= EncounterRange)
