@@ -33,7 +33,8 @@ public class InventroyManager : MonoBehaviour
     {
         WaterTank = player.WaterTankOp;
         FireOven = player.FireOvenOp;
-        
+        wrench = player.wrench;
+        magnet = player.magnet;
     }
     void Awake()
     {
