@@ -75,64 +75,38 @@ public class MemoryManger : MonoBehaviour
 
     void MemoryAnime()
     {
-        
-        switch (Ans)
-        {
-            case "1":
-                Debug.Log("A");
-                // 发送消息到名为 "PlayVideo" 的函数，参数可以是影片的标识符或其他信息
-                SendMessage("PlayVideo", "Video1");
-                break;
-            case "2":
-                Debug.Log("B");
-                // 发送消息到名为 "PlayVideo" 的函数，参数可以是影片的标识符或其他信息
-                SendMessage("PlayVideo", "Video2");
-                break;
-            case "3":
-                Debug.Log("C");
-                // 发送消息到名为 "PlayVideo" 的函数，参数可以是影片的标识符或其他信息
-                SendMessage("PlayVideo", "Video3");
-                break;
-            case "4":
-                Debug.Log("D");
-                // 发送消息到名为 "PlayVideo" 的函数，参数可以是影片的标识符或其他信息
-                SendMessage("PlayVideo", "Video4");
-                break;
-            case "5":
-                Debug.Log("C");
-                // 发送消息到名为 "PlayVideo" 的函数，参数可以是影片的标识符或其他信息
-                SendMessage("PlayVideo", "Video5");
-                break;
-            default:
-                break;
-        }
         if (Ans == "1")
         {
             Debug.Log("A");
+            PlayerPrefs.SetInt("VideoToPlay", 1);
             SceneManager.LoadScene(nextSceneName);
         }
 
         if (Ans == "2")
         {
             Debug.Log("B");
+            PlayerPrefs.SetInt("VideoToPlay", 2);
             SceneManager.LoadScene(nextSceneName);
         }
 
         if (Ans == "3")
         {
             Debug.Log("C");
+            PlayerPrefs.SetInt("VideoToPlay", 3);
             SceneManager.LoadScene(nextSceneName);
         }
 
         if (Ans == "4")
         {
             Debug.Log("D");
+            PlayerPrefs.SetInt("VideoToPlay", 4);
             SceneManager.LoadScene(nextSceneName);
         }
 
         if (Ans == "5")
         {
-            Debug.Log("C");
+            Debug.Log("E");
+            PlayerPrefs.SetInt("VideoToPlay", 5);
             SceneManager.LoadScene(nextSceneName);
         }
         

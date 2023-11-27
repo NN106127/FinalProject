@@ -14,43 +14,44 @@ public class playend : MonoBehaviour
 
     private void Start()
     {
+        int videoToPlay = PlayerPrefs.GetInt("VideoToPlay", 1);
         // 禁用所有 VideoPlayer
         videoPlayer1.gameObject.SetActive(false);
         videoPlayer2.gameObject.SetActive(false);
         videoPlayer3.gameObject.SetActive(false);
         videoPlayer4.gameObject.SetActive(false);
+        // 根據 videoToPlay 的值執行不同的影片撥放操作
+        PlayVideo(videoToPlay);
     }
-    
-    // 接收名为 "PlayVideo" 的消息
-    void PlayVideo(string videoIdentifier)
+    void PlayVideo(int videoIndex)
     {
-        
-        // 根据收到的消息参数决定要播放哪个视频
-        switch (videoIdentifier)
+        // 根據 videoIndex 撥放相應的影片
+        // 這裡是一個示例，您需要根據實際需求替換成相應的撥放影片的邏輯
+        switch (videoIndex)
         {
-            case "Video1":
-                // 启用并播放 videoPlayer1
+            case 1:
+                Debug.Log("Play Video 1");
+                // 在這裡添加撥放影片的相應代碼
                 videoPlayer1.gameObject.SetActive(true);
-                videoPlayer1.Play();
                 break;
-            case "Video2":
-                // 启用并播放 videoPlayer2
+            case 2:
+                Debug.Log("Play Video 2");
+                // 在這裡添加撥放影片的相應代碼
                 videoPlayer2.gameObject.SetActive(true);
-                videoPlayer2.Play();
                 break;
-            case "Video3":
-                // 启用并播放 videoPlayer3
+            case 3:
+                Debug.Log("Play Video 3");
+                // 在這裡添加撥放影片的相應代碼
                 videoPlayer3.gameObject.SetActive(true);
-                videoPlayer3.Play();
                 break;
-            case "Video4":
-                // 启用并播放 videoPlayer4
+            case 4:
+                Debug.Log("Play Video 4");
+                // 在這裡添加撥放影片的相應代碼
                 videoPlayer4.gameObject.SetActive(true);
-                videoPlayer4.Play();
                 break;
             default:
+                Debug.LogError("Invalid video index");
                 break;
-
         }
     }
-}
+    }
