@@ -135,6 +135,7 @@ public class Player : MonoBehaviour
         }
         if (other.gameObject.tag == "wrench")
         {
+            Debug.Log(other.tag);
             wrench = true;
         }
         if (other.gameObject.tag == "magnet")
