@@ -53,7 +53,10 @@ public class Item : MonoBehaviour
                 dialogueSystem.ShowetubDialog();
                 break;
             case "door":
-                dialogueSystem.ShowetubDialog();
+                dialogueSystem.ShowedoorDialog();
+                break;
+            case "cabinet":
+                dialogueSystem.ShowecabinetDialog();
                 break;
         }
         //dialogueSystem.ShowDialog();

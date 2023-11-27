@@ -30,6 +30,7 @@ TagManager:
   - tub
   - wrench
   - door
+  - cabinet
   layers:
   - Default
   - TransparentFX
