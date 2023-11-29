@@ -24,11 +24,13 @@ public class Ghost : MonoBehaviour
     public float detectionRange; // 在X轴上的检测范围(開始追逐範圍
     public float EncounterRange; // 進到範圍發出女鬼哀豪
     public float OutofRange;     //設定超出範圍
+    public float SoundRange;     //尖叫範圍
     public Transform RestPosition;
 
     Color color01 = Color.red;
     Color color02 = Color.green;
     Color color03 = Color.blue;
+    Color color04 = Color.black;
 
     public GameObject RestartUI;
     public GameObject Camera01;
@@ -126,7 +128,7 @@ public class Ghost : MonoBehaviour
 
         if (Input.GetKey(KeyCode.M))
         {
-            Debug.Log("" + distanceY);
+            Debug.Log("" + distanceX);
         }
 
         if (distanceX <= detectionRange && distanceY <= 0.78)
@@ -137,6 +139,7 @@ public class Ghost : MonoBehaviour
             audiorun.Play();
 
         }
+
         if (distanceX >= OutofRange || distanceY > 0.78)
         {
             // 玩家超出检测范围，停止追踪
@@ -146,15 +149,18 @@ public class Ghost : MonoBehaviour
             audioenter.Stop();
         }
 
+
         if (distanceX <= EncounterRange)
         {
             //音效寫這裡
-            Debug.Log("進到範圍了");
-            audioenter.Play();
+            //Debug.Log("進到範圍了");
+            //audioenter.Play();
         }
-        if (distanceX <= OutofRange)
+
+        if(distanceX <= SoundRange && distanceY <= 0.78 && distanceX >= OutofRange)
         {
-            
+            //Debug.Log("叫");
+            audioenter.Play();
         }
     }
 
@@ -172,6 +178,10 @@ public class Ghost : MonoBehaviour
         Gizmos.color = color03;
 
         Gizmos.DrawWireSphere(transform.position, OutofRange);
+
+        Gizmos.color = color04;
+
+        Gizmos.DrawWireSphere(transform.position, SoundRange);
     }
 
     private void OnTriggerEnter2D(Collider2D other)
