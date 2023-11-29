@@ -55,6 +55,8 @@ public class Ghost : MonoBehaviour
         Color color = spriteRenderer.color;
         color.a = Alpha;
         spriteRenderer.color = color;
+        audiorun.Stop();
+        audioenter.Stop();
     }
 
     // Update is called once per frame
@@ -100,12 +102,13 @@ public class Ghost : MonoBehaviour
             Vector3 direction = (Player.transform.position - transform.position).normalized;
             currentSpeed += accelerationRate * Time.deltaTime;
             transform.Translate(direction * speed * Time.deltaTime);
+            audioenter.Stop();
 
         }
 
         if(status == "Rest")
         {
-            
+            audiorun.Stop();
             speed = 4;
             transform.position = RestPosition.transform.position;
             status = "standby";
@@ -136,7 +139,7 @@ public class Ghost : MonoBehaviour
             // 玩家在检测范围内，开始追踪
             status = "found";
             animator.SetBool("run", true);
-            audiorun.Play();
+            //audiorun.Play();
 
         }
 
@@ -146,7 +149,17 @@ public class Ghost : MonoBehaviour
             status = "Rest";
             animator.SetBool("run", false);
             audiorun.Stop();
-            audioenter.Stop();
+            //audioenter.Stop();
+        }
+
+        if(distanceX > 6.5 && distanceY < 0.78)
+        {
+            audiorun.Play();
+        }
+
+        if(distanceX > 10 || distanceX < 7 && distanceY < 0.78)
+        {
+            audioenter.Play();
         }
 
 
@@ -155,12 +168,6 @@ public class Ghost : MonoBehaviour
             //音效寫這裡
             //Debug.Log("進到範圍了");
             //audioenter.Play();
-        }
-
-        if(distanceX <= SoundRange && distanceY <= 0.78 && distanceX >= OutofRange)
-        {
-            //Debug.Log("叫");
-            audioenter.Play();
         }
     }
 
