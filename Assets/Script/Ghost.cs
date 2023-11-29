@@ -148,26 +148,25 @@ public class Ghost : MonoBehaviour
             // 玩家超出检测范围，停止追踪
             status = "Rest";
             animator.SetBool("run", false);
-            audiorun.Stop();
-            //audioenter.Stop();
         }
 
-        if(distanceX > 6.5 && distanceY < 0.78)
+        if(distanceX <= 5 && distanceY <= 0.78)
         {
+            Debug.Log("走路");
             audiorun.Play();
         }
+        else if(distanceX > 15)
+        {
+            audiorun.Stop();
+        }
 
-        if(distanceX > 10 || distanceX < 7 && distanceY < 0.78)
+        if(distanceX > 10 || distanceX < 7 && distanceY <= 0.78)
         {
             audioenter.Play();
         }
-
-
-        if (distanceX <= EncounterRange)
+        if(distanceY > 0.78)
         {
-            //音效寫這裡
-            //Debug.Log("進到範圍了");
-            //audioenter.Play();
+            audioenter.Stop();
         }
     }
 

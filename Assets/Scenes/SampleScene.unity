@@ -57065,6 +57065,7 @@ MonoBehaviour:
   detectionRange: 6.5
   EncounterRange: 7
   OutofRange: 10
+  SoundRange: 15
   RestPosition: {fileID: 1967320304}
   RestartUI: {fileID: 592501002}
   Camera01: {fileID: 713010034}
