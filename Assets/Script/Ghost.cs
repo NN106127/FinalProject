@@ -36,6 +36,9 @@ public class Ghost : MonoBehaviour
 
     private Animator animator;
 
+    public AudioSource audioenter;
+    public AudioSource audiorun;
+
     // Start is called before the first frame update
     void Start() 
     {
@@ -57,6 +60,7 @@ public class Ghost : MonoBehaviour
     {
         if (status == "standby")
         {
+            
             animator.SetBool("run", false);
             if (fadingOut == true)
             {
@@ -131,18 +135,26 @@ public class Ghost : MonoBehaviour
             // 玩家在检测范围内，开始追踪
             status = "found";
             animator.SetBool("run", true);
+            audiorun.Play();
+            audioenter.Stop();
+
+
         }
         if (distanceX >= OutofRange || distanceY > 0.78)
         {
             // 玩家超出检测范围，停止追踪
             status = "Rest";
             animator.SetBool("run", false);
+            audiorun.Stop();
+            audioenter.Stop();
         }
 
         if (distanceX <= EncounterRange)
         {
             //音效寫這裡
             Debug.Log("進到範圍了");
+            audioenter.Play();
+
         }
     }
 
@@ -189,5 +201,6 @@ public class Ghost : MonoBehaviour
         Animator animator = playerObj.GetComponent<Animator>();
         animator.speed = 1;
         playerScript.enabled = true;
+        
     }
 }
