@@ -60,7 +60,6 @@ public class Ghost : MonoBehaviour
     {
         if (status == "standby")
         {
-            
             animator.SetBool("run", false);
             if (fadingOut == true)
             {
@@ -136,8 +135,6 @@ public class Ghost : MonoBehaviour
             status = "found";
             animator.SetBool("run", true);
             audiorun.Play();
-            audioenter.Stop();
-
 
         }
         if (distanceX >= OutofRange || distanceY > 0.78)
@@ -154,7 +151,10 @@ public class Ghost : MonoBehaviour
             //音效寫這裡
             Debug.Log("進到範圍了");
             audioenter.Play();
-
+        }
+        if (distanceX <= OutofRange)
+        {
+            
         }
     }
 
