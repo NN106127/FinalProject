@@ -41,6 +41,7 @@ public class Ghost : MonoBehaviour
     public AudioSource audioenter;
     public AudioSource audiorun;
 
+    public GameObject player;
     // Start is called before the first frame update
     void Start() 
     {
@@ -199,9 +200,11 @@ public class Ghost : MonoBehaviour
             speed = 0;
             GameObject playerObj = GameObject.Find("Player");
             Player playerScript = playerObj.GetComponent<Player>();
-            Animator animator = playerObj.GetComponent<Animator>();
-            animator.speed = 0;
-            playerScript.enabled = false;
+            Animator playerAnimator = playerObj.GetComponent<Animator>();
+            playerAnimator.SetInteger("ani", 3);
+            //playerAnimator.speed = 0;
+            //playerScript.enabled = false;
+
         }
     }
 
