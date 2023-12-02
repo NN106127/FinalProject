@@ -57072,6 +57072,7 @@ MonoBehaviour:
   Camera02: {fileID: 606402031}
   audioenter: {fileID: 741232144}
   audiorun: {fileID: 1874493067}
+  player: {fileID: 451120720}
 --- !u!61 &956304048
 BoxCollider2D:
   m_ObjectHideFlags: 0
