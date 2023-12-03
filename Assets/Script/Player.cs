@@ -2,8 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Player : MonoBehaviour
+public class Player :MonoBehaviour
 {
+    
     private Animator myAnimator;
     private SpriteRenderer mySpriteRenderer;
 
@@ -24,9 +25,11 @@ public class Player : MonoBehaviour
     public bool FireOvenOp;
     public bool wrench;
     public bool magnet;
+    public bool isDead;
+    public bool isMovementEnabled = true;
     void Start()
     {
-
+        isDead = false;
         // Animator
         myAnimator = GetComponent<Animator>();
 
@@ -42,7 +45,7 @@ public class Player : MonoBehaviour
 
     private void Update()
     {
-        myAnimator.SetInteger("ani", 0);
+        //myAnimator.SetInteger("ani", 0);
         Movement();
         OpeMyBag();
         
@@ -50,61 +53,83 @@ public class Player : MonoBehaviour
 
     void Movement()//移动
     {
-        
-        if(Input.GetKey(KeyCode.D))
+        if (isMovementEnabled)
         {
-            
-            mySpriteRenderer.flipX = false;
-            myAnimator.SetInteger("ani", 1);
-            movement.x = Input.GetAxisRaw("Horizontal");
-            rb.MovePosition(rb.position + movement * speed * Time.deltaTime);
+            if (!isDead)
+            {
+                myAnimator.SetBool("idle", true);
+                myAnimator.SetBool("dead", false);
+            }
 
-        }
+            myAnimator.SetBool("run", false);
+            myAnimator.SetBool("walk", false);
+            if (Input.GetKey(KeyCode.D))
+            {
 
-        if (Input.GetKey(KeyCode.A))
-        {
-            
-            mySpriteRenderer.flipX = true;
-            myAnimator.SetInteger("ani", 1);
-            movement.x = Input.GetAxisRaw("Horizontal");
-            rb.MovePosition(rb.position - movement * -speed * Time.deltaTime);
-        }
-        
-        if (Input.GetKey(KeyCode.LeftShift) && Input.GetKey(KeyCode.D))
-        {
-            
-            myAnimator.SetInteger("ani", 2);
-            rb.MovePosition(rb.position + movement * (speed + runSpeed) * Time.deltaTime);
-        }
-        if (Input.GetKey(KeyCode.LeftShift) && Input.GetKey(KeyCode.A))
-        {
-            myAnimator.SetInteger("ani", 2);
-            rb.MovePosition(rb.position - movement * -(speed + runSpeed) * Time.deltaTime);
-        }
-        if (Input.GetKeyDown(KeyCode.A))
-        {
-            walk.Play();
-        }
-        if (Input.GetKeyUp(KeyCode.A))
-        {
-            walk.Stop();
-        }
-        if (Input.GetKeyDown(KeyCode.D))
-        {
-            walk.Play();
-        }
-        if (Input.GetKeyUp(KeyCode.D))
-        {
-            walk.Stop();
-        }
-        if (Input.GetKeyDown(KeyCode.LeftShift))
-        {
-            run.Play();
-            walk.Stop();
-        }
-        if (Input.GetKeyUp(KeyCode.LeftShift))
-        {
-            run.Stop();
+                mySpriteRenderer.flipX = false;
+                //myAnimator.SetInteger("ani", 1);
+                myAnimator.SetBool("walk", true);
+                myAnimator.SetBool("idle", false);
+                myAnimator.SetBool("run", false);
+                movement.x = Input.GetAxisRaw("Horizontal");
+                rb.MovePosition(rb.position + movement * speed * Time.deltaTime);
+
+            }
+
+            if (Input.GetKey(KeyCode.A))
+            {
+
+                mySpriteRenderer.flipX = true;
+                //myAnimator.SetInteger("ani", 1);
+                myAnimator.SetBool("walk", true);
+                myAnimator.SetBool("idle", false);
+                myAnimator.SetBool("run", false);
+                movement.x = Input.GetAxisRaw("Horizontal");
+                rb.MovePosition(rb.position - movement * -speed * Time.deltaTime);
+            }
+
+            if (Input.GetKey(KeyCode.LeftShift) && Input.GetKey(KeyCode.D))
+            {
+
+                //myAnimator.SetInteger("ani", 2);
+                myAnimator.SetBool("run", true);
+                myAnimator.SetBool("idle", false);
+                myAnimator.SetBool("walk", false);
+                rb.MovePosition(rb.position + movement * (speed + runSpeed) * Time.deltaTime);
+            }
+            if (Input.GetKey(KeyCode.LeftShift) && Input.GetKey(KeyCode.A))
+            {
+                //myAnimator.SetInteger("ani", 2);
+                myAnimator.SetBool("run", true);
+                myAnimator.SetBool("idle", false);
+                myAnimator.SetBool("walk", false);
+                rb.MovePosition(rb.position - movement * -(speed + runSpeed) * Time.deltaTime);
+            }
+            if (Input.GetKeyDown(KeyCode.A))
+            {
+                walk.Play();
+            }
+            if (Input.GetKeyUp(KeyCode.A))
+            {
+                walk.Stop();
+            }
+            if (Input.GetKeyDown(KeyCode.D))
+            {
+                walk.Play();
+            }
+            if (Input.GetKeyUp(KeyCode.D))
+            {
+                walk.Stop();
+            }
+            if (Input.GetKeyDown(KeyCode.LeftShift))
+            {
+                run.Play();
+                walk.Stop();
+            }
+            if (Input.GetKeyUp(KeyCode.LeftShift))
+            {
+                run.Stop();
+            }
         }
     }
     void OpeMyBag()
@@ -143,6 +168,15 @@ public class Player : MonoBehaviour
             magnet = true;
         }
 
+        if (other.gameObject.tag == "Ghost")
+        {
+            isDead = true;
+            myAnimator.SetBool("idle", false);
+            myAnimator.SetBool("walk", false);
+            myAnimator.SetBool("run", false);
+            myAnimator.SetBool("dead", true);
+        }
+
     }
 
     private void OnTriggerExit2D(Collider2D other)
@@ -164,5 +198,6 @@ public class Player : MonoBehaviour
         {
             magnet = false;
         }
+        
     }
 }

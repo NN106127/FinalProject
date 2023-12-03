@@ -12,6 +12,7 @@ public class Ghost : MonoBehaviour
     public float currentAlpha = 1.0f;
     public bool fadingOut = true;
 
+    
     //追逐
     string status = "standby";    //設定狀態
     public float speed = 3.0f;           //追逐速度調這裡(可調
@@ -41,7 +42,8 @@ public class Ghost : MonoBehaviour
     public AudioSource audioenter;
     public AudioSource audiorun;
 
-    public GameObject player;
+    public float delayTime = 1.5f; // 延迟时间
+
     // Start is called before the first frame update
     void Start() 
     {
@@ -153,7 +155,7 @@ public class Ghost : MonoBehaviour
 
         if(distanceX <= 5 && distanceY <= 0.78)
         {
-            Debug.Log("走路");
+            //Debug.Log("走路");
             audiorun.Play();
         }
         else if(distanceX > 15)
@@ -195,15 +197,13 @@ public class Ghost : MonoBehaviour
     {
         if(other.gameObject.tag == "Player")
         {
-            //被碰到寫在這裡
-            RestartUI.SetActive(true);
+            
             speed = 0;
             GameObject playerObj = GameObject.Find("Player");
             Player playerScript = playerObj.GetComponent<Player>();
-            Animator playerAnimator = playerObj.GetComponent<Animator>();
-            playerAnimator.SetInteger("ani", 3);
-            //playerAnimator.speed = 0;
-            //playerScript.enabled = false;
+            playerScript.isMovementEnabled = false;
+           Invoke("ShowImage", delayTime);
+
 
         }
     }
@@ -217,9 +217,12 @@ public class Ghost : MonoBehaviour
         Camera02.SetActive(false);
         GameObject playerObj = GameObject.Find("Player");
         Player playerScript = playerObj.GetComponent<Player>();
-        Animator animator = playerObj.GetComponent<Animator>();
-        animator.speed = 1;
-        playerScript.enabled = true;
-        
+        playerScript.isDead = false;
+        playerScript.isMovementEnabled = true;
+
+    }
+    void ShowImage()
+    {
+        RestartUI.SetActive(true);
     }
 }

@@ -27795,7 +27795,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: -0.24}
@@ -56951,7 +56951,7 @@ GameObject:
   - component: {fileID: 956304048}
   m_Layer: 0
   m_Name: "\u5973\u9B3C_\u8F49\u982D_0001"
-  m_TagString: Untagged
+  m_TagString: Ghost
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -57072,7 +57072,7 @@ MonoBehaviour:
   Camera02: {fileID: 606402031}
   audioenter: {fileID: 741232144}
   audiorun: {fileID: 1874493067}
-  player: {fileID: 451120720}
+  playerObject: {fileID: 451120720}
 --- !u!61 &956304048
 BoxCollider2D:
   m_ObjectHideFlags: 0
