@@ -12,6 +12,7 @@ public class BonePuzzle : MonoBehaviour
     public Bone[] bone;
     public Text pluzztext;
     public AudioSource memory;
+
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.T))
