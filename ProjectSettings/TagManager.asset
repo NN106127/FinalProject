@@ -32,6 +32,9 @@ TagManager:
   - door
   - cabinet
   - Ghost
+  - magnet
+  - cupboard
+  - Bonepuzzle
   layers:
   - Default
   - TransparentFX

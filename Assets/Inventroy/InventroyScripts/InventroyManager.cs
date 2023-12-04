@@ -16,8 +16,10 @@ public class InventroyManager : MonoBehaviour
     Text itemHold;
     public GameObject BonePuzzles;
     public GameObject Memory02;
+    public GameObject Memory03;
     public GameObject boxopen;
     public GameObject electricalbox;
+    public GameObject boneans;
     //public item useitem;
 
     public List<GameObject> slots = new List<GameObject>(); //管理生成20個slots
@@ -28,6 +30,7 @@ public class InventroyManager : MonoBehaviour
     public bool FireOven;
     public bool wrench;
     public bool magnet;
+    //public bool Bonepuzzle;
     public Player player;
     void Update()
     {
@@ -35,6 +38,7 @@ public class InventroyManager : MonoBehaviour
         FireOven = player.FireOvenOp;
         wrench = player.wrench;
         magnet = player.magnet;
+        //Bonepuzzle = player.Bonepuzzle;
     }
     void Awake()
     {
@@ -82,11 +86,6 @@ public class InventroyManager : MonoBehaviour
             BonePuzzles.SetActive(true);
             itemCodeNum.text = "0";
         }
-        if (itemCodeNum.text == "3" && FireOven == false)
-        {
-            itemInformation.text = "好像不能用在這裡...";
-            itemCodeNum.text = "0";
-        }
 
         if (itemCodeNum.text == "4" && WaterTank == true)
         {
@@ -122,9 +121,25 @@ public class InventroyManager : MonoBehaviour
         {
             Debug.Log("使用磁鐵");
             this.gameObject.SetActive(false);
+            Memory02.SetActive(true);
+            memory.Play();
+            OpenState.tubEverOpend = true;
             itemCodeNum.text = "0";
         }
         if (itemCodeNum.text == "6" && magnet == false)
+        {
+            itemInformation.text = "好像不能用在這裡...";
+            itemCodeNum.text = "0";
+        }
+
+        if (itemCodeNum.text == "7" && FireOven == true)
+        {
+            Debug.Log("使用骨頭圖");
+            this.gameObject.SetActive(false);
+            boneans.SetActive(true);
+            itemCodeNum.text = "0";
+        }
+        if (itemCodeNum.text == "7" && FireOven == false)
         {
             itemInformation.text = "好像不能用在這裡...";
             itemCodeNum.text = "0";

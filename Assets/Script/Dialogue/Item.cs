@@ -58,6 +58,9 @@ public class Item : MonoBehaviour
             case "cabinet":
                 dialogueSystem.ShowecabinetDialog();
                 break;
+            case "cupboard":
+                dialogueSystem.ShowecupboardDialog();
+                break;
         }
         //dialogueSystem.ShowDialog();
         /*if (collision.CompareTag("Player"))

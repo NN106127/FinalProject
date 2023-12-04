@@ -305,6 +305,26 @@ public class DialogueSystem2 : MonoBehaviour
         }
         else
         {
+            Debug.Log(gameObject);
+            dialogActive2 = true; // 顯示對話框
+            dialogBox.SetActive(true);
+            playerimg2.SetActive(true);
+            StartCoroutine(TypeLine(nextDialogLines[currentLine])); // 開啟文字輸出協程
+        }
+    }
+    public void ShowecupboardDialog()
+    {
+
+        if (GameObject.FindGameObjectWithTag("cupboard").transform.Find("骨頭圖"))
+        {
+            dialogActive1 = true; // 顯示對話框
+            dialogBox.SetActive(true);
+            playerimg1.SetActive(true);
+            StartCoroutine(TypeLine(dialogLines[currentLine])); // 開啟文字輸出協程
+        }
+        else
+        {
+            Debug.Log(gameObject);
             dialogActive2 = true; // 顯示對話框
             dialogBox.SetActive(true);
             playerimg2.SetActive(true);

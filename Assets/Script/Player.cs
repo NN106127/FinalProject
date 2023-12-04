@@ -25,6 +25,7 @@ public class Player :MonoBehaviour
     public bool FireOvenOp;
     public bool wrench;
     public bool magnet;
+    //public bool Bonepuzzle;
     public bool isDead;
     public bool isMovementEnabled = true;
     void Start()
@@ -176,6 +177,10 @@ public class Player :MonoBehaviour
             myAnimator.SetBool("run", false);
             myAnimator.SetBool("dead", true);
         }
+        /*if (other.gameObject.tag == "Bonepuzzle")
+        {
+            Bonepuzzle = true;
+        }*/
 
     }
 
@@ -198,6 +203,9 @@ public class Player :MonoBehaviour
         {
             magnet = false;
         }
-        
+        /*if (other.gameObject.tag == "Bonepuzzle")
+        {
+            Bonepuzzle = false;
+        }*/
     }
 }

@@ -41,6 +41,8 @@ public class Ghost : MonoBehaviour
 
     public AudioSource audioenter;
     public AudioSource audiorun;
+    public AudioSource audioshock1;
+    public AudioSource audioshock2;
 
     public float delayTime = 1.5f; // 延迟时间
 
@@ -199,6 +201,7 @@ public class Ghost : MonoBehaviour
         {
             
             speed = 0;
+            audioshock1.Play();
             GameObject playerObj = GameObject.Find("Player");
             Player playerScript = playerObj.GetComponent<Player>();
             playerScript.isMovementEnabled = false;
@@ -219,10 +222,13 @@ public class Ghost : MonoBehaviour
         Player playerScript = playerObj.GetComponent<Player>();
         playerScript.isDead = false;
         playerScript.isMovementEnabled = true;
+        audioshock2.Stop();
 
     }
     void ShowImage()
     {
+        audioshock1.Stop();
         RestartUI.SetActive(true);
+        audioshock2.Play();
     }
 }
