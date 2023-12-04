@@ -35,6 +35,7 @@ TagManager:
   - magnet
   - cupboard
   - Bonepuzzle
+  - Res
   layers:
   - Default
   - TransparentFX

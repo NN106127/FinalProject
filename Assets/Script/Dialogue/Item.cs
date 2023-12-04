@@ -61,6 +61,9 @@ public class Item : MonoBehaviour
             case "cupboard":
                 dialogueSystem.ShowecupboardDialog();
                 break;
+            case "Res":
+                dialogueSystem.ShoweResDialog();
+                break;
         }
         //dialogueSystem.ShowDialog();
         /*if (collision.CompareTag("Player"))

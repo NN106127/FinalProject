@@ -36,6 +36,7 @@ public class Ghost : MonoBehaviour
     public GameObject RestartUI;
     public GameObject Camera01;
     public GameObject Camera02;
+    public GameObject res;
 
     private Animator animator;
 
@@ -143,7 +144,14 @@ public class Ghost : MonoBehaviour
         {
             // 玩家在检测范围内，开始追踪
             status = "found";
-            animator.SetBool("run", true);
+            if (speed > 0)
+            {
+                animator.SetBool("run", true);
+            }
+            else
+            {
+                animator.SetBool("run", false);
+            }
             //audiorun.Play();
 
         }
@@ -199,13 +207,12 @@ public class Ghost : MonoBehaviour
     {
         if(other.gameObject.tag == "Player")
         {
-            
             speed = 0;
             audioshock1.Play();
             GameObject playerObj = GameObject.Find("Player");
             Player playerScript = playerObj.GetComponent<Player>();
             playerScript.isMovementEnabled = false;
-           Invoke("ShowImage", delayTime);
+            Invoke("ShowImage", delayTime);
 
 
         }
@@ -223,6 +230,7 @@ public class Ghost : MonoBehaviour
         playerScript.isDead = false;
         playerScript.isMovementEnabled = true;
         audioshock2.Stop();
+        res.SetActive(true);
 
     }
     void ShowImage()

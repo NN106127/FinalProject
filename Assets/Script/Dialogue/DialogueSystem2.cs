@@ -34,10 +34,10 @@ public class DialogueSystem2 : MonoBehaviour
         {
             buttonsound.Play();
             currentLine++;
-            if (currentLine < dialogLines.Length )
+            if (currentLine < dialogLines.Length)
             {
                 StartCoroutine(TypeLine(dialogLines[currentLine])); // 開啟文字輸出協程
-                
+
             }
             else
             {
@@ -75,11 +75,11 @@ public class DialogueSystem2 : MonoBehaviour
         dialogText.text = ""; // 將對話框文字先清空
         foreach (char c in line.ToCharArray())
         {
-            
+
             dialogText.text += c; // 一個一個字元輸出文字
             //m_audio.Play();
             yield return new WaitForSeconds(typeSpeed); // 等待typeSpeed秒再輸出下一個字元
-            
+
         }
         textFinished = true; // 輸出完成，將textFinished設為true
     }
@@ -93,9 +93,9 @@ public class DialogueSystem2 : MonoBehaviour
             playerimg1.SetActive(true);
             playerimg2.SetActive(false);
             StartCoroutine(TypeLine(dialogLines[currentLine])); // 開啟文字輸出協程
-            
+
         }
-        
+
 
 
     }
@@ -113,7 +113,7 @@ public class DialogueSystem2 : MonoBehaviour
         else
         {
             dialogActive2 = true; // 顯示對話框
-            
+
             dialogBox.SetActive(true);
             playerimg2.SetActive(true);
             StartCoroutine(TypeLine(nextDialogLines[currentLine])); // 開啟文字輸出協程
@@ -142,8 +142,8 @@ public class DialogueSystem2 : MonoBehaviour
     public void ShowFridgeDialog()
     {
         if (GameObject.FindGameObjectWithTag("fridge").transform.Find("一袋骨頭_1"))
-        {   
-            
+        {
+
             dialogActive1 = true; // 顯示對話框
             dialogBox.SetActive(true);
             playerimg1.SetActive(true);
@@ -329,6 +329,19 @@ public class DialogueSystem2 : MonoBehaviour
             dialogBox.SetActive(true);
             playerimg2.SetActive(true);
             StartCoroutine(TypeLine(nextDialogLines[currentLine])); // 開啟文字輸出協程
+        }
+    }
+
+    public void ShoweResDialog()
+    {
+        if (!OpenState.ResEverOpend)
+        {
+            dialogActive1 = true; // 顯示對話框
+            dialogBox.SetActive(true);
+            playerimg1.SetActive(true);
+            playerimg2.SetActive(false);
+            StartCoroutine(TypeLine(dialogLines[currentLine])); // 開啟文字輸出協程
+
         }
     }
 }
