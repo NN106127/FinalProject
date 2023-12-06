@@ -5,54 +5,106 @@ using UnityEngine.UI;
 
 public class DialogueSystem : MonoBehaviour
 {
-    public GameObject dialogueBox;
-    public Text dialogueText;
-
-    public string[] dialogue;
-    public float delay = 0.1f;
-
-    private int index = 0;
-
+    public GameObject dialogBox; // 對話框物件
+    public Text dialogText; // 對話框文字
+    public string[] dialogLines; // 對話內容
+    public string[] nextDialogLines; // 對話內容
+    public int currentLine; // 目前對話行數
+    public bool dialogActive1; // 對話框是否顯示
+    public bool dialogActive2; // 對話框是否顯示
+    public float typeSpeed; // 打字速度
+    private bool textFinished; // 文字是否輸出完成
+    public GameObject playerimg1;
+    public GameObject playerimg2;
+    public GameObject playerimg3;
+    public AudioSource m_audio;
+    public AudioSource buttonsound;
     // Start is called before the first frame update
     void Start()
     {
-        dialogueBox.SetActive(false);
+        playerimg1.SetActive(false);
+        playerimg2.SetActive(false);
+        dialogBox.SetActive(false); // 對話框一開始不顯示
+        textFinished = true; // 文字一開始為輸出完成
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (dialogueBox.activeSelf && Input.GetKeyDown(KeyCode.Space))
+        if (dialogActive1 && Input.GetKeyDown(KeyCode.Space) && textFinished)
         {
-            StopAllCoroutines();
-            if (index < dialogue.Length - 1)
+            buttonsound.Play();
+            currentLine++;
+            if (currentLine < dialogLines.Length)
             {
-                index++;
-                dialogueText.text = "";
-                StartCoroutine(TypeSentence(dialogue[index]));
+                StartCoroutine(TypeLine(dialogLines[currentLine])); // 開啟文字輸出協程
+
             }
             else
             {
-                dialogueBox.SetActive(false);
-                dialogueText.text = "";
-                index = 0;
+                playerimg1.SetActive(false);
+                playerimg2.SetActive(false);
+                dialogBox.SetActive(false); // 所有對話結束，隱藏對話框
+                dialogActive1 = false;
+                currentLine = 0;
+                dialogText.text = "";
             }
         }
-    }
-    public void StartDialogue()
-    {
-        dialogueBox.SetActive(true);
-        StartCoroutine(TypeSentence(dialogue[index]));
-    }
-    
-
-    IEnumerator TypeSentence(string sentence)
-    {
-        dialogueText.text = "";
-        foreach (char letter in sentence.ToCharArray())
+        if (dialogActive2 && Input.GetKeyDown(KeyCode.Space) && textFinished)
         {
-            dialogueText.text += letter;
-            yield return new WaitForSeconds(delay);
+            currentLine++;
+            if (currentLine < nextDialogLines.Length)
+            {
+                StartCoroutine(TypeLine(nextDialogLines[currentLine])); // 開啟文字輸出協程
+
+            }
+            else
+            {
+                playerimg1.SetActive(false);
+                playerimg2.SetActive(false);
+                dialogBox.SetActive(false); // 所有對話結束，隱藏對話框
+                dialogActive2 = false;
+                currentLine = 0;
+                dialogText.text = "";
+            }
+        }
+
+    }
+    IEnumerator TypeLine(string line)
+    {
+        textFinished = false; // 開始輸出文字，將textFinished設為false
+        dialogText.text = ""; // 將對話框文字先清空
+        foreach (char c in line.ToCharArray())
+        {
+
+            dialogText.text += c; // 一個一個字元輸出文字
+            //m_audio.Play();
+            yield return new WaitForSeconds(typeSpeed); // 等待typeSpeed秒再輸出下一個字元
+
+        }
+        textFinished = true; // 輸出完成，將textFinished設為true
+    }
+
+    
+    public void ShowecupboardDialog()
+    {
+
+        if (GameObject.FindGameObjectWithTag("cupboard").transform.Find("骨頭圖"))
+        {
+            dialogActive1 = true; // 顯示對話框
+            dialogBox.SetActive(true);
+            playerimg1.SetActive(true);
+            StartCoroutine(TypeLine(dialogLines[currentLine])); // 開啟文字輸出協程
+        }
+        else
+        {
+            Debug.Log(gameObject);
+            dialogActive2 = true; // 顯示對話框
+            dialogBox.SetActive(true);
+            playerimg2.SetActive(true);
+            StartCoroutine(TypeLine(nextDialogLines[currentLine])); // 開啟文字輸出協程
         }
     }
+
+    
 }
