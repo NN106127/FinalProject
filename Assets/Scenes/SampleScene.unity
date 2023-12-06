@@ -21537,7 +21537,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   splashImage: {fileID: 400499435}
-  displayTime: 13
+  displayTime: 15
 --- !u!114 &400499438
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -126414,6 +126414,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2028197203}
   - component: {fileID: 2028197204}
+  - component: {fileID: 2028197205}
   m_Layer: 0
   m_Name: ResPlayer
   m_TagString: Untagged
@@ -126462,6 +126463,20 @@ MonoBehaviour:
   playerimg2: {fileID: 1873520703}
   m_audio: {fileID: 76976371}
   buttonsound: {fileID: 981285447}
+--- !u!114 &2028197205
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2028197202}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 883e98f0428949a4bbed49f5633451b0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  delayTime: 1.5
+  item: {fileID: 894101931}
 --- !u!1 &2033741722
 GameObject:
   m_ObjectHideFlags: 0
