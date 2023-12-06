@@ -111,4 +111,13 @@ public class MemoryManger : MonoBehaviour
         }
         
     }
+    public void Clickedright()
+    {
+        CheckMemory();
+        MemoryAnime();
+    }
+    public void Clickedreset()
+    {
+        ResetMemory();
+    }
 }
