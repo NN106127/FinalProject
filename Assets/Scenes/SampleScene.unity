@@ -21281,7 +21281,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   UIPanel: {fileID: 716900165}
   volumeSlider: {fileID: 38393376}
-  backGroundMusic: {fileID: 0}
 --- !u!1 &369909929
 GameObject:
   m_ObjectHideFlags: 0
@@ -21538,7 +21537,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &379223907
 RectTransform:
   m_ObjectHideFlags: 0
@@ -77325,8 +77324,9 @@ MonoBehaviour:
   Ans: 
   t: 0
   nextSceneName: end
-  text: {fileID: 0}
-  fadeSpeed: 0.5
+  text: {fileID: 379223908}
+  fadeSpeed: 0.005
+  Show: 0
 --- !u!1 &1239854612
 GameObject:
   m_ObjectHideFlags: 0
