@@ -16,10 +16,17 @@ public class MemoryManger : MonoBehaviour
     public string Ans;
     public int t = 0;
     public string nextSceneName = "end";
+    public Text text;
+    public float fadeSpeed = 0.5f;
+    Color newColor;
+
     // Start is called before the first frame update
     void Start()
     {
-
+        text.text = "";
+        Color newColor = text.color;
+        newColor.a = 1.0f;
+        text.color = newColor;
     }
 
     // Update is called once per frame
@@ -35,13 +42,15 @@ public class MemoryManger : MonoBehaviour
         {
             ResetMemory();
         }
-
     }
 
     void CheckMemory()
     {
         if (memoryConnect1.i == "" || memoryConnect2.i == "" || memoryConnect3.i == "" || memoryConnect4.i == "" || memoryConnect5.i == "")
         {
+            text.text = "※請放滿記憶碎片";
+            newColor.a = 1.0f;
+            newColor.a -= fadeSpeed * Time.deltaTime;
             Debug.Log("請放滿記憶碎片");
         }
         else if (t == 0)
@@ -71,6 +80,7 @@ public class MemoryManger : MonoBehaviour
         memoryConnect5.i = "";
         Ans = "";
         t = 0;
+        text.text = "已重置記憶碎片順序";
     }
 
     void MemoryAnime()
