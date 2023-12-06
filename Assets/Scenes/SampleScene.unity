@@ -5462,6 +5462,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isButtonPressed: 0
   isCheck: 0
+  originalPosition: {x: 0, y: 0}
 --- !u!1 &36032368
 GameObject:
   m_ObjectHideFlags: 0
@@ -12804,6 +12805,66 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1191606050}
+        m_TargetAssemblyTypeName: MemoryMove, Assembly-CSharp
+        m_MethodName: RestMemoryPosition
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 30410223}
+        m_TargetAssemblyTypeName: MemoryMove, Assembly-CSharp
+        m_MethodName: RestMemoryPosition
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 628033685}
+        m_TargetAssemblyTypeName: MemoryMove, Assembly-CSharp
+        m_MethodName: RestMemoryPosition
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1114387722}
+        m_TargetAssemblyTypeName: MemoryMove, Assembly-CSharp
+        m_MethodName: RestMemoryPosition
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 203596816}
+        m_TargetAssemblyTypeName: MemoryMove, Assembly-CSharp
+        m_MethodName: RestMemoryPosition
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &203082352
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12981,6 +13042,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isButtonPressed: 0
   isCheck: 0
+  originalPosition: {x: 0, y: 0}
 --- !u!1 &206353190
 GameObject:
   m_ObjectHideFlags: 0
@@ -42488,6 +42550,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isButtonPressed: 0
   isCheck: 0
+  originalPosition: {x: 0, y: 0}
 --- !u!1 &629893474
 GameObject:
   m_ObjectHideFlags: 0
@@ -75105,6 +75168,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isButtonPressed: 0
   isCheck: 0
+  originalPosition: {x: 0, y: 0}
 --- !u!1 &1117748613
 GameObject:
   m_ObjectHideFlags: 0
@@ -75935,6 +75999,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isButtonPressed: 0
   isCheck: 0
+  originalPosition: {x: 0, y: 0}
 --- !u!1 &1194457761
 GameObject:
   m_ObjectHideFlags: 0

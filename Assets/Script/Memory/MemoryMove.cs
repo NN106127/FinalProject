@@ -8,7 +8,7 @@ public class MemoryMove : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
     public bool isButtonPressed;
     public bool isCheck;
     private Rigidbody2D rb;
-    Vector2 originalPosition;
+    public Vector2 originalPosition;
     // Start is called before the first frame update
     void Start()
     {
@@ -51,5 +51,10 @@ public class MemoryMove : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
             transform.position = other.transform.position;
             other.transform.position = tempPosition;
         }
+    }
+
+    public void RestMemoryPosition()
+    {
+        transform.position = originalPosition;
     }
 }
