@@ -5813,7 +5813,6 @@ GameObject:
   - component: {fileID: 41705756}
   - component: {fileID: 41705755}
   - component: {fileID: 41705754}
-  - component: {fileID: 41705757}
   m_Layer: 5
   m_Name: "\u4E3B\u756B\u9762"
   m_TagString: Untagged
@@ -5885,8 +5884,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 41705757}
-        m_TargetAssemblyTypeName: menu, Assembly-CSharp
+      - m_Target: {fileID: 364940797}
+        m_TargetAssemblyTypeName: menu2, Assembly-CSharp
         m_MethodName: ChangeScence
         m_Mode: 5
         m_Arguments:
@@ -5935,19 +5934,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 41705752}
   m_CullTransparentMesh: 1
---- !u!114 &41705757
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 41705752}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4eda5cf3c8712c84f87c4221b896b173, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_audio: {fileID: 981285447}
 --- !u!1 &52586133
 GameObject:
   m_ObjectHideFlags: 0
@@ -21251,6 +21237,8 @@ GameObject:
   - component: {fileID: 364940794}
   - component: {fileID: 364940793}
   - component: {fileID: 364940795}
+  - component: {fileID: 364940797}
+  - component: {fileID: 364940796}
   m_Layer: 5
   m_Name: esc
   m_TagString: Untagged
@@ -21330,6 +21318,33 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   UIPanel: {fileID: 716900165}
   volumeSlider: {fileID: 38393376}
+  backGroundMusic: {fileID: 0}
+--- !u!114 &364940796
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 364940791}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4eda5cf3c8712c84f87c4221b896b173, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_audio: {fileID: 981285447}
+--- !u!114 &364940797
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 364940791}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dca99d85c1c2c2a4ea1382d671d43ce9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_audio: {fileID: 981285447}
   backGroundMusic: {fileID: 0}
 --- !u!1 &369909929
 GameObject:
@@ -53801,7 +53816,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 41705757}
+      - m_Target: {fileID: 364940796}
         m_TargetAssemblyTypeName: menu, Assembly-CSharp
         m_MethodName: QuitGame
         m_Mode: 1
@@ -100513,7 +100528,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1531943493}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 364940797}
+        m_TargetAssemblyTypeName: menu2, Assembly-CSharp
+        m_MethodName: ChangeScence
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: menu
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1531943493
 MonoBehaviour:
   m_ObjectHideFlags: 0
