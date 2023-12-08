@@ -17,6 +17,8 @@ public class InventroyManager : MonoBehaviour
     public GameObject BonePuzzles;
     public GameObject Memory02;
     public GameObject Memory03;
+    public GameObject doormemory02;
+    public GameObject doormemory03;
     public GameObject boxopen;
     public GameObject electricalbox;
     public GameObject boneans;
@@ -94,6 +96,7 @@ public class InventroyManager : MonoBehaviour
             boxopen.SetActive(true);
             box.Play();
             Memory02.SetActive(true);
+            doormemory02.SetActive(true);
             memory.Play();
             OpenState.aquariumEverOpened = true;
             itemCodeNum.text = "0";
@@ -121,7 +124,8 @@ public class InventroyManager : MonoBehaviour
         {
             Debug.Log("®œ•Œ∫œ≈K");
             this.gameObject.SetActive(false);
-            Memory02.SetActive(true);
+            Memory03.SetActive(true);
+            doormemory03.SetActive(true);
             memory.Play();
             OpenState.tubEverOpend = true;
             itemCodeNum.text = "0";

@@ -9,6 +9,7 @@ public class BonePuzzle : MonoBehaviour
     //public Bone ActiveBone;
     float RotationSpeed = 5;
     public GameObject Memory01;
+    public GameObject doormemory;
     public Bone[] bone;
     public Text pluzztext;
     public AudioSource memory;
@@ -128,6 +129,7 @@ public class BonePuzzle : MonoBehaviour
         Debug.Log("CLEAR");
         memory.Play();
         Memory01.SetActive(true);
+        doormemory.SetActive(true);
         OpenState.ovenEverOpened = true;
 
     }

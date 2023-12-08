@@ -17,6 +17,8 @@ public class MemoryManger : MonoBehaviour
     public int t = 0;
     public string nextSceneName = "end";
 
+    public GameObject ch3;
+    public GameObject ch2;
     //文字
     public Text text;
     public float fadeSpeed = 0.5f;
@@ -102,7 +104,7 @@ public class MemoryManger : MonoBehaviour
         memoryConnect5.i = "";
         Ans = "";
         t = 0;
-        text.text = "已重置記憶碎片順序";
+        text.text = "※已重置記憶碎片順序";
         newColor.a = 1.0f;
         text.color = newColor;
         text.color = Color.white;
@@ -111,41 +113,130 @@ public class MemoryManger : MonoBehaviour
 
     void MemoryAnime()
     {
+        //主角一人逃出
         if (Ans == "1")
         {
             Debug.Log("A");
-            PlayerPrefs.SetInt("VideoToPlay", 1);
-            SceneManager.LoadScene(nextSceneName);
-        }
-
-        if (Ans == "2")
-        {
-            Debug.Log("B");
             PlayerPrefs.SetInt("VideoToPlay", 2);
             SceneManager.LoadScene(nextSceneName);
         }
-
+        if (Ans == "2")
+        {
+            Debug.Log("A");
+            PlayerPrefs.SetInt("VideoToPlay", 2);
+            SceneManager.LoadScene(nextSceneName);
+        }
         if (Ans == "3")
         {
-            Debug.Log("C");
-            PlayerPrefs.SetInt("VideoToPlay", 3);
+            Debug.Log("AB");
+            PlayerPrefs.SetInt("VideoToPlay", 2);
             SceneManager.LoadScene(nextSceneName);
         }
-
         if (Ans == "4")
         {
-            Debug.Log("D");
-            PlayerPrefs.SetInt("VideoToPlay", 4);
+            Debug.Log("A");
+            PlayerPrefs.SetInt("VideoToPlay", 2);
             SceneManager.LoadScene(nextSceneName);
         }
-
         if (Ans == "5")
         {
-            Debug.Log("E");
+            Debug.Log("AB");
             PlayerPrefs.SetInt("VideoToPlay", 5);
             SceneManager.LoadScene(nextSceneName);
         }
-        
+        //主角全救逃出
+        if (Ans == "1"&&ch3.activeSelf&& ch2.activeSelf)
+        {
+            Debug.Log("B");
+            PlayerPrefs.SetInt("VideoToPlay", 1);
+            SceneManager.LoadScene(nextSceneName);
+        }
+        if (Ans == "2" && ch3.activeSelf&& ch2.activeSelf)
+        {
+            Debug.Log("B");
+            PlayerPrefs.SetInt("VideoToPlay", 1);
+            SceneManager.LoadScene(nextSceneName);
+        }
+        if (Ans == "3" && ch3.activeSelf&& ch2.activeSelf)
+        {
+            Debug.Log("BB");
+            PlayerPrefs.SetInt("VideoToPlay", 5);
+            SceneManager.LoadScene(nextSceneName);
+        }
+        if (Ans == "4" && ch3.activeSelf&& ch2.activeSelf)
+        {
+            Debug.Log("B");
+            PlayerPrefs.SetInt("VideoToPlay", 1);
+            SceneManager.LoadScene(nextSceneName);
+        }
+        if (Ans == "5" && ch3.activeSelf&& ch2.activeSelf)
+        {
+            Debug.Log("BB");
+            PlayerPrefs.SetInt("VideoToPlay", 5);
+            SceneManager.LoadScene(nextSceneName);
+        }
+        //主角&宇森
+        if (Ans == "1" && ch3.activeSelf&& !ch2.activeSelf)
+        {
+            Debug.Log("B");
+            PlayerPrefs.SetInt("VideoToPlay", 3);
+            SceneManager.LoadScene(nextSceneName);
+        }
+        if (Ans == "2" && ch3.activeSelf && !ch2.activeSelf)
+        {
+            Debug.Log("B");
+            PlayerPrefs.SetInt("VideoToPlay", 3);
+            SceneManager.LoadScene(nextSceneName);
+        }
+        if (Ans == "3" && ch3.activeSelf && !ch2.activeSelf)
+        {
+            Debug.Log("BB");
+            PlayerPrefs.SetInt("VideoToPlay", 3);
+            SceneManager.LoadScene(nextSceneName);
+        }
+        if (Ans == "4" && ch3.activeSelf&& !ch2.activeSelf)
+        {
+            Debug.Log("B");
+            PlayerPrefs.SetInt("VideoToPlay", 3);
+            SceneManager.LoadScene(nextSceneName);
+        }
+        if (Ans == "5" && ch3.activeSelf&& !ch2.activeSelf)
+        {
+            Debug.Log("BB");
+            PlayerPrefs.SetInt("VideoToPlay", 3);
+            SceneManager.LoadScene(nextSceneName);
+        }
+        //主角&陸浩
+        if (Ans == "1" && ch2.activeSelf && !ch3.activeSelf)
+        {
+            Debug.Log("B");
+            PlayerPrefs.SetInt("VideoToPlay", 4);
+            SceneManager.LoadScene(nextSceneName);
+        }
+        if (Ans == "2" && ch2.activeSelf && !ch3.activeSelf)
+        {
+            Debug.Log("B");
+            PlayerPrefs.SetInt("VideoToPlay", 4);
+            SceneManager.LoadScene(nextSceneName);
+        }
+        if (Ans == "3" && ch2.activeSelf && !ch3.activeSelf)
+        {
+            Debug.Log("BB");
+            PlayerPrefs.SetInt("VideoToPlay", 4);
+            SceneManager.LoadScene(nextSceneName);
+        }
+        if (Ans == "4" && ch2.activeSelf && !ch3.activeSelf)
+        {
+            Debug.Log("B");
+            PlayerPrefs.SetInt("VideoToPlay", 4);
+            SceneManager.LoadScene(nextSceneName);
+        }
+        if (Ans == "5" && ch2.activeSelf && !ch3.activeSelf)
+        {
+            Debug.Log("BB");
+            PlayerPrefs.SetInt("VideoToPlay", 4);
+            SceneManager.LoadScene(nextSceneName);
+        }
     }
     public void Clickedright()
     {

@@ -10,6 +10,7 @@ public class playend : MonoBehaviour
     public VideoPlayer videoPlayer2;
     public VideoPlayer videoPlayer3;
     public VideoPlayer videoPlayer4;
+    public VideoPlayer videoPlayer5;
 
 
     private void Start()
@@ -20,6 +21,7 @@ public class playend : MonoBehaviour
         videoPlayer2.gameObject.SetActive(false);
         videoPlayer3.gameObject.SetActive(false);
         videoPlayer4.gameObject.SetActive(false);
+        videoPlayer5.gameObject.SetActive(false);
         // 根據 videoToPlay 的值執行不同的影片撥放操作
         PlayVideo(videoToPlay);
     }
@@ -31,23 +33,28 @@ public class playend : MonoBehaviour
         {
             case 1:
                 Debug.Log("Play Video 1");
-                // 在這裡添加撥放影片的相應代碼
+                //全活
                 videoPlayer1.gameObject.SetActive(true);
                 break;
             case 2:
                 Debug.Log("Play Video 2");
-                // 在這裡添加撥放影片的相應代碼
+                // 傑諾
                 videoPlayer2.gameObject.SetActive(true);
                 break;
             case 3:
                 Debug.Log("Play Video 3");
-                // 在這裡添加撥放影片的相應代碼
+                // 宇森
                 videoPlayer3.gameObject.SetActive(true);
                 break;
             case 4:
                 Debug.Log("Play Video 4");
-                // 在這裡添加撥放影片的相應代碼
+                // 陸浩
                 videoPlayer4.gameObject.SetActive(true);
+                break;
+            case 5:
+                Debug.Log("Play Video 5");
+                // 全死
+                videoPlayer5.gameObject.SetActive(true);
                 break;
             default:
                 Debug.LogError("Invalid video index");

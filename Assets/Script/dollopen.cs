@@ -10,7 +10,7 @@ public class dollopen : MonoBehaviour
     public GameObject dollain1;
     public GameObject dollain2;
     public GameObject memory;
-
+    public GameObject doormemory;
     public float delay = 2.0f; // 延遲時間（以秒為單位）
 
     public AudioSource dollsound;
@@ -62,6 +62,7 @@ public class dollopen : MonoBehaviour
         dollain1.SetActive(false);
         dollain2.SetActive(true);
         memory.SetActive(true);
+        doormemory.SetActive(true);
         dollsound.Stop();
         memorysound.Play();
     }

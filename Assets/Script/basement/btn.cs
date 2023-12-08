@@ -17,6 +17,7 @@ public class btn : MonoBehaviour
     public bool CanClick = true;
     public GameObject backoff;
     public GameObject memory;
+    public GameObject doormemory;
 
     public AudioSource memorysound;
     // Start is called before the first frame update
@@ -94,6 +95,7 @@ public class btn : MonoBehaviour
                                                             OpenState.electricalboxEverOpend = true;
                                                             backoff.SetActive(false);
                                                             memory.SetActive(true);
+                                                            doormemory.SetActive(true);
                                                             memorysound.Play();
                                                             //全對通關
                                                         }
