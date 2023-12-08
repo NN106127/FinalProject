@@ -36,6 +36,8 @@ TagManager:
   - cupboard
   - Bonepuzzle
   - Res
+  - ch2
+  - ch3
   layers:
   - Default
   - TransparentFX

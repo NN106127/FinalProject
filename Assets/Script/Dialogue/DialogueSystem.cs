@@ -14,11 +14,12 @@ public class DialogueSystem : MonoBehaviour
     public bool dialogActive2; // 對話框是否顯示
     public float typeSpeed; // 打字速度
     private bool textFinished; // 文字是否輸出完成
+    public Sprite[] characterImages;// 在 DialogueSystem 中新增一個 public 的 Sprite[] 陣列，用於存放不同的角色圖片
     public GameObject playerimg1;
     public GameObject playerimg2;
-    public GameObject playerimg3;
     public AudioSource m_audio;
     public AudioSource buttonsound;
+    public AudioSource shock;
     // Start is called before the first frame update
     void Start()
     {
@@ -35,6 +36,8 @@ public class DialogueSystem : MonoBehaviour
         {
             buttonsound.Play();
             currentLine++;
+            // 檢查是否需要切換角色圖片
+            CheckAndSwitchCharacter(currentLine);
             if (currentLine < dialogLines.Length)
             {
                 StartCoroutine(TypeLine(dialogLines[currentLine])); // 開啟文字輸出協程
@@ -84,13 +87,49 @@ public class DialogueSystem : MonoBehaviour
         }
         textFinished = true; // 輸出完成，將textFinished設為true
     }
+    void CheckAndSwitchCharacter(int lineIndex)
+    {
+        // 根據需要切換的對話行數，更新顯示的角色圖片
+        if (lineIndex == 3)
+        {
+            // 切換到第一個角色圖片
+            playerimg1.GetComponent<Image>().sprite = characterImages[0];
+        }
+        else if (lineIndex == 5)
+        {
+            // 切換到第二個角色圖片
+            playerimg1.GetComponent<Image>().sprite = characterImages[1];
+        }
+        else if (lineIndex == 6)
+        {
+            // 切換到第二個角色圖片
+            playerimg1.GetComponent<Image>().sprite = characterImages[2];
+        }
+        else if (lineIndex == 8)
+        {
+            // 切換到第二個角色圖片
+            playerimg1.GetComponent<Image>().sprite = characterImages[3];
+        }
+        else if (lineIndex == 9)
+        {
+            // 切換到第二個角色圖片
+            playerimg1.GetComponent<Image>().sprite = characterImages[4];
+        }
+        else if (lineIndex == 10)
+        {
+            // 切換到第二個角色圖片
+            playerimg1.GetComponent<Image>().sprite = characterImages[5];
+        }
+        
+    }
 
-    
-    public void ShowecupboardDialog()
+
+    public void Showech2Dialog()
     {
 
-        if (GameObject.FindGameObjectWithTag("cupboard").transform.Find("骨頭圖"))
+        if (GameObject.FindGameObjectWithTag("ch2").transform.Find("ch2"))
         {
+            shock.Play();
             dialogActive1 = true; // 顯示對話框
             dialogBox.SetActive(true);
             playerimg1.SetActive(true);
@@ -98,6 +137,7 @@ public class DialogueSystem : MonoBehaviour
         }
         else
         {
+            shock.Stop();
             Debug.Log(gameObject);
             dialogActive2 = true; // 顯示對話框
             dialogBox.SetActive(true);
@@ -106,5 +146,26 @@ public class DialogueSystem : MonoBehaviour
         }
     }
 
-    
+    public void Showech3Dialog()
+    {
+
+        if (GameObject.FindGameObjectWithTag("ch3").transform.Find("ch3"))
+        {
+            shock.Play();
+            dialogActive1 = true; // 顯示對話框
+            dialogBox.SetActive(true);
+            playerimg1.SetActive(true);
+            StartCoroutine(TypeLine(dialogLines[currentLine])); // 開啟文字輸出協程
+        }
+        else
+        {
+            shock.Stop();
+            Debug.Log(gameObject);
+            dialogActive2 = true; // 顯示對話框
+            dialogBox.SetActive(true);
+            playerimg2.SetActive(true);
+            StartCoroutine(TypeLine(nextDialogLines[currentLine])); // 開啟文字輸出協程
+        }
+    }
+
 }

@@ -18,6 +18,8 @@ public class OpenState : MonoBehaviour
     public static bool cabinetEverOpend; //廚房櫃子
     public static bool cupboardEverOpend; //地下室櫃子
     public static bool ResEverOpend; //重生
+    public static bool ch2EverOpend; //地下室人
+    public static bool ch3EverOpend; //浴室人
     public static void Initial()
     {
         wardrobeEverOpened = false;
@@ -34,5 +36,7 @@ public class OpenState : MonoBehaviour
         cabinetEverOpend = false;
         cupboardEverOpend = false;
         ResEverOpend = false;
+        ch2EverOpend = false;
+        ch3EverOpend = false;
     }
 }

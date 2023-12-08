@@ -6,6 +6,7 @@ public class Item : MonoBehaviour
 {
     //public DialogueSystem dialogueSystem;
     public DialogueSystem2 dialogueSystem;
+    public DialogueSystem dialogueSystem2;
 
     // Start is called before the first frame update
     void Start()
@@ -63,6 +64,12 @@ public class Item : MonoBehaviour
                 break;
             case "Res":
                 dialogueSystem.ShoweResDialog();
+                break;
+            case "ch2":
+                dialogueSystem2.Showech2Dialog();
+                break;
+            case "ch3":
+                dialogueSystem2.Showech3Dialog();
                 break;
         }
         //dialogueSystem.ShowDialog();
