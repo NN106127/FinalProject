@@ -66,7 +66,6 @@ public class Player :MonoBehaviour
             myAnimator.SetBool("walk", false);
             if (Input.GetKey(KeyCode.D))
             {
-
                 mySpriteRenderer.flipX = false;
                 //myAnimator.SetInteger("ani", 1);
                 myAnimator.SetBool("walk", true);
@@ -79,7 +78,6 @@ public class Player :MonoBehaviour
 
             if (Input.GetKey(KeyCode.A))
             {
-
                 mySpriteRenderer.flipX = true;
                 //myAnimator.SetInteger("ani", 1);
                 myAnimator.SetBool("walk", true);
@@ -91,7 +89,6 @@ public class Player :MonoBehaviour
 
             if (Input.GetKey(KeyCode.LeftShift) && Input.GetKey(KeyCode.D))
             {
-
                 //myAnimator.SetInteger("ani", 2);
                 myAnimator.SetBool("run", true);
                 myAnimator.SetBool("idle", false);
@@ -109,6 +106,7 @@ public class Player :MonoBehaviour
             if (Input.GetKeyDown(KeyCode.A))
             {
                 walk.Play();
+                run.Stop();
             }
             if (Input.GetKeyUp(KeyCode.A))
             {
@@ -117,12 +115,38 @@ public class Player :MonoBehaviour
             if (Input.GetKeyDown(KeyCode.D))
             {
                 walk.Play();
+                run.Stop();
             }
             if (Input.GetKeyUp(KeyCode.D))
             {
                 walk.Stop();
             }
-            if (Input.GetKeyDown(KeyCode.LeftShift))
+            if (Input.GetKeyDown(KeyCode.LeftShift)&& Input.GetKey(KeyCode.A))
+            {
+                run.Play();
+                walk.Stop();
+            }
+            if (Input.GetKeyDown(KeyCode.LeftShift) && Input.GetKey(KeyCode.D))
+            {
+                run.Play();
+                walk.Stop();
+            }
+            if (Input.GetKeyUp(KeyCode.LeftShift) && Input.GetKey(KeyCode.A))
+            {
+                walk.Play();
+                run.Stop();
+            }
+            if (Input.GetKeyUp(KeyCode.LeftShift) && Input.GetKey(KeyCode.D))
+            {
+                walk.Play();
+                run.Stop();
+            }
+            if (Input.GetKey(KeyCode.LeftShift) && Input.GetKeyDown(KeyCode.A))
+            {
+                run.Play();
+                walk.Stop();
+            }
+            if (Input.GetKey(KeyCode.LeftShift) && Input.GetKeyDown(KeyCode.D))
             {
                 run.Play();
                 walk.Stop();
@@ -131,6 +155,7 @@ public class Player :MonoBehaviour
             {
                 run.Stop();
             }
+
         }
     }
     void OpeMyBag()
