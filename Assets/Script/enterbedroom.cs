@@ -13,7 +13,6 @@ public class enterbedroom : MonoBehaviour
     public GameObject cam3;
     public GameObject enter;
     bool CanE;
-    bool CanQ;
 
     public PostProcessVolume postProcessVolume;
     private Vignette vignette;
@@ -28,51 +27,29 @@ public class enterbedroom : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (CanE == true)
+        if (CanE && Input.GetKeyDown(KeyCode.E))
         {
-            if (Input.GetKeyDown(KeyCode.E))
+            door.Play();
+
+            if (Vector2.Distance(playerTransform.position, bedroomTransform.position) <= teleportRange)
             {
-                door.Play();
-                // 檢查玩家是否在傳送範圍內
-                if (Vector2.Distance(playerTransform.position, bedroomTransform.position) <= teleportRange)
-                {
-                    // 移動人物到一樓開啟一樓攝影機
-                    playerTransform.position = bedroomTransform.position;
-
-                    cam2.SetActive(false);
-                    cam3.SetActive(true);
-                }
-                if (vignetteCoroutine != null)
-                {
-                    StopCoroutine(vignetteCoroutine);
-                }
-
-                vignetteCoroutine = StartCoroutine(ChangeVignetteIntensity());
+                playerTransform.position = bedroomTransform.position;
+                cam2.SetActive(false);
+                cam3.SetActive(true);
             }
-            
-
-        }
-        if (CanQ == true)
-        {
-            if (Input.GetKeyDown(KeyCode.Q))
+            else if (Vector2.Distance(playerTransform.position, secondFloorTransform.position) <= teleportRange)
             {
-                door.Play();
-                // 檢查玩家是否在傳送範圍內
-                if (Vector2.Distance(playerTransform.position, secondFloorTransform.position) <= teleportRange)
-                {
-                    // 移動人物到二樓開啟二樓攝影機
-                    playerTransform.position = secondFloorTransform.position;
-
-                    cam3.SetActive(false);
-                    cam2.SetActive(true);
-                }
-                if (vignetteCoroutine != null)
-                {
-                    StopCoroutine(vignetteCoroutine);
-                }
-
-                vignetteCoroutine = StartCoroutine(ChangeVignetteIntensity());
+                playerTransform.position = secondFloorTransform.position;
+                cam3.SetActive(false);
+                cam2.SetActive(true);
             }
+
+            if (vignetteCoroutine != null)
+            {
+                StopCoroutine(vignetteCoroutine);
+            }
+
+            vignetteCoroutine = StartCoroutine(ChangeVignetteIntensity());
         }
 
 
@@ -83,19 +60,8 @@ public class enterbedroom : MonoBehaviour
         if (collision.gameObject.tag == "Player")
         {
             CanE = true;
-            CanQ = true;
             enter.SetActive(true);
 
-        }
-
-    }
-    private void OnTriggerStay2D(Collider2D collision)
-    {
-        if (collision.gameObject.tag == "Player")
-        {
-            CanE = true;
-            CanQ = true;
-            enter.SetActive(true);
         }
 
     }
@@ -104,7 +70,6 @@ public class enterbedroom : MonoBehaviour
         if (collision.gameObject.tag == "Player")
         {
             CanE = false;
-            CanQ = false;
             enter.SetActive(false);
 
         }
