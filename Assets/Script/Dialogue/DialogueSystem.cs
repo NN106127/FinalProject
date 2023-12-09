@@ -20,9 +20,15 @@ public class DialogueSystem : MonoBehaviour
     public AudioSource m_audio;
     public AudioSource buttonsound;
     public AudioSource shock;
+    public GameObject ch2;
+    private Animator ch2ani;
+    public GameObject ch3;
+    private Animator ch3ani;
     // Start is called before the first frame update
     void Start()
     {
+        ch2ani=ch2.GetComponent<Animator>();
+        ch3ani = ch3.GetComponent<Animator>();
         playerimg1.SetActive(false);
         playerimg2.SetActive(false);
         dialogBox.SetActive(false); // 對話框一開始不顯示
@@ -137,6 +143,8 @@ public class DialogueSystem : MonoBehaviour
         }
         else
         {
+            Debug.Log(ch2ani);
+            ch2ani.SetBool("ch2open", true);
             shock.Stop();
             Debug.Log(gameObject);
             dialogActive2 = true; // 顯示對話框
@@ -159,6 +167,8 @@ public class DialogueSystem : MonoBehaviour
         }
         else
         {
+            Debug.Log(ch3ani);
+            ch3ani.SetBool("ch3open", true);
             shock.Stop();
             Debug.Log(gameObject);
             dialogActive2 = true; // 顯示對話框
