@@ -170,6 +170,14 @@ public class Player :MonoBehaviour
     {
         isOpen = !isOpen;
         myBag.SetActive(isOpen);
+        if (isOpen)
+        {
+            isMovementEnabled = false;
+        }
+        else
+        {
+            isMovementEnabled = true;
+        }
     }
     
     

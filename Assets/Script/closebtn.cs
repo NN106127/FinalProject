@@ -15,16 +15,15 @@ public class closebtn : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKey(KeyCode.Alpha1))
-        {
-            background.SetActive(false);
-            img.SetActive(false);
-        }
+        
     }
     public void OnClick()
     {
         background.SetActive(false);
         img.SetActive(false);
+        GameObject playerObj = GameObject.Find("Player");
+        Player playerScript = playerObj.GetComponent<Player>();
+        playerScript.isMovementEnabled = true;
     }
 
 
