@@ -14,6 +14,7 @@ public class ClickImageController : MonoBehaviour
     public float typeSpeed; // 打字速度
     private bool textFinished; // 文字是否輸出完成
     private bool dialogShown = false;
+    public AudioSource open;
     // Start is called before the first frame update
     void Start()
     {
@@ -28,6 +29,7 @@ public class ClickImageController : MonoBehaviour
     }
     public void OnObjectClicked()
     {
+        open.Play();
         GameObject playerObj = GameObject.Find("Player");
         Player playerScript = playerObj.GetComponent<Player>();
         playerScript.isMovementEnabled = false;
@@ -53,6 +55,7 @@ public class ClickImageController : MonoBehaviour
         }
         textFinished = true; // 輸出完成，將textFinished設為true
         dialogShown = true;
+        open.Stop();
 
     }
 

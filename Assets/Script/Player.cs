@@ -160,11 +160,11 @@ public class Player :MonoBehaviour
     }
     void OpeMyBag()
     {
-        if(Input.GetKeyDown(KeyCode.B))
+        /*if(Input.GetKeyDown(KeyCode.B))
         {
             isOpen = !isOpen;
             myBag.SetActive(isOpen);
-        }
+        }*/
     }
     public void OnClick()
     {

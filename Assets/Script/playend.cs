@@ -17,6 +17,7 @@ public class playend : MonoBehaviour
     public GameObject imageToShow3;
     public GameObject imageToShow4;
     public GameObject imageToShow5;
+
     private VideoPlayer currentVideoPlayer;
 
     private void Start()
@@ -38,6 +39,7 @@ public class playend : MonoBehaviour
 
         // 根據 videoToPlay 的值執行不同的影片撥放操作
         PlayVideo(videoToPlay);
+        
     }
     void PlayVideo(int videoIndex)
     {
@@ -102,6 +104,7 @@ public class playend : MonoBehaviour
         switch (currentVideoPlayer.gameObject.name)
         {
             case "videoPlayer1":
+                Debug.Log(1);
                 imageToShow1.SetActive(true);
                 break;
             case "videoPlayer2":
