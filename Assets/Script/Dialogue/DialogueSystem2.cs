@@ -32,6 +32,7 @@ public class DialogueSystem2 : MonoBehaviour
     {
         if (dialogActive1 && Input.GetKeyDown(KeyCode.Space) && textFinished)
         {
+
             buttonsound.Play();
             currentLine++;
             if (currentLine < dialogLines.Length)
@@ -51,6 +52,7 @@ public class DialogueSystem2 : MonoBehaviour
         }
         if (dialogActive2 && Input.GetKeyDown(KeyCode.Space) && textFinished)
         {
+
             currentLine++;
             if (currentLine < nextDialogLines.Length)
             {
@@ -59,6 +61,7 @@ public class DialogueSystem2 : MonoBehaviour
             }
             else
             {
+
                 playerimg1.SetActive(false);
                 playerimg2.SetActive(false);
                 dialogBox.SetActive(false); // 所有對話結束，隱藏對話框

@@ -18,7 +18,6 @@ public class ClickImageController : MonoBehaviour
     void Start()
     {
         story.SetActive(false);
-
         textFinished = true; // 文字一開始為輸出完成
     }
 
@@ -33,7 +32,7 @@ public class ClickImageController : MonoBehaviour
         Player playerScript = playerObj.GetComponent<Player>();
         playerScript.isMovementEnabled = false;
         story.SetActive(true);
-        if (!dialogShown)
+        if (textFinished && !dialogShown)
         {
             StartCoroutine(TypeLine(dialogLines[currentLine])); // 開啟文字輸出協程
         }

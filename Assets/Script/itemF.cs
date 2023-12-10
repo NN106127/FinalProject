@@ -10,7 +10,6 @@ public class itemF : MonoBehaviour
     public GameObject memory;
     bool CanF;
     public AudioSource m_audio;
-    
     private void Update()
     {
         if(CanF == true)
@@ -41,6 +40,8 @@ public class itemF : MonoBehaviour
                 m_audio.Stop();
             }
         }
+        
+        
         
     }
     private void OnTriggerEnter2D(Collider2D collision)
