@@ -23,9 +23,13 @@ public class ScrollingText : MonoBehaviour
     [Header("文本打字速度")]
     public float typeSpeed; // 打字速度
 
+    public GameObject team;
+    public GameObject thx;
     // Start is called before the first frame update
     private void OnEnable()
     {
+        team.SetActive(false);
+        thx.SetActive(false);
         StartCoroutine(ScrollText());
     }
 
@@ -59,10 +63,12 @@ public class ScrollingText : MonoBehaviour
         }
 
         // 滾動完成後的清理工作（例如銷毀物體、切換場景等）
-        yield return new WaitForSeconds(2f); // 停留一段時間，可以根據需要調整
-
-        yield return new WaitForSeconds(2f);
-        //SceneManager.LoadScene(0);
+        yield return new WaitForSeconds(14f); // 停留一段時間，可以根據需要調整
+        team.SetActive(true);
+        yield return new WaitForSeconds(12f);
+        thx.SetActive(true);
+        yield return new WaitForSeconds(11f);
+        SceneManager.LoadScene(0);
     }
 
     private void Update()
