@@ -11,12 +11,16 @@ public class playend : MonoBehaviour
     public GameObject videoPlayer3;
     public GameObject videoPlayer4;
     public GameObject videoPlayer5;
-    public GameObject imageToShow; // 要显示的图片
+
+    public GameObject imageToShow1;
+    public GameObject imageToShow2;
+    public GameObject imageToShow3;
+    public GameObject imageToShow4;
+    public GameObject imageToShow5;
     private VideoPlayer currentVideoPlayer;
 
     private void Start()
     {
-        imageToShow.SetActive(false);
         int videoToPlay = PlayerPrefs.GetInt("VideoToPlay", 1);
         // 禁用所有 VideoPlayer
         videoPlayer1.SetActive(false);
@@ -24,6 +28,13 @@ public class playend : MonoBehaviour
         videoPlayer3.SetActive(false);
         videoPlayer4.SetActive(false);
         videoPlayer5.SetActive(false);
+
+        // 禁用所有 ImageToShow
+        imageToShow1.SetActive(false);
+        imageToShow2.SetActive(false);
+        imageToShow3.SetActive(false);
+        imageToShow4.SetActive(false);
+        imageToShow5.SetActive(false);
 
         // 根據 videoToPlay 的值執行不同的影片撥放操作
         PlayVideo(videoToPlay);
@@ -88,7 +99,27 @@ public class playend : MonoBehaviour
     void OnVideoEndReached(VideoPlayer vp)
     {
         // 影片播放結束時觸發這個方法
-        imageToShow.SetActive(true);
+        switch (currentVideoPlayer.gameObject.name)
+        {
+            case "videoPlayer1":
+                imageToShow1.SetActive(true);
+                break;
+            case "videoPlayer2":
+                imageToShow2.SetActive(true);
+                break;
+            case "videoPlayer3":
+                imageToShow3.SetActive(true);
+                break;
+            case "videoPlayer4":
+                imageToShow4.SetActive(true);
+                break;
+            case "videoPlayer5":
+                imageToShow5.SetActive(true);
+                break;
+            default:
+                Debug.LogError("Invalid video player name");
+                break;
+        }
 
         Debug.Log("Video End Reached");
     }
