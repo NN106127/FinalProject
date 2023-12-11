@@ -18,9 +18,11 @@ public class itemF : MonoBehaviour
             {
                 GameObject playerObj = GameObject.Find("Player");
                 Player playerScript = playerObj.GetComponent<Player>();
+                playerScript.isMovementEnabled = false;
+                /*Player playerScript = playerObj.GetComponent<Player>();
                 Animator animator = playerObj.GetComponent<Animator>();
                 animator.speed = 0;
-                playerScript.enabled = false;
+                playerScript.enabled = false;*/
                 fish.SetActive(true);
                 back.SetActive(true);
                 memory.SetActive(false);
@@ -31,9 +33,11 @@ public class itemF : MonoBehaviour
             {
                 GameObject playerObj = GameObject.Find("Player");
                 Player playerScript = playerObj.GetComponent<Player>();
+                playerScript.isMovementEnabled = true;
+                /*Player playerScript = playerObj.GetComponent<Player>();
                 Animator animator = playerObj.GetComponent<Animator>();
                 animator.speed = 1;
-                playerScript.enabled = true;
+                playerScript.enabled = true;*/
                 fish.SetActive(false);
                 back.SetActive(false);
                 memory.SetActive(true);
