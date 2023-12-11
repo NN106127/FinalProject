@@ -88,6 +88,11 @@ public class InventroyManager : MonoBehaviour
             BonePuzzles.SetActive(true);
             itemCodeNum.text = "0";
         }
+        if (itemCodeNum.text == "3" && FireOven == false)
+        {
+            itemInformation.text = "這裡好像用不到...";
+            itemCodeNum.text = "0";
+        }
 
         if (itemCodeNum.text == "4" && WaterTank == true)
         {
