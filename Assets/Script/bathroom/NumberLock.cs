@@ -21,9 +21,14 @@ public class NumberLock : MonoBehaviour
     public GameObject no;
     public GameObject open;
     public GameObject dollopen;
-    public float delay = 2.0f; // 延遲時間（以秒為單位）
+    public float delay = 4.0f; // 延遲時間（以秒為單位）
 
     public AudioSource opensound;
+    public AudioSource click;
+    public AudioSource right;
+    public AudioSource error;
+    bool isPlayingOpenSound = false;
+    bool isPlayingRightSound = false;
     public void Start()
     {
         // 獲取Image元件的引用
@@ -40,6 +45,7 @@ public class NumberLock : MonoBehaviour
 
         if (currentInput.Length == password.Length)
         {
+            
             if (currentInput == password)
             {
                 Images[0].sprite = index[1];
@@ -47,6 +53,11 @@ public class NumberLock : MonoBehaviour
                 Images[2].sprite = index[1];
                 Images[3].sprite = index[1];
                 Images[4].sprite = index[1];
+                if (!isPlayingRightSound)
+                {
+                    right.PlayOneShot(right.clip);
+                    isPlayingRightSound = true;
+                }
                 yes.SetActive(true);
                 OpenState.mirrorEverOpend = true;
                 OpenState.dollEverOpend = true;
@@ -63,6 +74,7 @@ public class NumberLock : MonoBehaviour
                 Images[3].sprite = index[2];
                 Images[4].sprite = index[2];
                 no.SetActive(true);
+                error.Play();
                 // 啟動 Coroutine 以延遲顯示圖片
                 //passwordText.text = "密码错误！"; // 输入错误的情况
                 currentInput = ""; // 重置输入
@@ -119,14 +131,20 @@ public class NumberLock : MonoBehaviour
 
     public void OnClick()
     {
+        click.Play();
         Ans += 1;
     }
 
-    private System.Collections.IEnumerator ShowImageAfterDelay()
+    public System.Collections.IEnumerator ShowImageAfterDelay()
     {
+        
         // 等待指定的延遲時間
         yield return new WaitForSeconds(delay);
-        opensound.Play();
+        if (!isPlayingOpenSound)
+        {
+            opensound.PlayOneShot(opensound.clip);
+            isPlayingOpenSound = true;
+        }
         // 顯示圖片
         open.SetActive(true);
     }
