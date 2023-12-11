@@ -696,6 +696,7 @@ MonoBehaviour:
   typeSpeed: 0.1
   team: {fileID: 2056083448}
   thx: {fileID: 1871523149}
+  backGroundMusic: {fileID: 0}
 --- !u!1 &254396655
 GameObject:
   m_ObjectHideFlags: 0
@@ -870,7 +871,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &296821257
 RectTransform:
   m_ObjectHideFlags: 0
@@ -923,6 +924,7 @@ MonoBehaviour:
   typeSpeed: 0.1
   team: {fileID: 820730829}
   thx: {fileID: 1507278161}
+  backGroundMusic: {fileID: 0}
 --- !u!114 &296821259
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -979,7 +981,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &353746503
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1031,6 +1033,7 @@ MonoBehaviour:
   typeSpeed: 0.1
   team: {fileID: 1036605552}
   thx: {fileID: 528502842}
+  backGroundMusic: {fileID: 0}
 --- !u!114 &353746505
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1087,7 +1090,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &430132922
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1139,6 +1142,7 @@ MonoBehaviour:
   typeSpeed: 0.1
   team: {fileID: 254396655}
   thx: {fileID: 608408060}
+  backGroundMusic: {fileID: 0}
 --- !u!114 &430132924
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2373,7 +2377,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1361781877
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2425,6 +2429,7 @@ MonoBehaviour:
   typeSpeed: 0.1
   team: {fileID: 1110223165}
   thx: {fileID: 804473261}
+  backGroundMusic: {fileID: 0}
 --- !u!114 &1361781879
 MonoBehaviour:
   m_ObjectHideFlags: 0

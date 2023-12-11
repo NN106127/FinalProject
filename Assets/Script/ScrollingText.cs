@@ -25,9 +25,11 @@ public class ScrollingText : MonoBehaviour
 
     public GameObject team;
     public GameObject thx;
+    public AudioSource backGroundMusic;
     // Start is called before the first frame update
     private void OnEnable()
     {
+        backGroundMusic = GameObject.FindGameObjectWithTag("BGMusic").GetComponent<AudioSource>();
         team.SetActive(false);
         thx.SetActive(false);
         StartCoroutine(ScrollText());
@@ -68,6 +70,7 @@ public class ScrollingText : MonoBehaviour
         yield return new WaitForSeconds(12f);
         thx.SetActive(true);
         yield return new WaitForSeconds(11f);
+        backGroundMusic.Stop();
         SceneManager.LoadScene(0);
     }
 
