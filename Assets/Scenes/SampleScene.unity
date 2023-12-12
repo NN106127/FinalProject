@@ -29125,7 +29125,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   myBag: {fileID: 276358909}
-  speed: 15
+  speed: 10
   runSpeed: 20
   walk: {fileID: 762798142}
   run: {fileID: 1372113290}
