@@ -131092,7 +131092,7 @@ MonoBehaviour:
   currentLine: 0
   dialogActive1: 0
   dialogActive2: 0
-  typeSpeed: 0
+  typeSpeed: 0.1
   playerimg1: {fileID: 1873520703}
   playerimg2: {fileID: 1873520703}
   m_audio: {fileID: 76976371}
